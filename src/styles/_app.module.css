@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    margin: 1rem 10%;
+    width: 80%;
+  }
+}
+
+/*more than 1400 width big screens i want margin auto*/
+
+@media screen and (min-width: 1400px) {
+  .wrapper {
+    margin: 1rem auto;
+    max-width: 1400px;
+  }
+}
