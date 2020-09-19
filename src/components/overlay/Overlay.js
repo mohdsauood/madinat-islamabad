@@ -1,9 +1,12 @@
 import styles from './Overlay.module.css';
 import { useState } from 'react';
-export default function Overlay({ initialValue }) {
-  const [visible, setVisible] = useState(initialValue);
+import { useNavbarMobile } from '../../context/navbar-mobile-context/navbar-mobile-context';
+
+export default function Overlay() {
+  const { showMenu, handleShowMenu } = useNavbarMobile();
   return (
     <div
-      className={visible ? styles.overlayVisible : styles.overlayHidden}></div>
+      onClick={handleShowMenu}
+      className={showMenu ? styles.overlayVisible : styles.overlayHidden}></div>
   );
 }

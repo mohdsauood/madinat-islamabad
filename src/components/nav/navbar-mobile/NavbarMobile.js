@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './NavbarMobile.module.css';
+import { useNavbarMobile } from '../../../context/navbar-mobile-context/navbar-mobile-context';
+
 export default function NavbarMobile() {
+  const { handleShowMenu } = useNavbarMobile();
   return (
-    <nav class={styles.navbarMobile}>
+    <nav className={styles.navbarMobile}>
       <svg
-        class={styles.navbarMobileIcon}
+        className={styles.navbarMobileIcon}
+        onClick={handleShowMenu}
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
@@ -13,7 +17,7 @@ export default function NavbarMobile() {
       </svg>
 
       <svg
-        class={styles.navbarMobileIcon}
+        className={styles.navbarMobileIcon}
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"

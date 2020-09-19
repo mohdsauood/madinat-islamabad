@@ -1,4 +1,5 @@
 /*nav-menu is navMenu*/
+/*slide-in is slideIn*/
 
 /*fonts */
 
@@ -60,4 +61,19 @@
   position: absolute;
   left: 86%;
   top: 2%;
+}
+
+/*animations*/
+
+/*nav menu when open*/
+.navMenuSlideIn {
+  animation: slideIn 0.5s;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    translate: translateX(0);
+  }
 }
