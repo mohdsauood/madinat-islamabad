@@ -51,7 +51,7 @@
 }
 
 .navMenu__li:hover {
-  color: var(--black-50);
+  color: black;
   transition: all 0.5s;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .navMenu__iconClose:hover {
-  fill: var(--black-100);
+  fill: black;
 }
 /*animations*/
 
