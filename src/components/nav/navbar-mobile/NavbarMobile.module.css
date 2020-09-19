@@ -11,6 +11,11 @@
 
 .navbarMobileIcon {
   fill: var(--black-100);
+  cursor: pointer;
+}
+
+.navbarMobileIcon:hover {
+  fill: var(--black-75);
 }
 
 /*desktop styles*/

@@ -47,6 +47,12 @@
   align-items: center;
   text-transform: capitalize;
   color: var(--black-100);
+  cursor: pointer;
+}
+
+.navMenu__li:hover {
+  color: var(--black-50);
+  transition: all 0.5s;
 }
 
 /*nav-menu li icons*/
@@ -61,8 +67,12 @@
   position: absolute;
   left: 86%;
   top: 2%;
+  cursor: pointer;
 }
 
+.navMenu__iconClose:hover {
+  fill: var(--black-100);
+}
 /*animations*/
 
 /*nav menu when open*/
