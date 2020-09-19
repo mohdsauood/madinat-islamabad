@@ -1,0 +1,23 @@
+/*guide for old to new css*/
+/*navbar is navbarMobile */
+
+.navbarMobile {
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.navbarMobileIcon {
+  fill: var(--black-100);
+}
+
+/*desktop styles*/
+
+@media screen and (min-width: 1200px) {
+  /*hiding mobile nav and displaying desktop nav*/
+  .navbarMobile {
+    display: none;
+  }
+}

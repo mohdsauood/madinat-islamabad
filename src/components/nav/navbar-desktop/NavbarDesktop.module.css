@@ -1,0 +1,61 @@
+/*guide for old to new css*/
+/*removing hypen with camelCase ,_underscore is allowed*/
+
+/*ul-section is ulSection*/
+/*navbar-desktop is navbarDesktop */
+/*logo-section is logoSection*/
+
+/*hiding desktop navbar on mobile*/
+.navbarDesktop {
+  display: none;
+}
+
+/* hover effects */
+
+.navbarDesktop__ulSection__ul__li_div:hover {
+  fill: var(--primary-100);
+  color: var(--primary-100);
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: color fill;
+  transition-duration: 0.5s;
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
+  .navbarDesktop {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+    margin-bottom: 3rem;
+  }
+
+  /*navbar logo */
+  .navbarDesktop__logoSection__img {
+    width: 30%;
+  }
+  /*navbar ul section*/
+  .navbarDesktop__ulSection {
+    width: 35%;
+  }
+  /*navbar ul */
+  .navbarDesktop__ulSection__ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  /*navbar ul */
+  .navbarDesktop__ulSection__ul__li {
+    list-style: none;
+    color: var(--black--100);
+  }
+
+  .navbarDesktop__ulSection__ul__li__div__span__svg {
+    margin-right: 0.5rem;
+  }
+  .navbarDesktop__ulSection__ul__li_div {
+    display: flex;
+    align-items: center;
+  }
+}
