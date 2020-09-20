@@ -55,4 +55,9 @@
     margin-top: 0;
     height: 200px;
   }
+  .slide1 {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
 }

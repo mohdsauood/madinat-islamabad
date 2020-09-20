@@ -1,0 +1,103 @@
+/*.main__social-media-section is socialSec*/
+/*icons-div is iconsDiv*/
+/*-sub-div is __subDiv*/
+/*fb-icon is fbIcon*/
+/*fonts*/
+.socialSec__p {
+  font-size: 1.1rem;
+  color: var(--black-100);
+  text-transform: capitalize;
+  font-weight: bold;
+  width: 18ch;
+}
+
+.socialSec__iconsDiv__subDiv_p {
+  font-size: 0.9rem;
+  font-weight: lighter;
+  font-family: karla;
+  color: var(--black-75);
+  text-align: center;
+}
+
+/* social media banner */
+.socialSec {
+  margin-top: 3rem;
+}
+
+.socialSec__p {
+  margin: 0 auto;
+}
+
+/*icons div*/
+.socialSec__iconsDiv {
+  margin: 0 1rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/*icons sub div*/
+.socialSec__iconsDiv__subDiv {
+  position: relative;
+}
+
+/*icons sub div p */
+.socialSec__iconsDiv__subDiv_p {
+  margin-top: 3.2rem;
+  padding-top: 0.3rem;
+}
+
+/*icons sub div p , last one */
+.socialSec__iconsDiv__subDiv:nth-child(3) {
+  grid-column: 1/3;
+}
+.socialSec__iconsDiv__subDiv:nth-child(3) p {
+  text-align: center;
+}
+
+/*icons*/
+.fbIcon,
+.igIcon,
+.scIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fbIcon {
+  color: #4070eb;
+}
+.igIcon {
+  color: #da51df;
+}
+.scIcon {
+  color: #fcf82c;
+}
+
+.fbIcon:hover,
+.igIcon:hover,
+.scIcon:hover {
+  height: 60px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .socialSec__p {
+    font-size: 1.3rem;
+  }
+  .socialSec__iconsDiv {
+    margin-top: 0;
+  }
+  .socialSec__iconsDiv__subDiv_p {
+    font-size: 1.1rem;
+    margin-top: 6rem;
+  }
+  .socialSec {
+    margin-top: 4rem;
+  }
+  .scIcon,
+  .fbIcon,
+  .igIcon {
+    font-size: 50px !important;
+  }
+}
