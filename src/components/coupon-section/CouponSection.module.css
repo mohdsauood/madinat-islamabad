@@ -1,0 +1,58 @@
+/* main__two-layout-section__slider-section is sliderSection*/
+
+/*fonts */
+.slide1__h5 {
+  font-size: 1.3rem;
+  width: 12ch;
+  text-transform: capitalize;
+  color: white;
+}
+.slide1__p {
+  font-size: 1rem;
+  color: var(--black-25);
+}
+
+/*slider section*/
+.sliderSection {
+  height: 140px;
+  margin-top: 1.8rem;
+}
+
+/*swiper container*/
+/*over riding swiper default for zindex*/
+.swContainer {
+  height: 100%;
+  border-radius: 6px;
+  z-index: 0 !important;
+}
+
+/*temp slides*/
+.slide1 {
+  background-image: url('/assets/2.JPG');
+  background-size: cover;
+}
+.slide2 {
+  background-image: url('/assets/1.png');
+  background-size: cover;
+}
+.slide1__h5 {
+  padding: 1rem 1rem;
+  color: white;
+}
+.slide1__p {
+  color: white;
+  font-weight: lighter;
+  padding: 0.5rem 1rem;
+}
+.slide2 {
+  background-image: url('/assets/1.png');
+  background-size: cover;
+}
+
+@media screen and (min-width: 1200px) {
+  .sliderSection {
+    width: 40%;
+    margin-top: 0;
+    height: 200px;
+  }
+}

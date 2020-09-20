@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import styles from '../styles/_app.module.css';
 import Head from 'next/head';
+import 'swiper/swiper-bundle.css';
 
 function MyApp({ Component, pageProps }) {
   return (

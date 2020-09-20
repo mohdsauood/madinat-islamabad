@@ -1,0 +1,44 @@
+/*main__hero-section is heroSection*/
+
+/*fonts*/
+.heroSection__p {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: var(--black-100);
+}
+
+.heroSection__button {
+  font-size: 1.1rem;
+  font-family: karla;
+}
+
+/* hero section*/
+.heroSection {
+  margin-top: 2rem;
+  margin: 0 1rem;
+}
+
+/*hero section paragraph */
+.heroSection__p {
+  width: 16ch;
+}
+
+/*hero div button*/
+.heroSection__button {
+  display: inline-block;
+  text-align: center;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 1200px) {
+  .heroSection__p {
+    font-size: 2rem;
+  }
+  .heroSection__button {
+    width: 350px;
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,17 @@
+/*main__two-layout-section  is couponProductSection*/
+
+.couponProductsSection {
+  margin: 0 1rem;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 1200px) {
+  /*two layout section*/
+  .couponProductsSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+}

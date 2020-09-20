@@ -1,0 +1,118 @@
+/*main__add-to-home-section is athSec*/
+/*two-layout-section is TlSec*/
+/*main__add-to-home__two-layout-section is ath__tlSec*/
+
+/*ath=addtohome*/
+/*tl=two-layout*/
+
+/* fonts */
+.ath__tlSec__button {
+  font-size: 0.8rem;
+}
+
+.ath__tlSec__div {
+  font-size: 1.1rem;
+}
+
+.ath__tlSec__span {
+  font-weight: bold;
+  color: var(--primary-100);
+}
+
+/*add to home screen section*/
+
+.athSec {
+  margin: 0 1rem;
+  margin-top: 2.5rem;
+}
+
+/*home screen title and icon div*/
+.ath__tlSec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*home screen title and icon paragraph */
+.ath__tlSec__p {
+  width: 16ch;
+  text-transform: capitalize;
+  color: var(--black-100);
+}
+/*icon svg*/
+
+.ath__tlSec__p svg {
+  margin-left: 1rem;
+  fill: var(--primary-100);
+}
+/* add to home screen button*/
+.ath__tlSec__button {
+  border: 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  padding: 0.7rem 0.7rem;
+  margin-top: 1rem;
+  width: 30%;
+}
+
+/*app icon div*/
+
+.ath__tlSec__div {
+  height: 65px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-100);
+  border-radius: 17px;
+  border: 1px solid var(--primary-100);
+  margin-right: 30px;
+}
+
+@media screen and (min-width: 1200px) {
+  /* modern border*/
+  .ath__tlSec__p {
+    position: relative;
+  }
+  /* vertical line */
+  .ath__tlSec__p::after {
+    content: '';
+    position: absolute;
+    background-color: #ff9783;
+    width: 3px;
+    height: 60%;
+    top: -20px;
+    left: -20px;
+  }
+  /* horizontal line */
+  .ath__tlSec__p::before {
+    content: '';
+    position: absolute;
+    background-color: #ff9783;
+    width: 60%;
+    height: 3px;
+    top: -20px;
+    left: -20px;
+  }
+  /*add to home screen section*/
+  .athSec {
+    margin-top: 4rem;
+  }
+  .ath__tlSec {
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 80%;
+  }
+  .ath__tlSec__button {
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+  .ath__tlSec__p {
+    font-size: 1.3rem;
+  }
+  .ath__tlSec__button {
+    font-size: 1.1rem;
+  }
+}

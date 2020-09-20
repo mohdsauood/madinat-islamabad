@@ -1,0 +1,33 @@
+/*main__two-layout-section__top-products is topProductsSection */
+
+/*top products section*/
+.productsSection {
+  margin-top: 1.8rem;
+}
+
+.productsSection__h6 {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+/*top products title */
+.productsSection__h6 {
+  text-align: center;
+  color: var(--black-100);
+}
+/* top products circle*/
+.productsSection__h6__icon {
+  margin-right: 0.5rem;
+  color: #ff3008;
+}
+
+@media screen and (min-width: 1200px) {
+  .productsSection {
+    width: 40%;
+    margin-top: 0;
+  }
+  /*top products fonts*/
+  .productsSection__h6 {
+    font-size: 1.3rem;
+  }
+}
