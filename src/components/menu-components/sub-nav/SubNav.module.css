@@ -1,0 +1,59 @@
+/* main__nav--sub-nav is nav*/
+/*nav__ul__li--active is activeLi*/
+
+.nav__ul__li {
+  font-size: 1.2rem;
+  color: var(--black-100);
+}
+
+.nav {
+  margin-right: 0;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+  overflow: scroll;
+}
+
+.nav__ul {
+  display: flex;
+}
+.nav__ul__li {
+  list-style: none;
+  margin-right: 1.2rem;
+  padding: 0 0.6rem;
+  padding-bottom: 0.6rem;
+}
+.activeLi {
+  border-bottom: 2px solid var(--primary-100);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.nav {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    width: 20%;
+  }
+
+  .nav__ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .activeLi {
+    border-left: 3px solid var(--primary-100);
+    border-bottom: 0px;
+  }
+  .nav__ul__li {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+  }
+}
