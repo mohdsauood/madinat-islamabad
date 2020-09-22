@@ -9,4 +9,5 @@
   background-color: rgba(49, 49, 49, 0.527);
   height: 100%;
   width: 100%;
+  z-index: 5;
 }
