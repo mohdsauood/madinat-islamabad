@@ -1,0 +1,64 @@
+/*main__floating-menu-section is smallMenuSec*/
+
+.smallMenuSec__ul__li {
+  font-size: 0.9rem;
+  color: var(--black-100);
+}
+
+/*floating menu */
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.smallMenuSec {
+  position: absolute;
+  bottom: 10%;
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  z-index: 15;
+  padding: 1rem 1rem;
+  animation: slide-up 0.5s;
+}
+.smallMenuSec__ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.smallMenuSec__ul__li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  text-transform: capitalize;
+}
+.smallMenuSec__ul__li:nth-child(1) {
+  margin-top: 0;
+  position: relative;
+}
+
+.smallMenuSec__ul__li:nth-child(1):before {
+  position: absolute;
+  left: -12px;
+  top: 25%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--primary-100);
+  border: 1px solid var(--black-100);
+  content: '';
+}
+
+/*animations*/
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(+100vh);
+  }
+  100% {
+    translate: translateY(0);
+  }
+}

@@ -42,6 +42,7 @@ a {
   border-radius: 6px;
 }
 .btnPrimary {
+  border: 0px;
   background-color: var(--primary-100);
   color: white;
 }
@@ -51,6 +52,9 @@ a {
   border: 2px solid var(--primary-100);
 }
 
+.btnBlue {
+  background-color: #5490ff;
+}
 .btnPrimary:hover {
   cursor: pointer;
   transition-property: all;

@@ -1,0 +1,15 @@
+/*main__menu-button is menuBtn*/
+
+.menuBtn {
+  border-radius: 12000px;
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 1200px) {
+  /* hide floating menu button*/
+  .menuBtn {
+    display: none;
+  }
+}

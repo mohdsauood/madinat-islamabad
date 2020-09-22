@@ -15,7 +15,9 @@ function NavbarMobileProvider({ children }) {
 function useNavbarMobile() {
   const context = React.useContext(NavbarMobileContext);
   if (context === undefined) {
-    throw new Error('useCountState must be used within a CountProvider');
+    throw new Error(
+      'useCountState must be used within a NavbarMobileContext Provier'
+    );
   }
   const [showMenu, setShowMenu] = context;
 
