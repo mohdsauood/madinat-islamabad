@@ -39,6 +39,7 @@
 /*icons sub div*/
 .socialSec__iconsDiv__subDiv {
   position: relative;
+  z-index: -1;
 }
 
 /*icons sub div p */

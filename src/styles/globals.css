@@ -70,5 +70,5 @@ a {
 .swiper-container {
   height: 100%;
   border-radius: 6px;
-  z-index: 0 !important;
+  z-index: -1 !important;
 }
