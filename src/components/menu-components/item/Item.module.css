@@ -1,0 +1,64 @@
+/* main__menu-items-section__item-section is itemSec */
+/* item-info-div is div*/
+/*h4 is h4*/
+/*item-desc is p*/
+/*item-price is span*/
+/*item-add-div is btnDiv*/
+
+.itemSec__div__h4 {
+  color: var(--black-100);
+  font-size: 1.1rem;
+  text-transform: capitalize;
+}
+
+.itemSec__div__p {
+  font-size: 0.8rem;
+  color: var(--black-75);
+}
+
+.itemSec {
+  display: flex;
+  margin: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--black-25);
+  padding-bottom: 1rem;
+  margin-top: 1.2rem;
+}
+
+.itemSec__div {
+  width: 65%;
+}
+
+.itemSec__div__p {
+  margin-top: 0.3rem;
+}
+
+.itemSec__div__span {
+  margin-top: 1rem;
+  display: block;
+}
+
+.itemSec__btnDiv__btn {
+  /* height: 30px;*/
+  width: 80%;
+  border-radius: 1002px;
+  position: relative;
+  top: 20px;
+  font-size: 1.1rem;
+  padding: 0.3rem 0;
+  /*  display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.itemSec__btnDiv {
+  height: 70px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 40%;
+  max-width: 90px;
+  border-radius: 6px;
+}

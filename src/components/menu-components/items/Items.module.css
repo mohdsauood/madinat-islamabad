@@ -1,0 +1,7 @@
+/* main__menu-items-section is itemsSec */
+
+@media screen and (min-width: 1200px) {
+  .itemsSec {
+    width: 55%;
+  }
+}

@@ -7,7 +7,6 @@ export default function SubNav({ item }) {
   let items = ['roti', 'gravies', 'biriyani', 'deserts', 'rice', 'kebab'].map(
     (elem) => {
       if (elem == item) {
-        console.log(elem);
         return (
           <li
             key={elem}
@@ -29,7 +28,7 @@ export default function SubNav({ item }) {
     }
   );
   useEffect(() => {
-    activeLi.current?.scrollIntoView({ inline: 'start' });
+    activeLi.current?.scrollIntoView();
   }, [item]);
 
   return (
