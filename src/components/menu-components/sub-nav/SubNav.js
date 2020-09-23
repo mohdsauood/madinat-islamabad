@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './SubNav.module.css';
+import Link from 'next/link';
 
 export default function SubNav({ item }) {
   const activeLi = useRef(null);
@@ -16,13 +17,17 @@ export default function SubNav({ item }) {
                 : `${styles.nav__ul__li}`
             }
             ref={activeLi}>
-            {elem}
+            <Link href={`/menu/${encodeURIComponent(elem)}`}>
+              <a> {elem}</a>
+            </Link>
           </li>
         );
       }
       return (
         <li key={elem} className={styles.nav__ul__li}>
-          {elem}
+          <Link href={`/menu/${encodeURIComponent(elem)}`}>
+            <a> {elem}</a>
+          </Link>
         </li>
       );
     }
