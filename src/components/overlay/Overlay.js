@@ -8,10 +8,10 @@ export default function Overlay({ smallMenuFlag }) {
   const { showSmallMenu, handleShowSmallMenu } = useSmallMenuButton();
 
   const handleClick = () => {
-    if (smallMenuFlag) {
-      handleShowSmallMenu();
-    } else {
+    if (showMenu) {
       handleShowMenu();
+    } else {
+      handleShowSmallMenu();
     }
   };
   return (
