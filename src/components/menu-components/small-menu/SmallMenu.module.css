@@ -21,7 +21,7 @@
   background-color: white;
   z-index: 15;
   padding: 1rem 1rem;
-  animation: slide-up 0.5s;
+  animation: fade-in 0.5s;
 }
 .smallMenuSec__ul {
   display: flex;
@@ -54,11 +54,11 @@
 
 /*animations*/
 
-@keyframes slide-up {
+@keyframes fade-in {
   0% {
-    transform: translateY(+100vh);
+    opacity: 0.3;
   }
   100% {
-    translate: translateY(0);
+    opacity: 1;
   }
 }

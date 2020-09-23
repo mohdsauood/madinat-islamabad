@@ -1,0 +1,15 @@
+.main {
+  overflow-y: scroll;
+}
+
+/* desktop styles */
+@media screen and (min-width: 1200px) {
+  .main {
+    overflow-y: hidden;
+  }
+
+  .main {
+    display: flex;
+    margin-top: 12vh;
+  }
+}
