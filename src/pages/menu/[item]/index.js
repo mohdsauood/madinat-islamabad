@@ -8,9 +8,12 @@ import Items from '../../../components/menu-components/items/Items';
 import MenuButton from '../../../components/menu-components/menu-button/MenuButton';
 import SmallMenu from '../../../components/menu-components/small-menu/SmallMenu';
 import Main from '../../../components/menu-components/main/Main';
+import CartSection from '../../../components/menu-components/cart-section/CartSection';
+import ViewCartButton from '../../../components/menu-components/viewcart-button/ViewCartButton';
 
 import { NavbarMobileProvider } from '../../../context/navbar-mobile-context/navbar-mobile-context';
 import { SmallMenuButtonProvider } from '../../../context/smallmenu-button-context/smallmenu-button-context';
+import { CartProvider } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function index() {
   const router = useRouter();
@@ -18,18 +21,22 @@ export default function index() {
   const path = router.pathname;
   return (
     <>
-      <SmallMenuButtonProvider>
-        <NavbarMobileProvider>
-          <Overlay smallMenuFlag={true} />
-          <Header />
-        </NavbarMobileProvider>
-        <Main>
-          <SubNav item={item} />
-          <Items item={item} />
-          <MenuButton />
-          <SmallMenu />
-        </Main>
-      </SmallMenuButtonProvider>
+      <CartProvider>
+        <SmallMenuButtonProvider>
+          <NavbarMobileProvider>
+            <Overlay smallMenuFlag={true} />
+            <Header />
+          </NavbarMobileProvider>
+          <Main>
+            <SubNav item={item} />
+            <Items item={item} />
+            <MenuButton />
+            <SmallMenu />
+            <ViewCartButton />
+            <CartSection />
+          </Main>
+        </SmallMenuButtonProvider>
+      </CartProvider>
     </>
   );
 }

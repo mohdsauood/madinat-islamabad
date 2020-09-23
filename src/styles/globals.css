@@ -62,6 +62,10 @@ a {
   background-color: var(--primary-hover);
 }
 
+.btnGreen {
+  background-color: #2cb637;
+}
+
 .btnOutline:hover {
   cursor: pointer;
   transition-property: all;

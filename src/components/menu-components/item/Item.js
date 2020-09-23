@@ -1,19 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Item.module.css';
+import { ADD_ITEM } from '../../../context/types/types';
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+
 export default function Item({ foodItem }) {
-  console.log(foodItem.imgUrl);
+  const [item, setitem] = useState(null);
+  const [cartState, cartDispatch] = useCart();
+  console.log(cartState);
+  let subButtons;
+  cartState.length > 0
+    ? cartState.forEach((elem, index) => {
+        if (elem.name == item.name) {
+          subButtons = (
+            <>
+              <span>-</span>
+              {elem.quantity}
+              <span>+</span>
+            </>
+          );
+        } else if (index == cartState.length - 1) {
+          console.log('sir idk im in else if');
+          subButtons = 'add';
+        }
+      })
+    : (subButtons = 'add');
+  const handleClick = () => {
+    cartDispatch({ type: ADD_ITEM, payload: item });
+  };
+  useEffect(() => {
+    setitem(foodItem);
+  }, [foodItem, cartState]);
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
-        <h4 className={styles.itemSec__div__h4}>{foodItem.name}</h4>
-        <p className={styles.itemSec__div__p}>{foodItem.description}</p>
-        <span className={styles.itemSec__div__span}>{foodItem.price}</span>
+        <h4 className={styles.itemSec__div__h4}>{item?.name}</h4>
+        <p className={styles.itemSec__div__p}>{item?.description}</p>
+        <span className={styles.itemSec__div__span}>{item?.price}</span>
       </div>
       <div
         className={styles.itemSec__btnDiv}
-        style={{ backgroundImage: `url(${foodItem.imgUrl})` }}>
-        <button className={`${styles.itemSec__btnDiv__btn} btn btnPrimary`}>
-          Add
+        style={{ backgroundImage: `url(${item?.imgUrl})` }}>
+        <button
+          onClick={handleClick}
+          className={`${styles.itemSec__btnDiv__btn} btn btnPrimary`}>
+          {subButtons}
         </button>
       </div>
     </section>

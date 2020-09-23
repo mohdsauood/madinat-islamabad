@@ -40,7 +40,6 @@
 }
 
 .itemSec__btnDiv__btn {
-  /* height: 30px;*/
   width: 80%;
   border-radius: 1002px;
   position: relative;
@@ -48,9 +47,8 @@
   font-size: 1.1rem;
   padding: 0.3rem 0;
   border: 0px;
-  /*  display: flex;
-    justify-content: center;
-    align-items: center; */
+  display: flex;
+  justify-content: space-around;
 }
 
 .itemSec__btnDiv {

@@ -9,10 +9,11 @@ const dummyData = {
   imgUrl: '/assets/paratha.jpg',
 };
 export default function Items({ item }) {
+  console.log('yes i reloaded');
   return (
     <section className={styles.itemsSec}>
-      <Item foodItem={{ name: item, ...dummyData }} />
-      <Item foodItem={{ name: item, ...dummyData }} />
+      <Item foodItem={{ name: `ghee ${item}`, ...dummyData }} />
+      <Item foodItem={{ name: `plain ${item}`, ...dummyData }} />
       <Item foodItem={{ name: item, ...dummyData }} />
     </section>
   );
