@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CartSection.module.css';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CartSection() {
   const cartState = useCartState();
@@ -34,7 +35,7 @@ function generateCart(cart) {
         {cartValues.items.length == 0
           ? ` Good food is always cooking ! go ahead , order some yummy items from
           the menu`
-          : cartValues.items.map((item) => <span>{item}-</span>)}
+          : cartValues.items.map((item) => <span key={uuidv4()}>{item}-</span>)}
       </p>
     </section>
   );
