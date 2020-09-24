@@ -31,7 +31,7 @@ export default function index() {
             <SubNav item={item} />
             <Items item={item} />
             <MenuButton />
-            <SmallMenu />
+            <SmallMenu item={item} />
             <ViewCartButton />
             <CartSection />
           </Main>

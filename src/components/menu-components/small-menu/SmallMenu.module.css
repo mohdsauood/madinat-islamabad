@@ -35,12 +35,16 @@
   margin-top: 1rem;
   text-transform: capitalize;
 }
-.smallMenuSec__ul__li:nth-child(1) {
-  margin-top: 0;
+.smallMenuSec__ul__li__a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.currentItem {
   position: relative;
 }
 
-.smallMenuSec__ul__li:nth-child(1):before {
+.currentItem:before {
   position: absolute;
   left: -12px;
   top: 25%;
