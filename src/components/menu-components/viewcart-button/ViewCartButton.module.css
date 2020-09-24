@@ -20,3 +20,38 @@
 .show {
   display: flex;
 }
+
+@media screen and (min-width: 1200px) {
+  .viewCartBtn {
+    position: fixed;
+    bottom: 45%;
+    width: 50%;
+    justify-content: space-between;
+    border-radius: 0px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    animation: slide-in-left 0.5s;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+/*animations*/
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(+100vh);
+  }
+  100% {
+    translate: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
