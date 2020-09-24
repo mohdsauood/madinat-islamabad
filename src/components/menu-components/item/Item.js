@@ -6,24 +6,21 @@ import { useCart } from '../../../context/cart-provider-context/cart-provider-co
 export default function Item({ foodItem }) {
   const [item, setitem] = useState(null);
   const [cartState, cartDispatch] = useCart();
-  console.log(cartState);
-  let subButtons;
-  cartState.length > 0
-    ? cartState.forEach((elem, index) => {
-        if (elem.name == item.name) {
-          subButtons = (
-            <>
-              <span>-</span>
-              {elem.quantity}
-              <span>+</span>
-            </>
-          );
-        } else if (index == cartState.length - 1) {
-          console.log('sir idk im in else if');
-          subButtons = 'add';
-        }
-      })
-    : (subButtons = 'add');
+  let subButtons = 'add';
+  cartState.length == 0 && (subButtons = 'add');
+
+  cartState.length > 0 &&
+    cartState.forEach((elem, index) => {
+      if (elem.name == item.name) {
+        subButtons = (
+          <>
+            <span>-</span>
+            {elem.quantity}
+            <span>+</span>
+          </>
+        );
+      }
+    });
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
   };
