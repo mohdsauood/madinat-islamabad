@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './NavbarDesktop.module.css';
+import Link from 'next/link';
+
 export default function NavbarDesktop() {
   return (
     <nav className={styles.navbarDesktop}>
@@ -23,101 +25,131 @@ export default function NavbarDesktop() {
       </section>
       <section className={styles.navbarDesktop__ulSection}>
         <ul className={styles.navbarDesktop__ulSection__ul}>
-          <li className={styles.navbarDesktop__ulSection__ul__li}>
-            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-              <span
-                className={styles.navbarDesktop__ulSection__ul__li__div__span}>
-                <svg
-                  className={
-                    styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                  }
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24">
-                  <path d="M20 7.093v-5.093h-3v2.093l3 3zm4 5.907l-12-12-12 12h3v10h7v-5h4v5h7v-10h3zm-5 8h-3v-5h-8v5h-3v-10.26l7-6.912 7 6.99v10.182z" />
-                </svg>
-              </span>
-              home
-            </div>
-          </li>
-          <li className={styles.navbarDesktop__ulSection__ul__li}>
-            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-              <span
-                className={styles.navbarDesktop__ulSection__ul__li__div__span}>
-                <svg
-                  className={
-                    styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                  }
-                  width="24"
-                  height="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.995 13v8.5c0 .374.343.5.5.5h.001c.276 0 .5-.224.5-.5 0 0 .008-16.774 0-19.265-.933 1.081-2.556 5.196-3.333 10.765h2.332zm.501 11c-1.203 0-2.501-.956-2.501-2.5v-6.501h-2.545c.136-4.058 2.442-14.999 5.738-14.999 1.007 0 1.801.811 1.807 1.845.01 1.348.001 19.655.001 19.655 0 1.378-1.122 2.5-2.5 2.5m-7.849-24h-6.315c-.28 1.447-1.071 5.458-1.309 7.853-.207 2.084 1.016 3.03 1.709 3.55.147.117.265.294.265.482.003 1.595.003 8.287.003 9.591 0 1.391.98 2.524 2.552 2.524 1.453 0 2.448-1.139 2.448-2.524v-9.538c0-.19.102-.369.251-.486.723-.531 1.991-1.464 1.755-3.638-.259-2.383-1.074-6.393-1.359-7.814m-1.476 2s.616 3.909.847 6.029c.13 1.212-.559 1.494-1.152 1.964-.791.626-.866 1.186-.866 1.771v9.609c0 .299-.09.627-.506.627-.417 0-.494-.346-.494-.627v-9.615c0-.574-.042-1.143-.828-1.773-.581-.466-1.275-.769-1.159-1.935.211-2.114.774-6.05.774-6.05h.476v5h.817l.139-5h.524l.123 5h.835l-.033-5h.503z"
-                    fill="#030405"
-                  />
-                </svg>
-              </span>
-              menu
-            </div>
-          </li>
-          <li className={styles.navbarDesktop__ulSection__ul__li}>
-            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-              <span
-                className={styles.navbarDesktop__ulSection__ul__li__div__span}>
-                <svg
-                  className={
-                    styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                  }
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24">
-                  <path d="M10.452 2l8.271 8.265-5.431 5.279-8.292-8.314v-5.23h5.452zm.828-2h-8.28v8.058l10.271 10.296 8.302-8.07-10.293-10.284zm-1.72 6.559c-.585.585-1.535.585-2.12 0-.586-.584-.586-1.533 0-2.118.585-.585 1.535-.585 2.12 0 .586.584.586 1.533 0 2.118zm11.01 7.407l1.43 1.409-8.688 8.625-10.312-10.317v-2.833l10.349 10.291 7.221-7.175z" />
-                </svg>
-              </span>
-              offers
-            </div>
-          </li>
-          <li className={styles.navbarDesktop__ulSection__ul__li}>
-            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-              <span
-                className={styles.navbarDesktop__ulSection__ul__li__div__span}>
-                <svg
-                  className={
-                    styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                  }
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24">
-                  <path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
-                </svg>{' '}
-              </span>
-              sign in
-            </div>
-          </li>
-          <li className={styles.navbarDesktop__ulSection__ul__li}>
-            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-              <span
-                className={styles.navbarDesktop__ulSection__ul__li__div__span}>
-                <svg
-                  className={
-                    styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                  }
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24">
-                  <path d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
-                </svg>{' '}
-              </span>
-              cart
-            </div>
-          </li>
+          <Link href="/">
+            <a>
+              <li className={styles.navbarDesktop__ulSection__ul__li}>
+                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                  <span
+                    className={
+                      styles.navbarDesktop__ulSection__ul__li__div__span
+                    }>
+                    <svg
+                      className={
+                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                      }
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path d="M20 7.093v-5.093h-3v2.093l3 3zm4 5.907l-12-12-12 12h3v10h7v-5h4v5h7v-10h3zm-5 8h-3v-5h-8v5h-3v-10.26l7-6.912 7 6.99v10.182z" />
+                    </svg>
+                  </span>
+                  home
+                </div>
+              </li>
+            </a>
+          </Link>
+          <Link href="/menu/roti">
+            <a>
+              <li className={styles.navbarDesktop__ulSection__ul__li}>
+                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                  <span
+                    className={
+                      styles.navbarDesktop__ulSection__ul__li__div__span
+                    }>
+                    <svg
+                      className={
+                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                      }
+                      width="24"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      viewBox="0 0 24 24">
+                      <path
+                        d="M17.995 13v8.5c0 .374.343.5.5.5h.001c.276 0 .5-.224.5-.5 0 0 .008-16.774 0-19.265-.933 1.081-2.556 5.196-3.333 10.765h2.332zm.501 11c-1.203 0-2.501-.956-2.501-2.5v-6.501h-2.545c.136-4.058 2.442-14.999 5.738-14.999 1.007 0 1.801.811 1.807 1.845.01 1.348.001 19.655.001 19.655 0 1.378-1.122 2.5-2.5 2.5m-7.849-24h-6.315c-.28 1.447-1.071 5.458-1.309 7.853-.207 2.084 1.016 3.03 1.709 3.55.147.117.265.294.265.482.003 1.595.003 8.287.003 9.591 0 1.391.98 2.524 2.552 2.524 1.453 0 2.448-1.139 2.448-2.524v-9.538c0-.19.102-.369.251-.486.723-.531 1.991-1.464 1.755-3.638-.259-2.383-1.074-6.393-1.359-7.814m-1.476 2s.616 3.909.847 6.029c.13 1.212-.559 1.494-1.152 1.964-.791.626-.866 1.186-.866 1.771v9.609c0 .299-.09.627-.506.627-.417 0-.494-.346-.494-.627v-9.615c0-.574-.042-1.143-.828-1.773-.581-.466-1.275-.769-1.159-1.935.211-2.114.774-6.05.774-6.05h.476v5h.817l.139-5h.524l.123 5h.835l-.033-5h.503z"
+                        fill="#030405"
+                      />
+                    </svg>
+                  </span>
+                  menu
+                </div>
+              </li>
+            </a>
+          </Link>
+          <Link href="/offers">
+            <a>
+              <li className={styles.navbarDesktop__ulSection__ul__li}>
+                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                  <span
+                    className={
+                      styles.navbarDesktop__ulSection__ul__li__div__span
+                    }>
+                    <svg
+                      className={
+                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                      }
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path d="M10.452 2l8.271 8.265-5.431 5.279-8.292-8.314v-5.23h5.452zm.828-2h-8.28v8.058l10.271 10.296 8.302-8.07-10.293-10.284zm-1.72 6.559c-.585.585-1.535.585-2.12 0-.586-.584-.586-1.533 0-2.118.585-.585 1.535-.585 2.12 0 .586.584.586 1.533 0 2.118zm11.01 7.407l1.43 1.409-8.688 8.625-10.312-10.317v-2.833l10.349 10.291 7.221-7.175z" />
+                    </svg>
+                  </span>
+                  offers
+                </div>
+              </li>
+            </a>
+          </Link>
+          <Link href="/sign-in">
+            <a>
+              <li className={styles.navbarDesktop__ulSection__ul__li}>
+                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                  <span
+                    className={
+                      styles.navbarDesktop__ulSection__ul__li__div__span
+                    }>
+                    <svg
+                      className={
+                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                      }
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
+                    </svg>{' '}
+                  </span>
+                  sign in
+                </div>
+              </li>
+            </a>
+          </Link>
+          <Link href="/cart">
+            <a>
+              <li className={styles.navbarDesktop__ulSection__ul__li}>
+                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                  <span
+                    className={
+                      styles.navbarDesktop__ulSection__ul__li__div__span
+                    }>
+                    <svg
+                      className={
+                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                      }
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24">
+                      <path d="M24 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.24l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                    </svg>{' '}
+                  </span>
+                  cart
+                </div>
+              </li>
+            </a>
+          </Link>
         </ul>
       </section>
     </nav>
