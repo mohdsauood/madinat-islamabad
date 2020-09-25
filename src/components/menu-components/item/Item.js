@@ -9,7 +9,7 @@ import {
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function Item({ foodItem }) {
-  const [item, setitem] = useState(null);
+  const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
 
@@ -49,9 +49,6 @@ export default function Item({ foodItem }) {
       }
     });
 
-  useEffect(() => {
-    setitem(foodItem);
-  }, [cartState, foodItem]);
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
