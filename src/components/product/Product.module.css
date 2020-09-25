@@ -78,6 +78,8 @@
   height: 30%;
   margin-bottom: 0.5rem;
   padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-around;
 }
 
 @media screen and (min-width: 1200px) {

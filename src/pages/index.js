@@ -6,17 +6,20 @@ import Footer from '../components/footer/Footer';
 
 import { SmallMenuButtonProvider } from '../context/smallmenu-button-context/smallmenu-button-context';
 import { NavbarMobileProvider } from '../context/navbar-mobile-context/navbar-mobile-context';
+import { CartProvider } from '../context/cart-provider-context/cart-provider-context';
 export default function Home() {
   return (
     <>
-      <SmallMenuButtonProvider>
-        <NavbarMobileProvider>
-          <Overlay />
-          <Header />
-        </NavbarMobileProvider>
-        <Main />
-        <Footer />
-      </SmallMenuButtonProvider>
+      <CartProvider>
+        <SmallMenuButtonProvider>
+          <NavbarMobileProvider>
+            <Overlay />
+            <Header />
+          </NavbarMobileProvider>
+          <Main />
+          <Footer />
+        </SmallMenuButtonProvider>
+      </CartProvider>
     </>
   );
 }

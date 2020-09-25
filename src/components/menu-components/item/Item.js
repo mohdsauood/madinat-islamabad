@@ -19,8 +19,6 @@ export default function Item({ foodItem }) {
 
   const handleIncrement = (e) => {
     e.stopPropagation();
-
-    console.log('yes handle incremenet works');
     cartDispatch({ type: INCREASE_ITEM, payload: item });
   };
   const handleDecrement = (e) => {
