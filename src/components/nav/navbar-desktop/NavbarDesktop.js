@@ -83,7 +83,7 @@ export default function NavbarDesktop() {
               </li>
             </a>
           </Link>
-          <Link href="/offers">
+          <Link href="/menu/offers">
             <a>
               <li className={styles.navbarDesktop__ulSection__ul__li}>
                 <div className={styles.navbarDesktop__ulSection__ul__li_div}>

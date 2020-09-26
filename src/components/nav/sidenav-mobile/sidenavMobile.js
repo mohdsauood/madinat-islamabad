@@ -28,7 +28,7 @@ export default function SidenavMobile() {
         alt="restaurant name"
       />
       <ul className={styles.navMenu__ul}>
-        <li className={styles.navMenu__li}>
+        <li className={styles.navMenu__li} onClick={handleShowMenu}>
           <Link href={`/`}>
             <a>
               <svg
@@ -84,7 +84,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
 
-        <li className={styles.navMenu__li}>
+        <li className={styles.navMenu__li} onClick={handleShowMenu}>
           <Link href={`/cart`}>
             <a>
               <svg
@@ -99,7 +99,7 @@ export default function SidenavMobile() {
             </a>
           </Link>
         </li>
-        <li className={styles.navMenu__li}>
+        <li className={styles.navMenu__li} onClick={handleShowMenu}>
           <Link href={`/sign-in`}>
             <a>
               <svg
