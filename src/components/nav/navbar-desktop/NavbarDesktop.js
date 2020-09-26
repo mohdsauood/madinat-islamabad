@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './NavbarDesktop.module.css';
 import Link from 'next/link';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+
 export default function NavbarDesktop() {
   const cartState = useCartState();
   let totalItems;
