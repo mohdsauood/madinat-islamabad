@@ -1,0 +1,8 @@
+.div {
+  display: flex;
+  margin: 0 1rem;
+}
+
+.title {
+  margin-left: 1.5rem;
+}

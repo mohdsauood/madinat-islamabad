@@ -1,0 +1,35 @@
+.itemSec {
+  display: flex;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+.infoDiv {
+  width: 80%;
+  padding-right: 1.2rem;
+}
+.itemDesc {
+  margin-top: 0.5rem;
+}
+
+.itemPrice {
+  margin-top: 0.5rem;
+}
+
+.buttonDiv {
+  width: 20%;
+  border: 1px solid black;
+}
+
+.itemBtn {
+  align-self: center;
+  border-radius: 1002px;
+  font-size: 1.1rem;
+  padding: 0.3rem 0;
+  border: 0px;
+  display: flex;
+  justify-content: space-around;
+  width: 70px;
+  height: 29px;
+  max-width: 90px;
+  max-height: 50px;
+}

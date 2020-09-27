@@ -9,11 +9,20 @@ const dummyData = {
   imgUrl: '/assets/paratha.jpg',
 };
 export default function Items({ item }) {
-  return (
-    <section className={styles.itemsSec}>
-      <Item foodItem={{ name: `ghee ${item}`, ...dummyData }} />
-      <Item foodItem={{ name: `plain ${item}`, ...dummyData }} />
-      <Item foodItem={{ name: item, ...dummyData }} />
-    </section>
+  console.log(item);
+  let names = [];
+  if (item !== 'Undefined') {
+    names.push(`ghee ${item}`);
+    names.push(`plain ${item}`);
+    names.push(`${item}`);
+  }
+  let items = (
+    <>
+      {' '}
+      <Item foodItem={{ name: `${names[0]}`, ...dummyData }} />
+      <Item foodItem={{ name: `${names[1]}`, ...dummyData }} />
+      <Item foodItem={{ name: `${names[2]}`, ...dummyData }} />
+    </>
   );
+  return <section className={styles.itemsSec}>{item && items}</section>;
 }

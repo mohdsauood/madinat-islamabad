@@ -1,0 +1,12 @@
+.div {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.p {
+  padding: 1.5rem 0;
+  width: 80%;
+  margin-left: 1.8rem;
+  font-size: 0.9rem;
+}

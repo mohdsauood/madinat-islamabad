@@ -1,0 +1,14 @@
+.div {
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.div input {
+  width: 85%;
+  padding: 1.2rem 0;
+  border: 0px;
+  font-size: 0.8rem;
+}

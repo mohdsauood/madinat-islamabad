@@ -33,6 +33,7 @@ a {
   --primary-25: #ffcbc1;
   --primary-hover: #e93612;
   --gray-hover: rgb(240, 234, 234);
+  --light-gray: rgb(240, 234, 234);
   --blue--100: #0e51ff;
 }
 
@@ -79,4 +80,76 @@ a {
   height: 100%;
   border-radius: 6px;
   z-index: 0 !important;
+}
+
+/*helper styles*/
+
+.tBold {
+  font-weight: bold;
+}
+
+.tLight {
+  font-weight: lighter;
+}
+
+/*16px*/
+.tSm {
+  font-size: 1rem;
+}
+/*17px*/
+.tM {
+  font-size: 1.1rem;
+}
+/*19px*/
+.tLg {
+  font-size: 1.2rem;
+}
+/*20px*/
+.tXlg {
+  font-size: 1.3rem;
+}
+
+/*22px*/
+.tXxlg {
+  font-size: 1.4rem;
+}
+
+.tBlack {
+  color: var(--black-100);
+}
+.tDarkGray {
+  color: var(--black-75);
+}
+.tGray {
+  color: var(--black-50);
+}
+.tLightGray {
+  color: var(--black-25);
+}
+
+.tPrimary {
+  color: var(--primary-100);
+}
+
+.tUpperCase {
+  text-transform: uppercase;
+}
+
+.tCapitalize {
+  text-transform: capitalize;
+}
+
+.svgBlack {
+  fill: var(--black-100);
+}
+
+.svgGray {
+  fill: var(--black-75);
+}
+
+.svgLightGray {
+  fill: var(--black-50);
+}
+.karla {
+  font-family: karla;
 }

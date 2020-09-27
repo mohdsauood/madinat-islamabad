@@ -9,6 +9,7 @@ import {
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function Item({ foodItem }) {
+  console.log(foodItem);
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
