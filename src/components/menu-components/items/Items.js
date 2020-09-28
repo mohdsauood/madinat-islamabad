@@ -9,7 +9,6 @@ const dummyData = {
   imgUrl: '/assets/paratha.jpg',
 };
 export default function Items({ item }) {
-  console.log(item);
   let names = [];
   if (item !== 'Undefined') {
     names.push(`ghee ${item}`);

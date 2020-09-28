@@ -9,11 +9,10 @@ import {
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function Item({ foodItem }) {
-  console.log(foodItem);
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
-
+  console.log(item);
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
   };
@@ -22,6 +21,7 @@ export default function Item({ foodItem }) {
     e.stopPropagation();
     cartDispatch({ type: INCREASE_ITEM, payload: item });
   };
+
   const handleDecrement = (e) => {
     e.stopPropagation();
     console.log('yes handle decrement works');
@@ -32,6 +32,7 @@ export default function Item({ foodItem }) {
     });
     cartDispatch({ type: DECREASE_ITEM, payload: item });
   };
+
   //set button content
   cartState.length == 0 && (subButtons = 'add');
 
@@ -49,7 +50,9 @@ export default function Item({ foodItem }) {
         subButtons = 'add';
       }
     });
-
+  useEffect(() => {
+    setitem(foodItem);
+  }, [foodItem]);
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
