@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.module.css';
+import Buttons from '../../components/cart/buttons/Buttons';
 import Bill from '../../components/cart/bill/Bill';
 import ApplyCoupon from '../../components/cart/apply-coupon/ApplyCoupon';
 import AddReq from '../../components/cart/add-req/AddReq';
@@ -17,6 +18,7 @@ export default function index() {
       <ApplyCoupon />
       <Divider height={'0.1rem'} />
       <Bill />
+      <Buttons />
     </>
   );
 }

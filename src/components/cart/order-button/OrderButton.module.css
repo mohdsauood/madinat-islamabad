@@ -1,0 +1,21 @@
+.sec {
+  display: flex;
+  width: 100vw;
+}
+
+.mobile,
+.order {
+  text-align: center;
+  width: 50%;
+  padding: 1rem 0;
+  color: white;
+}
+
+.mobile {
+  color: var(--blue-button);
+  background-color: var(--light-gray);
+}
+
+.order {
+  background-color: var(--green-button);
+}

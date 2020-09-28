@@ -33,8 +33,9 @@ a {
   --primary-25: #ffcbc1;
   --primary-hover: #e93612;
   --gray-hover: rgb(240, 234, 234);
-  --light-gray: rgb(240, 234, 234);
-  --blue--100: #0e51ff;
+  --light-gray: rgb(251 247 247);
+  --blue-button: #3465e0;
+  --green-button: #2cb637;
 }
 
 /*button*/
@@ -54,7 +55,7 @@ a {
 }
 
 .btnBlue {
-  background-color: #5490ff;
+  background-color: var(--blue-button);
 }
 .btnPrimary:hover {
   cursor: pointer;
@@ -64,7 +65,7 @@ a {
 }
 
 .btnGreen {
-  background-color: #2cb637;
+  background-color: var(--green-button);
 }
 
 .btnOutline:hover {
