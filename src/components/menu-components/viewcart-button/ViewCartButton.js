@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ViewCartButton.module.css';
+import Link from 'next/link';
 
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 export default function ViewCartButton() {
@@ -13,13 +14,15 @@ export default function ViewCartButton() {
   }, 0);
   return (
     cartState.length > 0 && (
-      <button
-        className={`${styles.viewCartBtn} btn btnPrimary btnGreen ${styles.show}`}>
-        <p className={styles.viewCartBtn__price}>
-          {totalItems} | {totalPrice} AED
-        </p>
-        <p className={styles.viewCartBtn__cart}>View cart</p>
-      </button>
+      <Link href="/cart">
+        <a
+          className={`${styles.viewCartBtn} btn btnPrimary btnGreen ${styles.show}`}>
+          <p className={styles.viewCartBtn__price}>
+            {totalItems} | {totalPrice} AED
+          </p>
+          <p className={styles.viewCartBtn__cart}>View cart</p>
+        </a>
+      </Link>
     )
   );
 }
