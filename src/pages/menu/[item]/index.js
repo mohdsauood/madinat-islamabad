@@ -17,7 +17,7 @@ export default function index() {
   const path = router.pathname;
   return (
     <>
-      <Overlay smallMenuFlag={true} />
+      <Overlay />
       <Header />
       <Main>
         <SubNav item={item} />

@@ -1,24 +1,49 @@
 import React from 'react';
 import styles from './CartItem.module.css';
+import {
+  ADD_ITEM,
+  REMOVE_ITEM,
+  INCREASE_ITEM,
+  DECREASE_ITEM,
+} from '../../../context/types/types';
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
-export default function CartItem() {
+export default function CartItem({ item }) {
+  const [cartState, cartDispatch] = useCart();
+  const handleIncrement = (e) => {
+    e.stopPropagation();
+    cartDispatch({ type: INCREASE_ITEM, payload: item });
+  };
+
+  const handleDecrement = (e) => {
+    e.stopPropagation();
+    console.log('yes handle decrement works');
+    cartState.forEach((elem) => {
+      if (elem.name == item.name && elem.quantity == 1) {
+        cartDispatch({ type: REMOVE_ITEM, payload: item });
+      }
+    });
+    cartDispatch({ type: DECREASE_ITEM, payload: item });
+  };
+
+  if (cartState.length == 0) {
+    //redirect to empty cart page
+  }
   return (
     <section className={styles.itemSec}>
       <div className={styles.infoDiv}>
-        <h5 className={`${styles.itemTitle} tCapitalize tLg tBlack`}>
-          combo for 2
+        <h5 className={`${styles.itemTitle} tCapitalize tM tBlack`}>
+          {item.name}
         </h5>
-        <p className={`${styles.itemDesc} tM tDarkGray`}>
-          {' '}
-          4 plain roti . chana masala 2 pepi
-        </p>
         <p className={`${styles.itemPrice} tSm tBold tUpperCase karla`}>
           {' '}
-          AED 24.53
+          {item.price}
         </p>
       </div>
       <button className={`${styles.itemBtn} btn btnPrimary`}>
-        <span>-</span>1<span>+</span>
+        <span onClick={handleDecrement}>-</span>
+        {item.quantity}
+        <span onClick={handleIncrement}>+</span>
       </button>
     </section>
   );

@@ -7,6 +7,7 @@ import AddReq from '../../components/cart/add-req/AddReq';
 import Divider from '../../components/cart/divider/Divider';
 import CartItems from '../../components/cart/cart-items/CartItems';
 import TitleHeader from '../../components/title-header/TitleHeader';
+
 export default function index() {
   return (
     <>

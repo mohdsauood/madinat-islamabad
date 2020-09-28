@@ -12,3 +12,7 @@
   border: 0px;
   font-size: 0.8rem;
 }
+
+.div input:focus {
+  outline: none;
+}

@@ -1,6 +1,12 @@
 import React from 'react';
+import { SHOW_ADDRESS_MODAL } from '../../../context/types/types';
 import styles from './LocationButton.module.css';
+import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 export default function LocationButton() {
+  const cartDispatch = useCartPageUiDispatch();
+  const handleClick = () => {
+    cartDispatch({ type: SHOW_ADDRESS_MODAL });
+  };
   return (
     <sec className={styles.sec}>
       <div className={styles.iconDiv}>
@@ -26,7 +32,9 @@ export default function LocationButton() {
           <p className="tGray tSm">al nad</p>
         </div>
       </div>
-      <span className={`${styles.changeSpan} tPrimary`}>CHANGE</span>
+      <span onClick={handleClick} className={`${styles.changeSpan} tPrimary`}>
+        CHANGE
+      </span>
     </sec>
   );
 }
