@@ -17,7 +17,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/roti`}>
+          <Link href="/menu/roti">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>Roti</p>
               <p>4</p>
@@ -30,7 +30,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/gravies`}>
+          <Link href="/menu/gravies">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>gravies</p>
               <p>1</p>
@@ -43,7 +43,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/biriyani`}>
+          <Link href="/menu/biriyani">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>biriyani</p>
               <p>3</p>
@@ -56,7 +56,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/deserts`}>
+          <Link href="/menu/deserts">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>deserts</p>
               <p>1</p>
@@ -69,7 +69,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/rice`}>
+          <Link href="/menu/rice">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>rice</p>
               <p>1</p>
@@ -82,7 +82,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href={`/menu/kebab`}>
+          <Link href="menu/kebab">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>kebab</p>
               <p>3</p>

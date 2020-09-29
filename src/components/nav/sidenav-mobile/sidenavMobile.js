@@ -36,7 +36,7 @@ export default function SidenavMobile() {
       />
       <ul className={styles.navMenu__ul}>
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href={`/`}>
+          <Link href="/">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ export default function SidenavMobile() {
         </li>
 
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href={`/menu/roti`}>
+          <Link href="/menu/roti">
             <a>
               <svg
                 className={
@@ -76,7 +76,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href={`/menu/offers`}>
+          <Link href="/menu/offers">
             <a>
               <svg
                 width="24"
@@ -92,7 +92,7 @@ export default function SidenavMobile() {
         </li>
 
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href={`/cart`}>
+          <Link href="/cart">
             <a>
               <svg
                 width="24"
@@ -111,7 +111,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href={`/sign-in`}>
+          <Link href="/sign-in">
             <a>
               <svg
                 width="24"
