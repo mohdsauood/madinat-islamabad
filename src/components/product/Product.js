@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Product.module.css';
+import PropTypes from 'prop-types';
 import { useCart } from '../../context/cart-provider-context/cart-provider-context';
 import {
   ADD_ITEM,
@@ -53,6 +54,7 @@ export default function Product({ product }) {
       <div className={styles.productSection__infoDiv}>
         <div className={styles.productSection__infoDiv_title}>
           <i
+            aria-hidden
             className={`${styles.productSection__infoDiv_title__icon} far fa-star fa-lg`}></i>
           <h5 className={styles.productSection__infoDiv_title__h5}>
             {item?.name}
@@ -75,3 +77,7 @@ export default function Product({ product }) {
     </section>
   );
 }
+
+Product.propTypes = {
+  product: PropTypes.object.isRequired,
+};

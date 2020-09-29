@@ -18,12 +18,13 @@ const dummyData = [
 ];
 export default function ProductsSection() {
   const products = dummyData.map((product) => {
-    return <Product product={product} />;
+    return <Product key={product.name} product={product} />;
   });
   return (
     <section className={styles.productsSection}>
       <h6 className={styles.productsSection__h6}>
         <i
+          aria-hidden
           className={`${styles.productsSection__h6__icon} fas fa-circle fa-sm`}></i>
         top products
       </h6>
