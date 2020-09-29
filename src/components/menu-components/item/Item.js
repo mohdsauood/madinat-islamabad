@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Item.module.css';
+import PropTypes from 'prop-types';
 import {
   ADD_ITEM,
   REMOVE_ITEM,
@@ -12,7 +13,6 @@ export default function Item({ foodItem }) {
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
-  console.log(item);
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
   };
@@ -72,3 +72,7 @@ export default function Item({ foodItem }) {
     </section>
   );
 }
+
+Item.propTypes = {
+  foodItem: PropTypes.object.isRequired,
+};
