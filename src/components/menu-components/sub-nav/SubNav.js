@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './SubNav.module.css';
 import Link from 'next/link';
-
+import PropTypes from 'prop-types';
 export default function SubNav({ item }) {
   const activeLi = useRef(null);
 
@@ -42,3 +42,7 @@ export default function SubNav({ item }) {
     </nav>
   );
 }
+
+SubNav.propTypes = {
+  item: PropTypes.string.isRequired,
+};

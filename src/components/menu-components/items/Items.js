@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Items.module.css';
 import Item from '../item/Item';
+import PropTypes from 'prop-types';
 
 const dummyData = {
   description:
@@ -25,3 +26,7 @@ export default function Items({ item }) {
   );
   return <section className={styles.itemsSec}>{item && items}</section>;
 }
+
+Items.propTypes = {
+  item: PropTypes.string.isRequired,
+};

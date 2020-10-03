@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './SmallMenu.module.css';
 import { useSmallMenuButton } from '../../../context/smallmenu-button-context/smallmenu-button-context';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 export default function SmallMenu({ item }) {
   const { showSmallMenu, handleShowSmallMenu } = useSmallMenuButton();
@@ -93,3 +94,7 @@ export default function SmallMenu({ item }) {
     </section>
   );
 }
+
+SmallMenu.propTypes = {
+  item: PropTypes.string.isRequired,
+};
