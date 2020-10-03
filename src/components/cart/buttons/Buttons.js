@@ -7,6 +7,7 @@ import Divider from '../divider/Divider';
 export default function Buttons() {
   return (
     <div className={styles.buttonsDiv}>
+      <Divider height="0.4rem" />
       <LocationButton />
       <OrderButton />
     </div>
