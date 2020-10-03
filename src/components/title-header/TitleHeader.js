@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './TitleHeader.module.css';
-
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 export default function TitleHeader({ title }) {
@@ -21,3 +21,7 @@ export default function TitleHeader({ title }) {
     </div>
   );
 }
+
+TitleHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};
