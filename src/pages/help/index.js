@@ -1,14 +1,24 @@
 import React from 'react';
 import styles from './index.module.css';
 import TitleHeader from '../../components/title-header/TitleHeader';
+import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
+import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 export default function index() {
   return (
     <>
+      <NavbarDesktop />
       <TitleHeader title="help and support" />
+      <HeroBanner
+        styless={{
+          color: '#AE16B1',
+          text: 'Help',
+        }}
+      />
       <svg
         className={styles.svg}
-        width="277"
-        height="152"
+        width="100%"
+        height="100%"
+        viewBox="0 0 270 160"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0)">
