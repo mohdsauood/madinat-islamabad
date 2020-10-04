@@ -12,6 +12,7 @@
   padding: 0.8rem;
   justify-content: flex-start;
   max-width: 300px;
+  cursor: pointer;
 }
 
 .button__svg {
@@ -33,18 +34,25 @@
   background-color: white;
   color: var(--black-50);
 }
-
+.googleButton:hover {
+  background-color: rgb(245, 241, 241);
+}
 .button__span {
   margin-left: 1.5rem;
 }
 
 .googleSvg {
 }
-
+.googleButton:hover {
+  background-color: #f1f3f7;
+}
 .fbSvg {
   fill: white;
 }
 
+.fbButton:hover {
+  background-color: #1841aa;
+}
 @media screen and (min-width: 1200px) {
   .button {
     max-width: 350px;

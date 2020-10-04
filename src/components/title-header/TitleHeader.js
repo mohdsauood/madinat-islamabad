@@ -9,7 +9,7 @@ export default function TitleHeader({ title }) {
     <div className={styles.div}>
       <svg
         onClick={() => router.back()}
-        className="svgBlack"
+        className={`${styles.svg} svgBlack`}
         transform="rotate(180)"
         xmlns="http://www.w3.org/2000/svg"
         width="22"
