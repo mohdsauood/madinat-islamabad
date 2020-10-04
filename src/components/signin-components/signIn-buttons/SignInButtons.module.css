@@ -14,7 +14,9 @@
   max-width: 300px;
   cursor: pointer;
 }
-
+.button:focus {
+  outline: none;
+}
 .button__svg {
   width: 1.5rem;
 }
