@@ -9,6 +9,7 @@
   width: 50%;
   padding: 1rem 0;
   color: white;
+  cursor: pointer;
 }
 
 .mobile {
@@ -18,4 +19,11 @@
 
 .order {
   background-color: var(--green-button);
+}
+
+.mobile:hover {
+  background-color: rgb(232 229 229);
+}
+.order:hover {
+  background-color: #119e1d;
 }

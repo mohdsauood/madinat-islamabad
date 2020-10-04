@@ -12,7 +12,7 @@ const dummyData = {
 export default function Items({ item }) {
   let names = [];
   if (item !== 'Undefined') {
-    names.push(`ghee ${item}`);
+    names.push(`tandoori chicken ${item}`);
     names.push(`plain ${item}`);
     names.push(`${item}`);
   }
