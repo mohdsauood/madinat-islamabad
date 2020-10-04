@@ -1,0 +1,22 @@
+.div {
+  display: none;
+}
+
+.h3 {
+  color: white;
+  font-size: 1.8rem;
+}
+@media screen and (min-width: 1200px) {
+  .div {
+    display: block;
+    height: 10vh;
+    max-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .h3 {
+    margin-right: 5rem;
+  }
+}

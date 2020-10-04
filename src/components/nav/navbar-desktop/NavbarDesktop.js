@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NavbarDesktop.module.css';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function NavbarDesktop() {
