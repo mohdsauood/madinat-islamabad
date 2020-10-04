@@ -21,8 +21,8 @@ export default function index() {
         <ApplyCoupon />
         <Divider height={'0.1rem'} />
         <Bill />
+        <Buttons />
       </div>
-      <Buttons />
     </>
   );
 }

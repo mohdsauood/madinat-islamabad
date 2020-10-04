@@ -27,3 +27,23 @@
 .order:hover {
   background-color: #119e1d;
 }
+
+@media screen and (min-width: 1200px) {
+  .sec {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+  .mobile,
+  .order {
+    padding: 1.5rem 0;
+    width: 100%;
+  }
+  .mobile {
+    margin-top: 1.5rem;
+  }
+  .order {
+    margin-top: 1rem;
+  }
+}
