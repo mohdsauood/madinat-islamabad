@@ -13,13 +13,15 @@ export default function index() {
     <>
       <NavbarDesktop />
       <TitleHeader title={'Cart'} />
-      <CartItems />
-      <Divider height={'0.1rem'} />
-      <AddReq />
-      <Divider height={'0.5rem'} />
-      <ApplyCoupon />
-      <Divider height={'0.1rem'} />
-      <Bill />
+      <div className={styles.div}>
+        <CartItems />
+        <Divider height={'0.1rem'} />
+        <AddReq />
+        <Divider height={'0.5rem'} />
+        <ApplyCoupon />
+        <Divider height={'0.1rem'} />
+        <Bill />
+      </div>
       <Buttons />
     </>
   );
