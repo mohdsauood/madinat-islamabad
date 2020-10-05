@@ -158,3 +158,11 @@ a {
 .karla {
   font-family: karla;
 }
+
+/*hiding blue highlight*/
+/* .btn:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+} */
