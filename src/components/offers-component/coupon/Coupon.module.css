@@ -19,9 +19,15 @@
   transition-duration: 0.5s;
   background-color: #ece8bf;
 }
+
+.button:focus {
+  outline: none;
+}
+
 .svg {
   width: 1.4rem;
 }
+
 .details {
   margin-top: 1rem;
   color: var(--black-100);
@@ -41,7 +47,6 @@
     width: 30%;
     height: 30vh;
     max-height: 200px;
-
     border: 1px solid var(--black-50);
   }
   .button {

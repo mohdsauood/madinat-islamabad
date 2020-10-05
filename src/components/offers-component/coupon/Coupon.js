@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Coupon.module.css';
 import Divider from '../../cart/divider/Divider';
 
 export default function Coupon({ item }) {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const copyToClipBoard = async (copyMe) => {
+    try {
+      await navigator.clipboard.writeText(copyMe);
+      setCopySuccess(true);
+      setTimeout(() => {
+        setCopySuccess(false);
+      }, 2000);
+    } catch (err) {
+      setCopySuccess(false);
+    }
+  };
   return (
     <>
       <div className={styles.div}>
-        <button className={`${styles.button} btnPrimary `}>
+        <button
+          onClick={() => copyToClipBoard(item.code)}
+          className={`${styles.button} btnPrimary `}>
           <span className={`${styles.span} tBold tBlack tXlg`}>
-            {item.code}{' '}
+            {copySuccess ? 'Copied !' : item.code}
           </span>
           <svg
             className={styles.svg}
