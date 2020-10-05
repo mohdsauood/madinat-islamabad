@@ -9,6 +9,12 @@
   animation: slide-up 0.5s;
 }
 
+.viewCartBtn:hover {
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.5s;
+  background-color: #068010;
+}
 .viewCartBtn__price {
   text-transform: uppercase;
 }
