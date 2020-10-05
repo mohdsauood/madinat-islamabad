@@ -1,0 +1,35 @@
+.button {
+  color: var(--black-100);
+  border-color: var(--black-100);
+  letter-spacing: 0.2rem;
+  margin: 0 auto;
+  display: block;
+  margin-top: 1.5rem;
+  border-radius: 0px;
+}
+
+.svg {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.h3 {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.p {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1rem;
+  width: 25ch;
+  line-height: 1.5rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .svg {
+    max-width: 400px;
+  }
+}
