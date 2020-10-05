@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Coupons.module.css';
 import Coupon from '../coupon/Coupon';
+
 const dummyCoupon = [
   {
     code: 'GRC45X',
@@ -20,10 +21,12 @@ const dummyCoupon = [
 ];
 export default function Coupons() {
   return (
-    <section className={styles.section}>
-      {dummyCoupon.map((item) => (
-        <Coupon item={item} />
-      ))}{' '}
-    </section>
+    <>
+      <section className={styles.section}>
+        {dummyCoupon.map((item) => (
+          <Coupon item={item} />
+        ))}{' '}
+      </section>
+    </>
   );
 }
