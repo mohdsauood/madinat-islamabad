@@ -216,7 +216,9 @@ export default function index() {
         For any query With your Order you can
       </h3>
       <div className={styles.div}>
-        <button className={` ${styles.button} ${styles.callButton}`}>
+        <a
+          href="tel:0561222712"
+          className={` ${styles.button} ${styles.callButton}`}>
           <svg
             className={`${styles.button__svg} ${styles.callSvg}`}
             xmlns="http://www.w3.org/2000/svg"
@@ -228,8 +230,10 @@ export default function index() {
           <span className={`${styles.button__span} tM karla tBold`}>
             056-3221-211
           </span>
-        </button>
-        <button className={` ${styles.button} ${styles.emailButton}`}>
+        </a>
+        <a
+          href="mailto:abx@gmail.com"
+          className={` ${styles.button} ${styles.emailButton}`}>
           <svg
             className={`${styles.button__svg} ${styles.emailSvg}`}
             xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +245,7 @@ export default function index() {
           <span className={`${styles.button__span} tM karla tBold`}>
             help@madinatisla.com
           </span>
-        </button>
+        </a>
       </div>
     </>
   );
