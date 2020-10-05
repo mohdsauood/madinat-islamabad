@@ -1,0 +1,10 @@
+.section {
+  margin: 0 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .section {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,41 @@
+.div {
+  background-color: var(--teal);
+  color: white;
+  letter-spacing: 0.1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.span {
+  display: none;
+}
+
+.svg {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+  }
+  .span {
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-family: rubik;
+    font-weight: lighter;
+  }
+  .svg {
+    display: block;
+    width: 16%;
+    max-width: 150px;
+  }
+  .p {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+}
