@@ -5,33 +5,43 @@ import PropTypes from 'prop-types';
 export default function SubNav({ item }) {
   const activeLi = useRef(null);
 
-  let items = ['roti', 'gravies', 'biriyani', 'deserts', 'rice', 'kebab'].map(
-    (elem) => {
-      if (elem == item) {
-        return (
-          <li
-            key={elem}
-            className={
-              elem == item
-                ? `${styles.nav__ul__li} ${styles.activeLi}`
-                : `${styles.nav__ul__li}`
-            }
-            ref={activeLi}>
-            <Link href={`/menu/${encodeURIComponent(elem)}`}>
-              <a> {elem}</a>
-            </Link>
-          </li>
-        );
-      }
+  let items = [
+    'roti',
+    'gravies',
+    'biriyani',
+    'offers',
+    'deserts',
+    'rice',
+    'combos',
+    'kebab',
+  ].map((elem) => {
+    if (elem == item) {
       return (
-        <li key={elem} className={styles.nav__ul__li}>
+        <li
+          key={elem}
+          className={
+            elem == item
+              ? `${styles.nav__ul__li} ${styles.activeLi}`
+              : `${styles.nav__ul__li}`
+          }
+          ref={activeLi}>
           <Link href={`/menu/${encodeURIComponent(elem)}`}>
             <a> {elem}</a>
           </Link>
         </li>
       );
     }
-  );
+    return (
+      <li key={elem} className={styles.nav__ul__li}>
+        <Link
+          href={
+            elem !== 'offers' ? `/menu/${encodeURIComponent(elem)}` : '/offers'
+          }>
+          <a> {elem}</a>
+        </Link>
+      </li>
+    );
+  });
   useEffect(() => {
     activeLi.current?.scrollIntoView();
   }, [item]);
