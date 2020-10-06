@@ -32,9 +32,7 @@ export default function CartItem({ item }) {
   return (
     <section className={styles.itemSec}>
       <div className={styles.infoDiv}>
-        <h5 className={`${styles.itemTitle} xtCapitalize xtM xtBlack`}>
-          {item.name}
-        </h5>
+        <h5 className={` xtCapitalize xtM xtBlack`}>{item.name}</h5>
         <p className={`${styles.itemPrice} xtSm xtBold xtUpperCase xkarla`}>
           {' '}
           {item.price}
