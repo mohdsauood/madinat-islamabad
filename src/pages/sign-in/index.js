@@ -144,7 +144,7 @@ export default function index() {
           />
         </defs>
       </svg>
-      <h3 className={`${styles.h3} tCapitalize tBold tBlack`}>
+      <h3 className={`${styles.h3} xtCapitalize xtBold xtBlack`}>
         Sign in with any of the options below
       </h3>
       <SignInButtons />

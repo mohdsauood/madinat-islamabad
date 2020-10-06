@@ -70,7 +70,7 @@ export default function Product({ product }) {
         style={{ backgroundImage: `url(${item?.image})` }}>
         <button
           onClick={handleClick}
-          className={`${styles.productSection__buttonDiv__button} btn btnOutline`}>
+          className={`${styles.productSection__buttonDiv__button} xbtn xbtnOutline`}>
           {subButtons}
         </button>
       </div>

@@ -16,7 +16,7 @@ export default function ViewCartButton() {
     cartState.length > 0 && (
       <Link href="/cart">
         <a
-          className={`${styles.viewCartBtn} btn btnPrimary btnGreen ${styles.show}`}>
+          className={`${styles.viewCartBtn} xbtn xbtnPrimary xbtnGreen ${styles.show}`}>
           <p className={styles.viewCartBtn__price}>
             {totalItems} | {totalPrice} AED
           </p>

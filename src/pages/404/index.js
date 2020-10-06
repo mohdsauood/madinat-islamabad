@@ -233,13 +233,13 @@ export default function index() {
           fill="white"
         />
       </svg>
-      <h3 className={`${styles.h3} tBold tXlg tCapitalize`}>Oops</h3>
-      <p className={`${styles.p} tLg tDarkGray tCapitalize`}>
+      <h3 className={`${styles.h3} xtBold xtXlg xtCapitalize`}>Oops</h3>
+      <p className={`${styles.p} xtLg xtDarkGray xtCapitalize`}>
         something’s not right. our best minds are on it. you may retry or check
         back soon
       </p>
       <button
-        className={`${styles.button} tUpperCase karla tXlg tBold btn btnOutline`}>
+        className={`${styles.button} xtUpperCase xkarla xtXlg xtBold xbtn xbtnOutline`}>
         retry
       </button>
     </>

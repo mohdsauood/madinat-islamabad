@@ -65,7 +65,7 @@ export default function Item({ foodItem }) {
         style={{ backgroundImage: `url(${item?.imgUrl})` }}>
         <button
           onClick={handleClick}
-          className={`${styles.itemSec__btnDiv__btn} btn btnPrimary`}>
+          className={`${styles.itemSec__btnDiv__btn} xbtn xbtnPrimary`}>
           {subButtons}
         </button>
       </div>

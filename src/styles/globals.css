@@ -39,40 +39,42 @@ a {
   --teal: #119f9f;
 }
 
+/* add x infront of all global names to solve the bootstrap conflict*/
+
 /*button*/
-.btn {
+.xbtn {
   padding: 0.5rem 1rem;
   border-radius: 6px;
 }
-.btn:focus {
+.xbtn:focus {
   outline: none;
 }
-.btnPrimary {
+.xbtnPrimary {
   border: 0px;
   background-color: var(--primary-100);
   color: white;
 }
-.btnOutline {
+.xbtnOutline {
   background-color: white;
   color: var(--primary-100);
   border: 2px solid var(--primary-100);
 }
 
-.btnBlue {
+.xbtnBlue {
   background-color: var(--blue-button);
 }
-.btnPrimary:hover {
+.xxbtnPrimary:hover {
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;
   background-color: var(--primary-hover);
 }
 
-.btnGreen {
+.xbtnGreen {
   background-color: var(--green-button);
 }
 
-.btnOutline:hover {
+.xbtnOutline:hover {
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;
@@ -89,58 +91,58 @@ a {
 
 /*helper styles*/
 
-.tBold {
+.xtBold {
   font-weight: bold;
 }
 
-.tLight {
+.xtLight {
   font-weight: lighter;
 }
 
 /*16px*/
-.tSm {
+.xtSm {
   font-size: 1rem;
 }
 /*17px*/
-.tM {
+.xtM {
   font-size: 1.1rem;
 }
 /*19px*/
-.tLg {
+.xtLg {
   font-size: 1.2rem;
 }
 /*20px*/
-.tXlg {
+.xtXlg {
   font-size: 1.3rem;
 }
 
 /*22px*/
-.tXxlg {
+.xtXxlg {
   font-size: 1.4rem;
 }
 
-.tBlack {
+.xtBlack {
   color: var(--black-100);
 }
-.tDarkGray {
+.xtDarkGray {
   color: var(--black-75);
 }
-.tGray {
+.xtGray {
   color: var(--black-50);
 }
-.tLightGray {
+.xtLightGray {
   color: var(--black-25);
 }
 
-.tPrimary {
+.xtPrimary {
   color: var(--primary-100);
 }
 
-.tUpperCase {
+.xtUpperCase {
   text-transform: uppercase;
 }
 
-.tCapitalize {
+.xtCapitalize {
   text-transform: capitalize;
 }
 
@@ -155,14 +157,6 @@ a {
 .svgLightGray {
   fill: var(--black-50);
 }
-.karla {
+.xkarla {
   font-family: karla;
 }
-
-/*hiding blue highlight*/
-/* .btn:focus {
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-} */

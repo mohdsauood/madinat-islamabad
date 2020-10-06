@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className={styles.heroSection}>
       <p className={styles.heroSection__p}>serving breakfast till 11:40 am .</p>
       <Link href="/menu/roti">
-        <a className={`btn btnPrimary ${styles.heroSection__button}`}>
+        <a className={`xbtn xbtnPrimary ${styles.heroSection__button}`}>
           order now
         </a>
       </Link>

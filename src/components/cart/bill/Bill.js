@@ -12,18 +12,18 @@ export default function Bill() {
   }
   return (
     <section className={styles.sec}>
-      <h5 className={`tCapitalize tLg tBlack`}>Bill Details</h5>
-      <div className={`${styles.total} tM tBlack`}>
+      <h5 className={`xtCapitalize xtLg xtBlack`}>Bill Details</h5>
+      <div className={`${styles.total} xtM xtBlack`}>
         <p>Item Total</p>
-        <p className="tUpperCase karla ">{totalPrice}</p>
+        <p className="xtUpperCase xkarla ">{totalPrice}</p>
       </div>
-      <div className={`${styles.dFee} tM tDarkGray`}>
+      <div className={`${styles.dFee} xtM xtDarkGray`}>
         <p>Delivery Fee</p>
-        <p className="tUpperCase karla ">0 AED</p>
+        <p className="xtUpperCase xkarla ">0 AED</p>
       </div>
-      <div className={`${styles.pay} tM tBlack`}>
+      <div className={`${styles.pay} xtM xtBlack`}>
         <p>To Pay</p>
-        <p className="tUpperCase karla tBold">{totalPrice}</p>
+        <p className="xtUpperCase xkarla xtBold">{totalPrice}</p>
       </div>
     </section>
   );

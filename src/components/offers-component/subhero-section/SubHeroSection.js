@@ -2,9 +2,11 @@ import React from 'react';
 import styles from './SubHeroSection.module.css';
 export default function SubHeroSection() {
   return (
-    <div className={`${styles.div} karla `}>
+    <div className={`${styles.div} xkarla `}>
       <section className={styles.section}>
-        <p className={`${styles.p} karla tUpperCase tSm`}>available coupons</p>
+        <p className={`${styles.p} xkarla xtUpperCase xtSm`}>
+          available coupons
+        </p>
         <span className={styles.span}>
           explore top deals and offers exclusively for you
         </span>
