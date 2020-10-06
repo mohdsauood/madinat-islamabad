@@ -2,8 +2,6 @@ import '../styles/globals.css';
 import styles from '../styles/_app.module.css';
 import Head from 'next/head';
 import 'swiper/swiper-bundle.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { SmallMenuButtonProvider } from '../context/smallmenu-button-context/smallmenu-button-context';
 import { NavbarMobileProvider } from '../context/navbar-mobile-context/navbar-mobile-context';
 import { CartProvider } from '../context/cart-provider-context/cart-provider-context';
