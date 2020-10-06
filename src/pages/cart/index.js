@@ -9,6 +9,7 @@ import CartItems from '../../components/cart/cart-items/CartItems';
 import TitleHeader from '../../components/title-header/TitleHeader';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import CouponModal from '../../components/cart/coupon-modal/CouponModal';
+import NumberModal from '../../components/cart/number-modal/NumberModal';
 export default function index() {
   return (
     <>
@@ -24,6 +25,7 @@ export default function index() {
         <Bill />
         <Buttons />
         <CouponModal />
+        <NumberModal />
       </div>
     </>
   );
