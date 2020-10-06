@@ -10,6 +10,8 @@ export default function CartItems() {
 
   let items = cartState.map((item) => <CartItem item={item} />);
 
+  //updated master
+
   useEffect(() => {
     if (cartState.length == 0) {
       router.push('/menu/roti');
