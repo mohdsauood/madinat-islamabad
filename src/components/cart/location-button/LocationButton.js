@@ -8,7 +8,7 @@ export default function LocationButton() {
     cartDispatch({ type: SHOW_ADDRESS_MODAL });
   };
   return (
-    <sec className={styles.sec}>
+    <section className={styles.sec}>
       <div className={styles.iconDiv}>
         <svg
           className={styles.svg}
@@ -35,6 +35,6 @@ export default function LocationButton() {
       <span onClick={handleClick} className={`${styles.changeSpan} xtPrimary`}>
         CHANGE
       </span>
-    </sec>
+    </section>
   );
 }
