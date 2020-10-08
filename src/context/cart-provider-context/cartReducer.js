@@ -6,6 +6,7 @@ import {
   REMOVE_ITEM,
   UPDATE_COUPON,
   CLEAR_COUPON,
+  UPDATE_NUMBER,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -57,6 +58,13 @@ export default function cartReducer(state, action) {
       return {
         ...state,
         bill: { ...state.bill, coupon: { ...state.bill.coupon, name: null } },
+      };
+    }
+    /* mobile cases*/
+    case UPDATE_NUMBER: {
+      return {
+        ...state,
+        user: { ...state.user, mobile: action.payload },
       };
     }
     default: {

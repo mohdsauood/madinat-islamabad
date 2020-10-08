@@ -12,3 +12,4 @@ export let SHOW_COUPON_SUCCESS_MODAL = 'show_coupon_sucess_modal';
 export let HIDE_COUPON_SUCCESS_MODAL = 'hide_coupon_sucess_modal';
 export let UPDATE_COUPON = 'update_coupon';
 export let CLEAR_COUPON = 'clear_coupon';
+export let UPDATE_NUMBER = 'update_number';

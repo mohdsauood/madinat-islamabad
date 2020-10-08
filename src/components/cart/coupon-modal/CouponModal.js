@@ -39,7 +39,7 @@ export default function CouponModal() {
             className={styles.input}
             onChange={handleInput}
             placeholder="Enter Coupon Code"
-            aria-label="Username"
+            aria-label="couponCode"
             aria-describedby="basic-addon1"
           />
         </InputGroup>
