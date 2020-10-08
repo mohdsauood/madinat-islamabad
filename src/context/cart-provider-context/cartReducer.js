@@ -8,26 +8,38 @@ import {
 export default function cartReducer(state, action) {
   switch (action.type) {
     case ADD_ITEM: {
-      return [...state, { ...action.payload, quantity: 1 }];
+      return {
+        ...state,
+        items: [...state.items, { ...action.payload, quantity: 1 }],
+      };
     }
     case REMOVE_ITEM: {
-      return state.filter((item) => item.name !== action.payload.name);
+      return {
+        ...state,
+        items: state.items.filter((item) => item.name !== action.payload.name),
+      };
     }
     case INCREASE_ITEM: {
-      return state.map((item) => {
-        if (item.name == action.payload.name) {
-          return { ...item, quantity: item.quantity + 1 };
-        }
-        return item;
-      });
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.name == action.payload.name) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        }),
+      };
     }
     case DECREASE_ITEM: {
-      return state.map((item) => {
-        if (item.name == action.payload.name) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      });
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.name == action.payload.name) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        }),
+      };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);

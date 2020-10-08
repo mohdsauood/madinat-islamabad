@@ -24,7 +24,7 @@ export default function Product({ product }) {
   };
   const handleDecrement = (e) => {
     e.stopPropagation();
-    cartState.forEach((elem) => {
+    cartState.items.forEach((elem) => {
       if (elem.name == item.name && elem.quantity == 1) {
         cartDispatch({ type: REMOVE_ITEM, payload: item });
       }
@@ -32,10 +32,10 @@ export default function Product({ product }) {
     cartDispatch({ type: DECREASE_ITEM, payload: item });
   };
   //set button content
-  cartState.length == 0 && (subButtons = 'add');
+  cartState.items.length == 0 && (subButtons = 'add');
 
-  cartState.length > 0 &&
-    cartState.forEach((elem, index) => {
+  cartState.items.length > 0 &&
+    cartState.items.forEach((elem, index) => {
       if (elem.name == item.name && elem.quantity > 0) {
         subButtons = (
           <>

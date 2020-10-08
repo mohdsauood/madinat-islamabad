@@ -18,7 +18,7 @@ export default function CartItem({ item }) {
   const handleDecrement = (e) => {
     e.stopPropagation();
     console.log('yes handle decrement works');
-    cartState.forEach((elem) => {
+    cartState.items.forEach((elem) => {
       if (elem.name == item.name && elem.quantity == 1) {
         cartDispatch({ type: REMOVE_ITEM, payload: item });
       }
@@ -26,7 +26,7 @@ export default function CartItem({ item }) {
     cartDispatch({ type: DECREASE_ITEM, payload: item });
   };
 
-  if (cartState.length == 0) {
+  if (cartState.items.length == 0) {
     //redirect to empty cart page
   }
   return (

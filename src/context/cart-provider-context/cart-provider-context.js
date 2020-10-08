@@ -4,8 +4,33 @@ import cartReducer from './cartReducer';
 const CartStateContext = React.createContext();
 const CartDispatchContext = React.createContext();
 
+const initialState = {
+  items: [],
+  user: {
+    id: null,
+    mobile: null,
+    name: null,
+    email: null,
+    address: {
+      name: null,
+      area: null,
+      street: null,
+      doorNo: null,
+      landmark: null,
+      city: null,
+    },
+  },
+  bill: {
+    coupon: null,
+    total: null,
+    deliveryFee: null,
+    discount: null,
+    toPay: null,
+  },
+};
+
 function CartProvider({ children }) {
-  const [state, dispatch] = useReducer(cartReducer, []);
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
     <CartStateContext.Provider value={state}>
