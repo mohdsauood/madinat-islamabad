@@ -21,7 +21,10 @@ const initialState = {
     },
   },
   bill: {
-    coupon: null,
+    coupon: {
+      name: null,
+      applied: false,
+    },
     total: null,
     deliveryFee: null,
     discount: null,

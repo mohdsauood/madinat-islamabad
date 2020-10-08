@@ -83,7 +83,7 @@ export default function SmallMenu({ item }) {
               ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
               : styles.smallMenuSec__ul__li
           }>
-          <Link href="menu/kebab">
+          <Link href="/menu/kebab">
             <a className={styles.smallMenuSec__ul__li__a}>
               <p>kebab</p>
               <p>3</p>

@@ -4,6 +4,8 @@ import {
   DECREASE_ITEM,
   ADD_ITEM,
   REMOVE_ITEM,
+  UPDATE_COUPON,
+  CLEAR_COUPON,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -39,6 +41,22 @@ export default function cartReducer(state, action) {
           }
           return item;
         }),
+      };
+    }
+    /*coupon cases*/
+    case UPDATE_COUPON: {
+      return {
+        ...state,
+        bill: {
+          ...state.bill,
+          coupon: { ...state.bill.coupon, name: action.payload },
+        },
+      };
+    }
+    case CLEAR_COUPON: {
+      return {
+        ...state,
+        bill: { ...state.bill, coupon: { ...state.bill.coupon, name: null } },
       };
     }
     default: {

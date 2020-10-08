@@ -5,10 +5,26 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import styles from './CouponModal.module.css';
 import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-ui-context';
-import { HIDE_COUPON_MODAL } from '../../../context/types/types';
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+import {
+  HIDE_COUPON_MODAL,
+  UPDATE_COUPON,
+  CLEAR_COUPON,
+} from '../../../context/types/types';
 export default function CouponModal() {
   const [uiState, uiDispatch] = useCartPageUi();
-  const handleClose = () => uiDispatch({ type: HIDE_COUPON_MODAL });
+  const [cartState, cartDispatch] = useCart();
+
+  const handleClose = () => {
+    uiDispatch({ type: HIDE_COUPON_MODAL });
+  };
+  const handleSubmit = () => {
+    uiDispatch({ type: HIDE_COUPON_MODAL });
+    cartDispatch({ type: CLEAR_COUPON });
+  };
+  const handleInput = (e) => {
+    cartDispatch({ type: UPDATE_COUPON, payload: e.target.value });
+  };
   return (
     <Modal centered show={uiState.showCouponModal} onHide={handleClose}>
       <Modal.Header className={styles.header} closeButton>
@@ -19,7 +35,9 @@ export default function CouponModal() {
       <Modal.Body>
         <InputGroup className="mb-3">
           <FormControl
+            value={cartState.bill.coupon.name}
             className={styles.input}
+            onChange={handleInput}
             placeholder="Enter Coupon Code"
             aria-label="Username"
             aria-describedby="basic-addon1"
@@ -30,7 +48,7 @@ export default function CouponModal() {
         <Button
           className={`${styles.btn} d-block w-100`}
           variant="primary"
-          onClick={handleClose}>
+          onClick={handleSubmit}>
           use Coupon
         </Button>
       </Modal.Footer>
