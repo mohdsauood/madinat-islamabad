@@ -9,10 +9,10 @@ export default function OrderButton() {
   };
   return (
     <section className={styles.sec}>
-      <div onClick={handleClick} className={`${styles.mobile} tM `}>
+      <div onClick={handleClick} className={`${styles.mobile} xtM `}>
         Enter Mobile No
       </div>
-      <div className={`${styles.order} tM`}>Place Order</div>
+      <div className={`${styles.order} xtM`}>Place Order</div>
     </section>
   );
 }

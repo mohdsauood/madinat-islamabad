@@ -56,16 +56,16 @@ export default function Item({ foodItem }) {
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
-        <h4 className={styles.itemSec__div__h4}>{item?.name}</h4>
+        <h4 className={`xtBold ${styles.itemSec__div__h4} `}>{item?.name}</h4>
         <p className={styles.itemSec__div__p}>{item?.description}</p>
-        <span className={styles.itemSec__div__span}>{item?.price}</span>
+        <span className={`${styles.itemSec__div__span}`}>{item?.price}</span>
       </div>
       <div
         className={styles.itemSec__btnDiv}
         style={{ backgroundImage: `url(${item?.imgUrl})` }}>
         <button
           onClick={handleClick}
-          className={`${styles.itemSec__btnDiv__btn} btn btnPrimary`}>
+          className={` xbtn xbtnPrimary ${styles.itemSec__btnDiv__btn} `}>
           {subButtons}
         </button>
       </div>
