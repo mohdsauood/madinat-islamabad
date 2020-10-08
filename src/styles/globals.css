@@ -21,6 +21,27 @@ a {
   padding: 0;
   margin: 0;
 }
+/* over riding bootstrap defaults typography*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0px;
+}
+p {
+  margin-bottom: 0px;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
 :root {
   --black-100: #3b3838;
