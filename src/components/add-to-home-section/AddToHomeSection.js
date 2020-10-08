@@ -19,7 +19,7 @@ export default function AddToHomeSection() {
         </p>
         <div className={styles.ath__tlSec__div}>madinat</div>
       </section>
-      <button className={`${styles.ath__tlSec__button} btn btnPrimary`}>
+      <button className={`${styles.ath__tlSec__button} xbtn xbtnPrimary`}>
         add now
       </button>
     </section>

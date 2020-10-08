@@ -32,15 +32,13 @@ export default function CartItem({ item }) {
   return (
     <section className={styles.itemSec}>
       <div className={styles.infoDiv}>
-        <h5 className={`${styles.itemTitle} tCapitalize tM tBlack`}>
-          {item.name}
-        </h5>
-        <p className={`${styles.itemPrice} tSm tBold tUpperCase karla`}>
+        <h5 className={` xtCapitalize xtM xtBlack`}>{item.name}</h5>
+        <p className={`${styles.itemPrice} xtSm xtBold xtUpperCase xkarla`}>
           {' '}
           {item.price}
         </p>
       </div>
-      <button className={`${styles.itemBtn} btn btnPrimary`}>
+      <button className={`${styles.itemBtn} xbtn xbtnPrimary`}>
         <span onClick={handleDecrement}>-</span>
         {item.quantity}
         <span onClick={handleIncrement}>+</span>

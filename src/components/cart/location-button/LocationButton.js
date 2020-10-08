@@ -28,11 +28,11 @@ export default function LocationButton() {
           />
         </svg>
         <div className={styles.addressDiv}>
-          <p className="tBlack tCapitalize ">deliver to home</p>
-          <p className="tGray tSm">al nad</p>
+          <p className="xtBlack xtCapitalize ">deliver to home</p>
+          <p className="xtGray xtSm">al nad</p>
         </div>
       </div>
-      <span onClick={handleClick} className={`${styles.changeSpan} tPrimary`}>
+      <span onClick={handleClick} className={`${styles.changeSpan} xtPrimary`}>
         CHANGE
       </span>
     </sec>

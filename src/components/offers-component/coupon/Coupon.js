@@ -21,8 +21,8 @@ export default function Coupon({ item }) {
       <div className={styles.div}>
         <button
           onClick={() => copyToClipBoard(item.code)}
-          className={`${styles.button} btnPrimary `}>
-          <span className={`${styles.span} tBold tBlack tXlg`}>
+          className={`${styles.button} xbtnPrimary `}>
+          <span className={`${styles.span} xtBold xtBlack tXlg`}>
             {copySuccess ? 'Copied !' : item.code}
           </span>
           <svg
@@ -34,8 +34,8 @@ export default function Coupon({ item }) {
             <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z" />
           </svg>{' '}
         </button>
-        <p className={`${styles.details} tM tCapitalize`}>{item.details}</p>
-        <p className={`${styles.min} tSm karla tCapitalize `}>
+        <p className={`${styles.details} xtM xtCapitalize`}>{item.details}</p>
+        <p className={`${styles.min} xtSm xkarla xtCapitalize `}>
           {' '}
           min items :{item.min}
         </p>
