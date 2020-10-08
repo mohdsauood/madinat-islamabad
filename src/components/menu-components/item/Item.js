@@ -58,9 +58,7 @@ export default function Item({ foodItem }) {
       <div className={styles.itemSec__div}>
         <h4 className={`xtBold ${styles.itemSec__div__h4} `}>{item?.name}</h4>
         <p className={styles.itemSec__div__p}>{item?.description}</p>
-        <span className={`xtBold ${styles.itemSec__div__span}`}>
-          {item?.price}
-        </span>
+        <span className={`${styles.itemSec__div__span}`}>{item?.price}</span>
       </div>
       <div
         className={styles.itemSec__btnDiv}

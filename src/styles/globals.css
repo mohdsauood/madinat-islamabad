@@ -4,11 +4,30 @@
 /*importing normalize */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
+:root {
+  --black-100: #3b3838;
+  --black-75: #6c6a6a;
+  --black-50: #9d9b9b;
+  --black-25: #cecdcd;
+  --primary-100: #ff3008;
+  --primary-75: #ff6446;
+  --primary-50: #ff9783;
+  --primary-25: #ffcbc1;
+  --primary-hover: #e93612;
+  --gray-hover: rgb(240, 234, 234);
+  --light-gray: rgb(251 247 247);
+  --blue-button: #3465e0;
+  --green-button: #2cb637;
+  --teal: #119f9f;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Rubik', sans-serif;
+  font-weight: normal;
+  line-height: normal;
 }
 
 a {
@@ -47,23 +66,6 @@ a {
 a:hover {
   text-decoration: none;
   color: inherit;
-}
-
-:root {
-  --black-100: #3b3838;
-  --black-75: #6c6a6a;
-  --black-50: #9d9b9b;
-  --black-25: #cecdcd;
-  --primary-100: #ff3008;
-  --primary-75: #ff6446;
-  --primary-50: #ff9783;
-  --primary-25: #ffcbc1;
-  --primary-hover: #e93612;
-  --gray-hover: rgb(240, 234, 234);
-  --light-gray: rgb(251 247 247);
-  --blue-button: #3465e0;
-  --green-button: #2cb637;
-  --teal: #119f9f;
 }
 
 /* add x infront of all global names to solve the bootstrap conflict*/
