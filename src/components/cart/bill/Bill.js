@@ -23,7 +23,7 @@ export default function Bill() {
       </div>
       <div className={`${styles.pay} xtM xtBlack`}>
         <p>To Pay</p>
-        <p className="xtUpperCase xkarla xtBold">{totalPrice}</p>
+        <p className="xtUpperCase xkarla xtBold">{totalPrice} AED</p>
       </div>
     </section>
   );
