@@ -7,7 +7,7 @@ export default function MenuButton() {
   return (
     <button
       onClick={handleShowSmallMenu}
-      className={`${styles.menuBtn} btn btnPrimary btnBlue`}>
+      className={`${styles.menuBtn} xbtn xbtnPrimary xbtnBlue`}>
       Menu
     </button>
   );

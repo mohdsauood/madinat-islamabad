@@ -12,7 +12,9 @@
   font-size: 1.1rem;
   font-family: karla;
 }
-
+.heroSection__button:hover {
+  color: white;
+}
 /* hero section*/
 .heroSection {
   margin-top: 2rem;
