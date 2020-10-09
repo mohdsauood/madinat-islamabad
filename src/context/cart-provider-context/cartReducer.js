@@ -7,6 +7,7 @@ import {
   UPDATE_COUPON,
   CLEAR_COUPON,
   UPDATE_NUMBER,
+  UPDATE_REQUEST,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -65,6 +66,12 @@ export default function cartReducer(state, action) {
       return {
         ...state,
         user: { ...state.user, mobile: action.payload },
+      };
+    }
+    case UPDATE_REQUEST: {
+      return {
+        ...state,
+        request: action.payload,
       };
     }
     default: {

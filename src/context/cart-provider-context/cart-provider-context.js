@@ -20,6 +20,7 @@ const initialState = {
       city: null,
     },
   },
+  request: null,
   bill: {
     coupon: {
       name: null,
