@@ -1,0 +1,19 @@
+.h6 {
+  color: var(--blue-button);
+}
+
+.svg {
+  width: 10%;
+  fill: var(--black-75);
+}
+
+.li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div {
+  margin-left: 1rem;
+  width: 90%;
+}
