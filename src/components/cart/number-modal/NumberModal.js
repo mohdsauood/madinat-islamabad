@@ -19,7 +19,7 @@ export default function CouponModal() {
     <Modal centered show={uiState.showNumberModal} onHide={handleClose}>
       <Modal.Header className={styles.header} closeButton>
         <Modal.Title className={styles.title}>
-          Add your Mobile Number for this order
+          Add your Mobile Number
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

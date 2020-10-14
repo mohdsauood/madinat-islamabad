@@ -27,6 +27,7 @@ export default function cartPageUiReducer(state, action) {
     case HIDE_COUPON_SUCCESS_MODAL: {
       return { ...state, showCouponSuccessModal: !state.showNumberModal };
     }
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }

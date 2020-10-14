@@ -1,0 +1,25 @@
+.liG {
+  margin: 0 1rem;
+  margin-top: 1.5rem;
+  grid-column: 1/4;
+}
+.li {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.li:hover {
+  background-color: var(--gray-hover);
+  transition: all 0.5s;
+}
+
+.span {
+  margin-left: 2rem;
+  color: var(--black-100);
+}
+
+.svg {
+  width: 1.7rem;
+}

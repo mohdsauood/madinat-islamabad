@@ -1,0 +1,10 @@
+.addBtn {
+  display: flex;
+  color: var(--primary-100);
+}
+
+.svg {
+  width: 1.4rem;
+  fill: var(--primary-100);
+  margin-right: 1rem;
+}

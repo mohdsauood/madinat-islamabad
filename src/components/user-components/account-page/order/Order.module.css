@@ -1,0 +1,53 @@
+.mainDiv {
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.priceDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.combo {
+  color: var(--black-100);
+  font-weight: bold;
+  font-family: karla;
+}
+
+.delivered {
+  color: var(--green-button);
+}
+
+.price {
+  margin-top: 0.5rem;
+  color: var(--black-100);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  width: 1.2rem;
+  fill: var(--black-75);
+}
+
+.date {
+  margin-top: 0.5rem;
+  color: var(--black-75);
+  font-weight: lighter;
+  text-transform: capitalize;
+}
+
+.buttonDiv {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 40%;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
