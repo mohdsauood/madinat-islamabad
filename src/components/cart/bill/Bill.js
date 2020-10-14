@@ -5,8 +5,8 @@ import { useCartState } from '../../../context/cart-provider-context/cart-provid
 export default function Bill() {
   const cartState = useCartState();
   let totalPrice;
-  if (cartState.length > 0) {
-    totalPrice = cartState.reduce((accum, fooditem) => {
+  if (cartState.items.length > 0) {
+    totalPrice = cartState.items.reduce((accum, fooditem) => {
       return accum + parseInt(fooditem.price) * fooditem.quantity;
     }, 0);
   }

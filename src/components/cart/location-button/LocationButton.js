@@ -5,10 +5,11 @@ import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/car
 export default function LocationButton() {
   const cartDispatch = useCartPageUiDispatch();
   const handleClick = () => {
+    console.log('i been called');
     cartDispatch({ type: SHOW_ADDRESS_MODAL });
   };
   return (
-    <sec className={styles.sec}>
+    <section onClick={handleClick} className={styles.sec}>
       <div className={styles.iconDiv}>
         <svg
           className={styles.svg}
@@ -32,9 +33,7 @@ export default function LocationButton() {
           <p className="xtGray xtSm">none</p>
         </div>
       </div>
-      <span onClick={handleClick} className={`${styles.changeSpan} xtPrimary`}>
-        CHANGE
-      </span>
-    </sec>
+      <span className={`${styles.changeSpan} xtPrimary`}>CHANGE</span>
+    </section>
   );
 }

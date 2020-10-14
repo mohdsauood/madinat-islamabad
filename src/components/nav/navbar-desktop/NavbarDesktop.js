@@ -6,8 +6,8 @@ import { useCartState } from '../../../context/cart-provider-context/cart-provid
 export default function NavbarDesktop() {
   const cartState = useCartState();
   let totalItems;
-  cartState.length > 0 &&
-    (totalItems = cartState.reduce((accum, fooditem) => {
+  cartState.items.length > 0 &&
+    (totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0));
 

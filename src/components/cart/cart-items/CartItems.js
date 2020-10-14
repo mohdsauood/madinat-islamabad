@@ -8,12 +8,12 @@ export default function CartItems() {
   const router = useRouter();
   const [cartState, cartDispatch] = useCart();
 
-  let items = cartState.map((item) => <CartItem item={item} />);
+  let items = cartState.items.map((item) => <CartItem item={item} />);
 
   //updated master
 
   useEffect(() => {
-    if (cartState.length == 0) {
+    if (cartState.items.length == 0) {
       router.push('/menu/roti');
     }
   }, [cartState]);

@@ -9,8 +9,8 @@ export default function SidenavMobile() {
   const { showMenu, handleShowMenu } = useNavbarMobile();
   const cartState = useCartState();
   let totalItems;
-  cartState.length > 0 &&
-    (totalItems = cartState.reduce((accum, fooditem) => {
+  cartState.items.length > 0 &&
+    (totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0));
   return (
@@ -76,7 +76,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href="/menu/offers">
+          <Link href="/offers">
             <a>
               <svg
                 width="24"

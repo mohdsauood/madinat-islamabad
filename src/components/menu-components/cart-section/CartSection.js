@@ -6,7 +6,7 @@ export default function CartSection() {
   const cartState = useCartState();
   let cartValues, bgImg, totalItems, totalPrice;
 
-  if (cartState.length == 0) {
+  if (cartState.items.length == 0) {
     totalItems = 0;
     cartValues = { items: [] };
     bgImg = { backgroundImage: `url('/assets/cart.JPG')` };
@@ -14,13 +14,13 @@ export default function CartSection() {
     the menu`;
   } else {
     cartValues = { items: [] };
-    cartState.forEach((element) => {
+    cartState.items.forEach((element) => {
       cartValues.items.push(element.name);
     });
-    totalItems = cartState.reduce((accum, fooditem) => {
+    totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0);
-    totalPrice = cartState.reduce((accum, fooditem) => {
+    totalPrice = cartState.items.reduce((accum, fooditem) => {
       return accum + parseInt(fooditem.price) * fooditem.quantity;
     }, 0);
     totalPrice = `Total Price: ${totalPrice} AED`;
