@@ -1,5 +1,7 @@
 .div {
   margin: 0 1rem;
+  grid-column: 1/4;
+  grid-row: 1/2;
 }
 
 .h6 {

@@ -1,6 +1,7 @@
 .liG {
   margin: 0 1rem;
   margin-top: 1.5rem;
+  grid-column: 1/4;
 }
 .li {
   padding-top: 1.2rem;

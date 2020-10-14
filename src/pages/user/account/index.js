@@ -8,9 +8,11 @@ export default function index() {
   return (
     <>
       <Header />
-      <UserDetails />
-      <Options />
-      <PastOrders />
+      <div className={styles.div}>
+        <UserDetails />
+        <Options />
+        <PastOrders />
+      </div>
     </>
   );
 }
