@@ -1,0 +1,19 @@
+.liG {
+  margin: 0 1rem;
+  margin-top: 1.5rem;
+}
+.li {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.span {
+  margin-left: 2rem;
+  color: var(--black-100);
+}
+
+.svg {
+  width: 1.7rem;
+}
