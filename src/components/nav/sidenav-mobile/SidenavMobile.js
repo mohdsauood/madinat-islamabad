@@ -76,7 +76,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
         <li className={styles.navMenu__li} onClick={handleShowMenu}>
-          <Link href="/menu/offers">
+          <Link href="/offers">
             <a>
               <svg
                 width="24"

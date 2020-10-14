@@ -1,5 +1,6 @@
 .mainDiv {
   margin-top: 2rem;
+  cursor: pointer;
 }
 
 .priceDiv {
@@ -31,6 +32,7 @@
   width: 1.2rem;
   fill: var(--black-75);
 }
+
 .date {
   margin-top: 0.5rem;
   color: var(--black-75);
