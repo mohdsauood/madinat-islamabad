@@ -4,6 +4,8 @@ import TitleHeader from '../../components/title-header/TitleHeader';
 import SignInButtons from '../../components/signin-components/signIn-buttons/SignInButtons';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
+import { providers, signIn } from 'next-auth/client';
+
 export default function index() {
   return (
     <>
@@ -147,7 +149,15 @@ export default function index() {
       <h3 className={`${styles.h3} xtCapitalize xtBold xtBlack`}>
         Choose any of the options below
       </h3>
-      <SignInButtons />
+      <SignInButtons providers={providers} />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      providers: await providers(context),
+    },
+  };
 }

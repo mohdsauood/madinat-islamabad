@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './SignInButtons.module.css';
+import PropTypes from 'prop-types';
 
 const responseGoogle = (response) => {
   console.log(response);
@@ -68,3 +69,7 @@ export default function SignInButtons() {
     </div>
   );
 }
+
+SignInButtons.propTypes = {
+  providers: PropTypes.object.isRequired,
+};
