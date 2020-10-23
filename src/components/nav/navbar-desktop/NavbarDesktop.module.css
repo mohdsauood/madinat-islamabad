@@ -26,6 +26,13 @@
   transform: none;
 }
 
+.accountLink {
+  padding-top: 0.3rem;
+  text-align: center;
+}
+.accountLink:hover {
+  background-color: var(--gray-hover);
+}
 /* desktop styles */
 @media screen and (min-width: 1200px) {
   .navbarDesktop {
