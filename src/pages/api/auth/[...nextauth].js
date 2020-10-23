@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
+const callbacks = {};
+
 const options = {
   // Configure one or more authentication providers
   providers: [
@@ -18,6 +20,7 @@ const options = {
   pages: {
     signIn: '/sign-in',
   },
+  callbacks,
   // A database is optional, but required to persist accounts in a database
   //database: process.env.DATABASE_URL,
 };
