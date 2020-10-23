@@ -3,6 +3,7 @@ import Providers from 'next-auth/providers';
 
 const callbacks = {};
 
+callbacks.signIn = async function signIn(user) {};
 const options = {
   // Configure one or more authentication providers
   providers: [
@@ -20,7 +21,14 @@ const options = {
   pages: {
     signIn: '/sign-in',
   },
+  session: {
+    jwt: true,
+  },
+  jtw: {
+    secret: process.env.JWT_SECRET,
+  },
   callbacks,
+
   // A database is optional, but required to persist accounts in a database
   //database: process.env.DATABASE_URL,
 };
