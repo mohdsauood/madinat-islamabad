@@ -19,6 +19,7 @@ const initialState = {
       landmark: null,
       city: null,
     },
+    orders: null,
   },
   request: null,
   bill: {

@@ -9,7 +9,6 @@ export default function SignInButtons({ providers }) {
   return (
     <div className={styles.div}>
       {Object.values(providers).map((provider) => {
-        console.log(provider.name);
         return provider.name == 'Google' ? (
           <div key={provider.name}>
             <GoogleButton id={provider.id} />

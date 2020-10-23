@@ -4,7 +4,6 @@ import TitleHeader from '../../components/title-header/TitleHeader';
 import SignInButtons from '../../components/signin-components/signIn-buttons/SignInButtons';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
-import test from '../../db/init';
 import { providers, signIn } from 'next-auth/client';
 
 export default function index({ providers }) {

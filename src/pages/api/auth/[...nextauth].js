@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
-
 const callbacks = {};
 
 callbacks.signIn = async function signIn(user) {};
