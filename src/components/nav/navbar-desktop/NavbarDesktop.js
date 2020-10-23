@@ -183,7 +183,7 @@ export default function NavbarDesktop() {
               id="dropdown-custom-components"></Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link href="/user/account">view account</Link>
+                <Link href="/user/account">View Account</Link>
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link href="/logout">Logout</Link>
