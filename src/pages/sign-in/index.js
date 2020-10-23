@@ -6,7 +6,7 @@ import HeroBanner from '../../components/signin-components/herobanner/HeroBanner
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import { providers, signIn } from 'next-auth/client';
 
-export default function index() {
+export default function index({ providers }) {
   return (
     <>
       <NavbarDesktop />
