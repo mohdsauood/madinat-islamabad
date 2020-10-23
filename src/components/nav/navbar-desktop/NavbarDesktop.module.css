@@ -20,6 +20,11 @@
   transition: color fill;
   transition-duration: 0.5s;
 }
+.customDivHover:hover {
+  fill: var(--black-100);
+  color: var(--black-100);
+  transform: none;
+}
 
 /* desktop styles */
 @media screen and (min-width: 1200px) {
@@ -36,7 +41,8 @@
   }
   /*navbar ul section*/
   .navbarDesktop__ulSection {
-    width: 50%;
+    width: 60%;
+    max-width: 700px;
   }
   /*navbar ul */
   .navbarDesktop__ulSection__ul {
@@ -57,5 +63,10 @@
   .navbarDesktop__ulSection__ul__li_div {
     display: flex;
     align-items: center;
+  }
+  .customDropDown {
+    background-color: transparent;
+    border: 0px;
+    color: var(--black--100);
   }
 }

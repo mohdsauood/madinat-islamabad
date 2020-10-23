@@ -1,7 +1,50 @@
 import React from 'react';
 import styles from './NavbarDesktop.module.css';
 import Link from 'next/link';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
+  return (
+    <>
+      {/* <Link href="/user/account"> */}
+
+      <li>
+        <a
+          href=""
+          ref={ref}
+          onClick={(e) => {
+            e.preventDefault();
+            onClick(e);
+          }}>
+          <div
+            className={`${styles.navbarDesktop__ulSection__ul__li_div} ${styles.customDivHover}`}>
+            <span
+              className={styles.navbarDesktop__ulSection__ul__li__div__span}>
+              <svg
+                className={
+                  styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                }
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24">
+                <path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
+              </svg>{' '}
+            </span>
+            my account
+          </div>
+        </a>
+      </li>
+
+      {/* </Link> */}
+      {children}
+    </>
+  );
+});
 
 export default function NavbarDesktop() {
   const cartState = useCartState();
@@ -105,30 +148,7 @@ export default function NavbarDesktop() {
               </li>
             </a>
           </Link>
-          <Link href="/sign-in">
-            <a>
-              <li className={styles.navbarDesktop__ulSection__ul__li}>
-                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-                  <span
-                    className={
-                      styles.navbarDesktop__ulSection__ul__li__div__span
-                    }>
-                    <svg
-                      className={
-                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                      }
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24">
-                      <path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
-                    </svg>{' '}
-                  </span>
-                  sign in
-                </div>
-              </li>
-            </a>
-          </Link>
+
           <Link href="/cart">
             <a>
               <li className={styles.navbarDesktop__ulSection__ul__li}>
@@ -157,6 +177,19 @@ export default function NavbarDesktop() {
               </li>
             </a>
           </Link>
+          <Dropdown>
+            <Dropdown.Toggle
+              as={CustomToggle}
+              id="dropdown-custom-components"></Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <Link href="/user/account">View Account</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link href="/logout">Logout</Link>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </ul>
       </section>
     </nav>
