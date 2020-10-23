@@ -4,7 +4,6 @@ import { signIn } from 'next-auth/client';
 export default function GoogleButton({ id }) {
   return (
     <button
-      key={id}
       onClick={() => signIn(id)}
       className={` ${styles.button} ${styles.googleButton}`}>
       <svg

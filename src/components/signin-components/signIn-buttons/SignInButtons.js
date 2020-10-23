@@ -11,9 +11,13 @@ export default function SignInButtons({ providers }) {
       {Object.values(providers).map((provider) => {
         console.log(provider.name);
         return provider.name == 'Google' ? (
-          <GoogleButton id={providers.id} />
+          <div key={provider.name}>
+            <GoogleButton id={provider.id} />
+          </div>
         ) : (
-          <FacebookButton id={providers.id} />
+          <div key={provider.namee}>
+            <FacebookButton id={provider.id} />
+          </div>
         );
       })}
     </div>
