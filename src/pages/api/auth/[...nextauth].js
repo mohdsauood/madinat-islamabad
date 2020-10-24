@@ -1,8 +1,25 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
+import dbConnect from '../../../utils/dbConnect';
+import User from '../../../models/User';
 const callbacks = {};
 
-callbacks.signIn = async function signIn(user) {};
+callbacks.signIn = async function signIn(user, metadata) {
+  await dbConnect();
+  const { name, email } = user;
+
+  const restoUser = new User({ name, email });
+  User.findOneAndUpdate(
+    { email },
+    restoUser,
+    { upsert: true, new: true },
+    function (err, user) {
+      if (err) return console.error(err);
+      // user.id=restoUser._id;
+      console.log(user);
+    }
+  );
+};
 const options = {
   // Configure one or more authentication providers
   providers: [
