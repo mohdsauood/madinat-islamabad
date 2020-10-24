@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-
+import OrderSchema from '../schemas/Order';
+import AddressSchema from '../schemas/Address';
 const UserSchema = new mongoose.Schema({
   mobile: {
     type: Number,
@@ -9,6 +10,12 @@ const UserSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+  },
+  orders: {
+    type: [OrderSchema],
+  },
+  address: {
+    type: [AddressSchema],
   },
 });
 
