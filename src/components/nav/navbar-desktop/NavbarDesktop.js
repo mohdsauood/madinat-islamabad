@@ -10,6 +10,7 @@ import { useCartState } from '../../../context/cart-provider-context/cart-provid
 
 export default function NavbarDesktop() {
   const [session] = useSession();
+  console.log('printing session object client side');
   console.log(session);
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
