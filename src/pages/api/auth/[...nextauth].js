@@ -7,19 +7,52 @@ const callbacks = {};
 callbacks.signIn = async function signIn(user, metadata) {
   await dbConnect();
   const { name, email } = user;
-
-  const restoUser = new User({ name, email });
-  User.findOneAndUpdate(
-    { email },
-    restoUser,
-    { upsert: true, new: true },
-    function (err, user) {
-      if (err) return console.error(err);
-      // user.id=restoUser._id;
-      console.log(user);
+  const newUser = new User({ name, email });
+  User.findOne({ email }, function (err, restoUser) {
+    if (err) {
+      console.error('Error ' + err);
     }
-  );
+    if (restoUser) {
+      user.id = restoUser._id;
+      return true;
+    } else {
+      newUser.save(function (err, restoUser) {
+        if (err) {
+          console.error('Error ' + err);
+        }
+        user.id = restoUser._id;
+        return true;
+      });
+    }
+  });
 };
+callbacks.jwt = async function jwt(token, user) {
+  if (user) {
+    token = { id: user.id };
+  }
+  return token;
+};
+
+callbacks.session = async function session(session, token) {
+  await dbConnect();
+  const dbUser = await User.findOne({ _id: token.id });
+  if (!dbUser) {
+    return null;
+  }
+  console.log(' db user below \n ');
+  console.log(dbUser);
+  session.user = {
+    id: dbUser.id,
+    name: dbUser.name,
+    email: dbUser.email,
+    address: dbUser.address,
+    orders: dbUser.orders,
+  };
+  console.log(' session object below \n ');
+  console.log(session);
+  return session;
+};
+
 const options = {
   // Configure one or more authentication providers
   providers: [

@@ -9,6 +9,8 @@ import { useSession, signIn, signOut } from 'next-auth/client';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function NavbarDesktop() {
+  const [session] = useSession();
+  console.log(session);
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
