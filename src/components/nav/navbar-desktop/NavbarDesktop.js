@@ -9,9 +9,12 @@ import { useSession, signIn, signOut } from 'next-auth/client';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 
 export default function NavbarDesktop() {
-  const [session] = useSession();
-  console.log('printing session object client side');
-  console.log(session);
+  async function test() {
+    const [session] = await useSession();
+    console.log('printing session object client side');
+    console.log(session);
+  }
+  test();
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
@@ -127,30 +130,28 @@ export default function NavbarDesktop() {
               </li>
             </a>
           </Link>
-          <Link href="/menu/offers">
-            <a>
-              <li className={styles.navbarDesktop__ulSection__ul__li}>
-                <div className={styles.navbarDesktop__ulSection__ul__li_div}>
-                  <span
+          <a href="" onClick={signOut}>
+            <li className={styles.navbarDesktop__ulSection__ul__li}>
+              <div className={styles.navbarDesktop__ulSection__ul__li_div}>
+                <span
+                  className={
+                    styles.navbarDesktop__ulSection__ul__li__div__span
+                  }>
+                  <svg
                     className={
-                      styles.navbarDesktop__ulSection__ul__li__div__span
-                    }>
-                    <svg
-                      className={
-                        styles.navbarDesktop__ulSection__ul__li__div__span__svg
-                      }
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24">
-                      <path d="M10.452 2l8.271 8.265-5.431 5.279-8.292-8.314v-5.23h5.452zm.828-2h-8.28v8.058l10.271 10.296 8.302-8.07-10.293-10.284zm-1.72 6.559c-.585.585-1.535.585-2.12 0-.586-.584-.586-1.533 0-2.118.585-.585 1.535-.585 2.12 0 .586.584.586 1.533 0 2.118zm11.01 7.407l1.43 1.409-8.688 8.625-10.312-10.317v-2.833l10.349 10.291 7.221-7.175z" />
-                    </svg>
-                  </span>
-                  offers
-                </div>
-              </li>
-            </a>
-          </Link>
+                      styles.navbarDesktop__ulSection__ul__li__div__span__svg
+                    }
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24">
+                    <path d="M10.452 2l8.271 8.265-5.431 5.279-8.292-8.314v-5.23h5.452zm.828-2h-8.28v8.058l10.271 10.296 8.302-8.07-10.293-10.284zm-1.72 6.559c-.585.585-1.535.585-2.12 0-.586-.584-.586-1.533 0-2.118.585-.585 1.535-.585 2.12 0 .586.584.586 1.533 0 2.118zm11.01 7.407l1.43 1.409-8.688 8.625-10.312-10.317v-2.833l10.349 10.291 7.221-7.175z" />
+                  </svg>
+                </span>
+                signout
+              </div>
+            </li>
+          </a>
 
           <Link href="/cart">
             <a>

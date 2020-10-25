@@ -40,7 +40,8 @@ callbacks.jwt = async function jwt(token, user) {
   }
   console.log('printing token \n');
   console.log(token);
-  return Promise.resolve(token);
+  // return Promise.resolve(token);
+  return token;
 };
 
 callbacks.session = async function session(session, token) {
@@ -60,9 +61,24 @@ callbacks.session = async function session(session, token) {
   };
   console.log(' session object below \n ');
   console.log(session);
-  return Promise.resolve(session);
+  // return Promise.resolve(session);
+  return session;
 };
 
+const events = {
+  signIn: async (message) => {
+    console.log('sign in sucessfull');
+  },
+  signOut: async (message) => {
+    console.log('sign out su sucessfull');
+  },
+  session: async (message) => {
+    console.log('session is active');
+  },
+  error: async (message) => {
+    console.log('error is active');
+  },
+};
 const options = {
   // Configure one or more authentication providers
   providers: [
@@ -83,11 +99,11 @@ const options = {
   session: {
     jwt: true,
   },
-  jtw: {
+  jwt: {
     secret: process.env.JWT_SECRET,
   },
   callbacks,
-
+  events,
   // A database is optional, but required to persist accounts in a database
   //database: process.env.DATABASE_URL,
 };
