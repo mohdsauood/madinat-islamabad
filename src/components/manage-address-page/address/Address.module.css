@@ -1,0 +1,23 @@
+.btn {
+  background-color: transparent;
+  border: 0px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: karla;
+  color: var(--primary-100);
+  padding-left: 0px;
+}
+.btn:hover {
+  background-color: transparent;
+  color: #ac1d00;
+}
+.svg {
+  width: 4rem;
+  fill: var(--black-75);
+}
+
+@media screen and (min-width: 1200px) {
+  .svg {
+    width: 6rem;
+  }
+}
