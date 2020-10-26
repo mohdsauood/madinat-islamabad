@@ -1,0 +1,20 @@
+.div {
+  margin-top: 1.5rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: block;
+  border-color: var(--green-button);
+  color: var(--green-button);
+}
+
+@media screen and (min-width: 1200px) {
+  .div {
+    display: flex;
+    margin-top: 10rem;
+  }
+}
