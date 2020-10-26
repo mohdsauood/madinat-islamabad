@@ -1,0 +1,9 @@
+.help {
+  color: var(--primary-100);
+  cursor: pointer;
+}
+
+.svg {
+  width: 1rem;
+  fill: var(--black-100);
+}
