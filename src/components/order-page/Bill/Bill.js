@@ -36,6 +36,7 @@ export default function Bill() {
           </ListGroup.Item>
         </ListGroup>
       </Container>
+      <button className={`${styles.btn} xbtn xbtnOutline `}>REORDER</button>
     </>
   );
 }
