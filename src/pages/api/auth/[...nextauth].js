@@ -8,32 +8,33 @@ callbacks.signIn = async function signIn(user, metadata) {
   await dbConnect();
   const { name, email } = user;
   const newUser = new User({ name, email });
-  User.findOne({ email }, function (err, restoUser) {
-    if (err) {
-      console.error('Error ' + err);
-      return false;
-    }
+
+  try {
+    let restoUser = await User.findOne({ email });
     if (restoUser) {
       user.id = restoUser._id;
       console.log('printing user object from signin function \n');
       console.log(user);
       return true;
     } else {
-      newUser.save(function (err, restoUser) {
-        if (err) {
-          console.error('Error ' + err);
-          return false;
-        }
-        user.id = restoUser._id;
+      try {
+        let newRestoUser = await newUser.save();
+        user.id = newRestoUser._id;
         return true;
-      });
+      } catch (error) {
+        console.error('Error ' + error);
+        return false;
+      }
     }
-  });
+  } catch (error) {
+    console.error('Error ' + error);
+    return false;
+  }
 };
 
-callbacks.jwt = async function jwt(token, user) {
+callbacks.jwt = async function jwt(token, user, account, profile, isNewUser) {
   console.log('im printing user', user);
-  if (!token.id && user && user._id) {
+  if (!token.id && user && user.id) {
     console.log('im inside jwt user if statement callback');
     token = { id: user.id };
   }
