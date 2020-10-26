@@ -14,7 +14,7 @@ export default function NavbarDesktop() {
     console.log('printing session object client side');
     console.log(session);
   }
-  // test();
+  test();
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
