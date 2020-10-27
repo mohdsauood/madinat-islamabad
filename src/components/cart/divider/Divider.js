@@ -9,5 +9,5 @@ export default function Divider({ height }) {
 }
 
 Divider.propTypes = {
-  item: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
 };
