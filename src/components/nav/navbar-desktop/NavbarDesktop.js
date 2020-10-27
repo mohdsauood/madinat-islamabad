@@ -1,20 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './NavbarDesktop.module.css';
 import Link from 'next/link';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
-import { useSession, signIn, signOut } from 'next-auth/client';
-import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
-
+import { useSession, signOut } from 'next-auth/client';
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+import getUserType from '../../../utils/getUserType';
 export default function NavbarDesktop() {
-  async function test() {
-    const [session] = await useSession();
-    console.log('printing session object client side');
-    console.log(session);
-  }
-  test();
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
@@ -53,13 +44,26 @@ export default function NavbarDesktop() {
       </>
     );
   });
-  const cartState = useCartState();
+  const [session] = useSession();
+  const [cartState, cartDispatch] = useCart();
   let totalItems;
   cartState.items.length > 0 &&
     (totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0));
 
+  useEffect(() => {
+    async function fetchUser() {
+      if (session && session.user) {
+        const userProperties = Object.keys(session.user);
+        userProperties.forEach((property) => {
+          const type = getUserType(property);
+          cartDispatch({ type, payload: session.user[property] });
+        });
+      }
+    }
+    fetchUser();
+  }, [cartState.user.name]);
   return (
     <nav className={styles.navbarDesktop}>
       <section className={styles.navbarDesktop__logoSection}>

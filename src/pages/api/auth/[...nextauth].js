@@ -13,8 +13,6 @@ callbacks.signIn = async function signIn(user, metadata) {
     let restoUser = await User.findOne({ email });
     if (restoUser) {
       user.id = restoUser._id;
-      console.log('printing user object from signin function \n');
-      console.log(user);
       return true;
     } else {
       try {
@@ -33,28 +31,19 @@ callbacks.signIn = async function signIn(user, metadata) {
 };
 
 callbacks.jwt = async function jwt(token, user, account, profile, isNewUser) {
-  console.log('im printing user', user);
   if (!token.id && user && user.id) {
-    console.log('im inside jwt user if statement callback');
     token = { id: user.id };
   }
-  console.log('printing token \n');
-  console.log(token);
   return Promise.resolve(token);
   // return token;
 };
 
 callbacks.session = async function session(session, token) {
   await dbConnect();
-  console.log('im inside session callback \n');
-  console.log(session);
-  console.log(token);
   const dbUser = await User.findOne({ _id: token.id });
   if (!dbUser) {
     return null;
   }
-  console.log(' db user below \n ');
-  console.log(dbUser);
   session.user = {
     id: dbUser.id,
     name: dbUser.name,
@@ -62,8 +51,6 @@ callbacks.session = async function session(session, token) {
     address: dbUser.address,
     orders: dbUser.orders,
   };
-  console.log(' session object below \n ');
-  console.log(session);
   return Promise.resolve(session);
   // return session;
 };

@@ -8,6 +8,12 @@ import {
   CLEAR_COUPON,
   UPDATE_NUMBER,
   UPDATE_REQUEST,
+  UPDATE_USER_ID,
+  UPDATE_USER_NAME,
+  UPDATE_USER_EMAIL,
+  UPDATE_USER_MOBILE,
+  UPDATE_USER_ADDRESS,
+  UPDATE_USER_ORDERS,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -72,6 +78,61 @@ export default function cartReducer(state, action) {
       return {
         ...state,
         request: action.payload,
+      };
+    }
+    /* user cases*/
+    case UPDATE_USER_ID: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          id: action.payload,
+        },
+      };
+    }
+    case UPDATE_USER_NAME: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          name: action.payload,
+        },
+      };
+    }
+    case UPDATE_USER_EMAIL: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          email: action.payload,
+        },
+      };
+    }
+    case UPDATE_USER_MOBILE: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          mobile: action.payload,
+        },
+      };
+    }
+    case UPDATE_USER_ADDRESS: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: action.payload,
+        },
+      };
+    }
+    case UPDATE_USER_ORDERS: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          orders: action.payload,
+        },
       };
     }
     default: {
