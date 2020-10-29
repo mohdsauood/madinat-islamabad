@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useSession, signOut } from 'next-auth/client';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
-import getUserType from '../../../utils/getUserType';
 export default function NavbarDesktop() {
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
@@ -44,7 +43,6 @@ export default function NavbarDesktop() {
       </>
     );
   });
-  const [session] = useSession();
   const [cartState, cartDispatch] = useCart();
   let totalItems;
   cartState.items.length > 0 &&
@@ -52,18 +50,6 @@ export default function NavbarDesktop() {
       return accum + fooditem.quantity;
     }, 0));
 
-  useEffect(() => {
-    async function fetchUser() {
-      if (session && session.user) {
-        const userProperties = Object.keys(session.user);
-        userProperties.forEach((property) => {
-          const type = getUserType(property);
-          cartDispatch({ type, payload: session.user[property] });
-        });
-      }
-    }
-    fetchUser();
-  }, [cartState.user.name]);
   return (
     <nav className={styles.navbarDesktop}>
       <section className={styles.navbarDesktop__logoSection}>

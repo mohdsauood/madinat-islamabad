@@ -12,6 +12,7 @@ import { useCart } from '../../../context/cart-provider-context/cart-provider-co
 export default function Item({ foodItem }) {
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
+  console.log(cartState);
   let subButtons = 'add';
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
