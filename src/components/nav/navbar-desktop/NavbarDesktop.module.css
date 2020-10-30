@@ -12,6 +12,10 @@
 
 /* hover effects */
 
+/* custom drop down hover effects*/
+.accountLink {
+  cursor: pointer;
+}
 .navbarDesktop__ulSection__ul__li_div:hover {
   fill: var(--primary-100);
   color: var(--primary-100);
