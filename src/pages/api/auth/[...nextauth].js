@@ -13,11 +13,13 @@ callbacks.signIn = async function signIn(user, metadata) {
     let restoUser = await User.findOne({ email });
     if (restoUser) {
       user.id = restoUser._id;
+      console.log(restoUser);
       return true;
     } else {
       try {
         let newRestoUser = await newUser.save();
         user.id = newRestoUser._id;
+        console.log(newRestoUser);
         return true;
       } catch (error) {
         console.error('Error ' + error);

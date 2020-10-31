@@ -4,6 +4,7 @@ import {
   UPDATE_USER_EMAIL,
   UPDATE_USER_ORDERS,
   UPDATE_USER_ADDRESS,
+  UPDATE_USER_MOBILE,
 } from '../context/types/types';
 export default function getUserType(property) {
   switch (property) {
@@ -15,8 +16,8 @@ export default function getUserType(property) {
       return UPDATE_USER_EMAIL;
     case 'orders':
       return UPDATE_USER_ORDERS;
-    case 'address':
-      return UPDATE_USER_ADDRESS;
+    case 'mobile':
+      return UPDATE_USER_MOBILE;
     case 'address':
       return UPDATE_USER_ADDRESS;
     default:
