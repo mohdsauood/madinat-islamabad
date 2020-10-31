@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.module.css';
 import Buttons from '../../components/cart/buttons/Buttons';
 import Bill from '../../components/cart/bill/Bill';
@@ -11,8 +11,27 @@ import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
+import getUserType from '../../utils/getUserType';
+
+import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
+import { useSession } from 'next-auth/client';
 
 export default function index() {
+  const [session] = useSession();
+  const cartDispatch = useCartDispatch();
+  useEffect(() => {
+    async function fetchUser() {
+      if (session && session.user) {
+        const userProperties = Object.keys(session.user);
+        userProperties.forEach((property) => {
+          const type = getUserType(property);
+          cartDispatch({ type, payload: session.user[property] });
+        });
+      }
+    }
+    fetchUser();
+  }, [session]);
+
   return (
     <>
       <NavbarDesktop />
