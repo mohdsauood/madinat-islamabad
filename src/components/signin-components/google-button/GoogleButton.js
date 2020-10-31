@@ -4,7 +4,9 @@ import { signIn } from 'next-auth/client';
 export default function GoogleButton({ id }) {
   return (
     <button
-      onClick={() => signIn(id)}
+      onClick={() =>
+        signIn(id, { callbackUrl: 'http://localhost:3000/menu/roti' })
+      }
       className={` ${styles.button} ${styles.googleButton}`}>
       <svg
         className={`${styles.button__svg} ${styles.googleSvg}`}
