@@ -9,12 +9,16 @@ export default function OrderButton() {
   const handleClick = () => {
     cartDispatch({ type: SHOW_NUMBER_MODAL });
   };
+
+  const handlePlaceOrder = () => {};
   return (
     <section className={styles.sec}>
       <div onClick={handleClick} className={`${styles.mobile} xtM `}>
         {cartState.user.mobile ? 'Change Mobile No' : 'Enter Mobile No'}
       </div>
-      <div className={`${styles.order} xtM`}>Place Order</div>
+      <div onClick={handlePlaceOrder} className={`${styles.order} xtM`}>
+        Place Order
+      </div>
     </section>
   );
 }

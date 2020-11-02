@@ -4,14 +4,9 @@ import ItemSchema from './Item';
 import AddressSchema from './Address';
 import BillSchema from './Bill';
 const OrderSchema = new mongoose.Schema({
-  _id: {
-    type: Number,
-  },
-  date: {
+  orderedAt: {
     type: Date,
-  },
-  time: {
-    type: String,
+    default: Date.now,
   },
   items: {
     type: [ItemSchema],

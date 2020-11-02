@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   await dbConnect();
 
   switch (req.method) {
-    case 'PUT':
+    case 'POST':
       const { id, mobile } = req.body;
       try {
         let result = await User.findByIdAndUpdate(
