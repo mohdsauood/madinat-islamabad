@@ -4,18 +4,29 @@ export default async function handler(req, res) {
   await dbConnect();
 
   switch (req.method) {
-    case 'PUT':
-      const { id, mobile } = req.body;
+    case 'GET':
       try {
-        // let result = User.findByIdAndUpdate(id, mobile, { new: true });
-        // res.status(400).json({ data: result });
-        res.status(400).json({ mobile });
+        res.status(200).json({ data: 'its alright dun worry' });
       } catch (error) {
         res.status(400).json({ data: `put method error : ${error}` });
       }
       break;
     default:
       res.status(400).json({ data: 'unknown request method' });
+      break;
+
+    case 'PUT':
+      const { id, mobile } = req.body;
+      try {
+        let result = await User.findByIdAndUpdate(
+          id,
+          { mobile },
+          { new: true, upsert: true }
+        );
+        res.status(200).json({ data: result });
+      } catch (error) {
+        res.status(400).json({ data: `put method error : ${error}` });
+      }
       break;
   }
 }

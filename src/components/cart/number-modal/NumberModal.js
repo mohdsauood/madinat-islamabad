@@ -17,15 +17,15 @@ export default function NumberModal() {
   const handleClose = () => {
     uiDispatch({ type: HIDE_NUMBER_MODAL });
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     uiDispatch({ type: HIDE_NUMBER_MODAL });
+    const data = {};
+    data.mobile = cartState.user.mobile;
+    data.id = cartState.user.id;
     axios
-      .put('/api/user/update-mobile', {
-        mobile: cartState.user.mobile,
-        id: cartState.user.id,
-      })
+      .put('/api/user/update-mobile', data)
       .then(function (response) {
-        console.log(response);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
