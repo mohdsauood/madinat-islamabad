@@ -6,11 +6,12 @@ export default async function handler(req, res) {
     case 'POST':
       const { data } = req.body;
       const { items, id, bill } = data;
+
       try {
         let result = await User.findByIdAndUpdate(
           id,
-          { mobile },
-          { new: true, upsert: true }
+          { $push: { orders: { items, bill } } },
+          { new: true }
         );
         res.status(200).json({ data: result });
       } catch (error) {

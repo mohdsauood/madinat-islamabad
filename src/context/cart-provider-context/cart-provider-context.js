@@ -16,14 +16,11 @@ const initialState = {
   },
   bill: {
     request: null,
-    coupon: {
-      name: null,
-      applied: false,
-    },
     total: null,
     deliveryFee: null,
     discount: null,
     toPay: null,
+    coupon: null,
   },
 };
 
