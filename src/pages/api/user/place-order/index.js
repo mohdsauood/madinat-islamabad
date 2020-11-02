@@ -2,10 +2,10 @@ import dbConnect from '../../../../utils/dbConnect';
 import User from '../../../../models/User';
 export default async function handler(req, res) {
   await dbConnect();
-
   switch (req.method) {
     case 'POST':
-      const { id, mobile } = req.body;
+      const { data } = req.body;
+      const { items, id, bill } = data;
       try {
         let result = await User.findByIdAndUpdate(
           id,

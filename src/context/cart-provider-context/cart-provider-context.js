@@ -11,14 +11,7 @@ const initialState = {
     mobile: null,
     name: null,
     email: null,
-    address: {
-      name: null,
-      area: null,
-      street: null,
-      doorNo: null,
-      landmark: null,
-      city: null,
-    },
+    address: [],
     orders: null,
   },
   bill: {

@@ -3,6 +3,7 @@ import { SHOW_NUMBER_MODAL } from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+import axios from axios;
 export default function OrderButton() {
   const cartDispatch = useCartPageUiDispatch();
   const cartState = useCartState();
@@ -10,7 +11,27 @@ export default function OrderButton() {
     cartDispatch({ type: SHOW_NUMBER_MODAL });
   };
 
-  const handlePlaceOrder = () => {};
+  const handlePlaceOrder = async () => {
+    const {items,user,bill}=cartState;
+    const data={};
+    user.address.forEach(element => {
+      if(element.default)
+      {
+        data.address=element;
+      }
+    });
+    data.id=user.id;
+    data.items=items;
+    data.bill=bill;
+    axios
+    .post('/api/user/place-order', data)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
   return (
     <section className={styles.sec}>
       <div onClick={handleClick} className={`${styles.mobile} xtM `}>

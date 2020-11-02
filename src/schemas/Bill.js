@@ -4,7 +4,7 @@ const BillSchema = new mongoose.Schema({
   request: {
     type: String,
   },
-  itemTotal: {
+  total: {
     type: Number,
   },
   deliveryFee: {
