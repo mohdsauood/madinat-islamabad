@@ -35,7 +35,7 @@ export default function CouponModal() {
       <Modal.Body>
         <InputGroup className="mb-3">
           <FormControl
-            value={cartState.bill.coupon.name}
+            value={cartState.bill.coupon}
             className={styles.input}
             onChange={handleInput}
             placeholder="Enter Coupon Code"

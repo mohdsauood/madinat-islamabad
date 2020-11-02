@@ -6,17 +6,17 @@ export default async function handler(req, res) {
     case 'POST':
       const { data } = req.body;
       const { items, id, bill } = data;
-
-      try {
-        let result = await User.findByIdAndUpdate(
-          id,
-          { $push: { orders: { items, bill } } },
-          { new: true }
-        );
-        res.status(200).json({ data: result });
-      } catch (error) {
-        res.status(400).json({ data: `put method error : ${error}` });
-      }
+      res.status(200).json({ data });
+      // try {
+      //   let result = await User.findByIdAndUpdate(
+      //     id,
+      //     { $push: { orders: { items, bill } } },
+      //     { new: true }
+      //   );
+      //   res.status(200).json({ data: result });
+      // } catch (error) {
+      //   res.status(400).json({ data: `put method error : ${error}` });
+      // }
       break;
   }
 }
