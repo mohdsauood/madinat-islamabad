@@ -1,0 +1,40 @@
+.button {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  padding: 0.8rem;
+  justify-content: flex-start;
+  max-width: 300px;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}
+.button__svg {
+  width: 1.5rem;
+}
+
+.fbButton {
+  border: 0px;
+  box-shadow: 1px 2px 4px var(--black-50);
+  background-color: var(--blue-button);
+  color: white;
+}
+
+.button__span {
+  margin-left: 1.5rem;
+}
+
+.fbSvg {
+  fill: white;
+}
+
+.fbButton:hover {
+  background-color: #1841aa;
+}
+@media screen and (min-width: 1200px) {
+  .button {
+    max-width: 350px;
+    width: 30%;
+  }
+}

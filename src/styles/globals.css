@@ -189,3 +189,7 @@ a:hover {
 .xkarla {
   font-family: karla;
 }
+
+li {
+  list-style-type: none;
+}

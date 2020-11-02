@@ -12,6 +12,10 @@
 
 /* hover effects */
 
+/* custom drop down hover effects*/
+.accountLink {
+  cursor: pointer;
+}
 .navbarDesktop__ulSection__ul__li_div:hover {
   fill: var(--primary-100);
   color: var(--primary-100);
@@ -20,7 +24,19 @@
   transition: color fill;
   transition-duration: 0.5s;
 }
+.customDivHover:hover {
+  fill: var(--black-100);
+  color: var(--black-100);
+  transform: none;
+}
 
+.accountLink {
+  padding-top: 0.3rem;
+  text-align: center;
+}
+.accountLink:hover {
+  background-color: var(--gray-hover);
+}
 /* desktop styles */
 @media screen and (min-width: 1200px) {
   .navbarDesktop {
@@ -36,7 +52,8 @@
   }
   /*navbar ul section*/
   .navbarDesktop__ulSection {
-    width: 50%;
+    width: 60%;
+    max-width: 700px;
   }
   /*navbar ul */
   .navbarDesktop__ulSection__ul {
@@ -57,5 +74,10 @@
   .navbarDesktop__ulSection__ul__li_div {
     display: flex;
     align-items: center;
+  }
+  .customDropDown {
+    background-color: transparent;
+    border: 0px;
+    color: var(--black--100);
   }
 }

@@ -7,26 +7,29 @@ import { SmallMenuButtonProvider } from '../context/smallmenu-button-context/sma
 import { NavbarMobileProvider } from '../context/navbar-mobile-context/navbar-mobile-context';
 import { CartProvider } from '../context/cart-provider-context/cart-provider-context';
 import { CartPageUiProvider } from '../context/cart-page-ui-context/cart-page-ui-context';
+import { Provider } from 'next-auth/client';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <CartPageUiProvider>
-        <CartProvider>
-          <SmallMenuButtonProvider>
-            <NavbarMobileProvider>
-              <Head>
-                <script
-                  src="https://kit.fontawesome.com/7cf0ce6bd0.js"
-                  crossOrigin="anonymous"></script>
-              </Head>
-              <div className={styles.wrapper}>
-                <Component {...pageProps} />
-              </div>
-            </NavbarMobileProvider>
-          </SmallMenuButtonProvider>
-        </CartProvider>
-      </CartPageUiProvider>
+      <Provider session={pageProps.session}>
+        <CartPageUiProvider>
+          <CartProvider>
+            <SmallMenuButtonProvider>
+              <NavbarMobileProvider>
+                <Head>
+                  <script
+                    src="https://kit.fontawesome.com/7cf0ce6bd0.js"
+                    crossOrigin="anonymous"></script>
+                </Head>
+                <div className={styles.wrapper}>
+                  <Component {...pageProps} />
+                </div>
+              </NavbarMobileProvider>
+            </SmallMenuButtonProvider>
+          </CartProvider>
+        </CartPageUiProvider>
+      </Provider>
     </>
   );
 }

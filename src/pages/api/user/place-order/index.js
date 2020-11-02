@@ -1,16 +1,16 @@
-import dbConnect from '../../utils/dbConnect';
-import User from '../../models/User';
-
+import dbConnect from '../../../../utils/dbConnect';
+import User from '../../../../models/User';
 export default async function handler(req, res) {
   await dbConnect();
+
   switch (req.method) {
-    case 'GET':
+    case 'POST':
       const { id, mobile } = req.body;
       try {
         let result = await User.findByIdAndUpdate(
           id,
           { mobile },
-          { new: true }
+          { new: true, upsert: true }
         );
         res.status(200).json({ data: result });
       } catch (error) {

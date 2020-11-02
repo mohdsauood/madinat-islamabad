@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.module.css';
 import TitleHeader from '../../components/title-header/TitleHeader';
 import SignInButtons from '../../components/signin-components/signIn-buttons/SignInButtons';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
-export default function index() {
+import getUserType from '../../utils/getUserType';
+import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
+import { providers, useSession, signIn } from 'next-auth/client';
+
+export default function index({ providers }) {
+  const [session] = useSession();
+  const cartDispatch = useCartDispatch();
+  useEffect(() => {
+    async function fetchUser() {
+      if (session && session.user) {
+        const userProperties = Object.keys(session.user);
+        userProperties.forEach((property) => {
+          const type = getUserType(property);
+          cartDispatch({ type, payload: session.user[property] });
+        });
+      }
+    }
+    fetchUser();
+  }, [session]);
   return (
     <>
       <NavbarDesktop />
@@ -145,9 +163,17 @@ export default function index() {
         </defs>
       </svg>
       <h3 className={`${styles.h3} xtCapitalize xtBold xtBlack`}>
-        Sign in with any of the options below
+        Choose any of the options below
       </h3>
-      <SignInButtons />
+      <SignInButtons providers={providers} />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      providers: await providers(context),
+    },
+  };
 }
