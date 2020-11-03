@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     case 'POST':
       const { id, bill, items } = req.body;
 
-      // res.status(200).json({ id, bill, items });
+      // res.status(200).json({ items });
       try {
         let result = await User.findByIdAndUpdate(
           id,

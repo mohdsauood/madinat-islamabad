@@ -12,6 +12,10 @@ export default function OrderButton() {
   };
 
   const handlePlaceOrder = async () => {
+    if (!cartState.user.mobile) {
+      cartDispatch({ type: SHOW_NUMBER_MODAL });
+      return;
+    }
     const { items, user, bill } = cartState;
     const data = {};
     user.address.forEach((element) => {
@@ -21,11 +25,14 @@ export default function OrderButton() {
     });
     data.id = user.id;
     data.items = items.map((item) => {
-      item.name, item.price, item.quantity;
+      let obj = {};
+      obj.name = item.name;
+      obj.price = item.price;
+      obj.quantity = item.quantity;
+      return obj;
     });
     data.bill = bill;
-    console.log('printing from client side \n');
-    console.log(data);
+    console.log(data.items);
     axios
       .post('/api/user/place-order', data)
       .then(function (response) {

@@ -147,7 +147,9 @@ export default function cartReducer(state, action) {
         ...state,
         bill: {
           ...state.bill,
-          total: action.payload,
+          total: state.items.reduce((accum, fooditem) => {
+            return accum + parseInt(fooditem.price) * fooditem.quantity;
+          }, 0),
         },
       };
     }
@@ -173,15 +175,17 @@ export default function cartReducer(state, action) {
 
     /* update to pay */
     case UPDATE_TO_PAY: {
+      console.log('im inside update to pay');
       return {
         ...state,
         bill: {
           ...state.bill,
-          toPay: action.payload,
+          toPay: state.items.reduce((accum, fooditem) => {
+            return accum + parseInt(fooditem.price) * fooditem.quantity;
+          }, 0),
         },
       };
     }
-
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }

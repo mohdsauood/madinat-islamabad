@@ -6,6 +6,8 @@ import {
   REMOVE_ITEM,
   INCREASE_ITEM,
   DECREASE_ITEM,
+  UPDATE_CART_TOTAL,
+  UPDATE_TO_PAY,
 } from '../../../context/types/types';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
@@ -16,11 +18,15 @@ export default function Item({ foodItem }) {
   let subButtons = 'add';
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
+    cartDispatch({ type: UPDATE_CART_TOTAL });
+    cartDispatch({ type: UPDATE_TO_PAY });
   };
 
   const handleIncrement = (e) => {
     e.stopPropagation();
     cartDispatch({ type: INCREASE_ITEM, payload: item });
+    cartDispatch({ type: UPDATE_CART_TOTAL });
+    cartDispatch({ type: UPDATE_TO_PAY });
   };
 
   const handleDecrement = (e) => {
@@ -59,7 +65,9 @@ export default function Item({ foodItem }) {
       <div className={styles.itemSec__div}>
         <h4 className={`xtBold ${styles.itemSec__div__h4} `}>{item?.name}</h4>
         <p className={styles.itemSec__div__p}>{item?.description}</p>
-        <span className={`${styles.itemSec__div__span}`}>{item?.price}</span>
+        <span className={`${styles.itemSec__div__span}`}>
+          {item?.price} AED
+        </span>
       </div>
       <div
         className={styles.itemSec__btnDiv}

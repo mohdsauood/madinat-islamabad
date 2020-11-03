@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const dummyData = {
   description:
     'Chapati is an Indian flat bread prepared with simple whole wheat flour, salt, and water.',
-  price: '4 AED',
+  price: '4',
   imgUrl: '/assets/paratha.jpg',
 };
 export default function Items({ item }) {

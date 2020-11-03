@@ -5,6 +5,8 @@ import {
   REMOVE_ITEM,
   INCREASE_ITEM,
   DECREASE_ITEM,
+  UPDATE_CART_TOTAL,
+  UPDATE_TO_PAY,
 } from '../../../context/types/types';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 
@@ -13,6 +15,8 @@ export default function CartItem({ item }) {
   const handleIncrement = (e) => {
     e.stopPropagation();
     cartDispatch({ type: INCREASE_ITEM, payload: item });
+    cartDispatch({ type: UPDATE_CART_TOTAL });
+    cartDispatch({ type: UPDATE_TO_PAY });
   };
 
   const handleDecrement = (e) => {
@@ -24,6 +28,8 @@ export default function CartItem({ item }) {
       }
     });
     cartDispatch({ type: DECREASE_ITEM, payload: item });
+    cartDispatch({ type: UPDATE_CART_TOTAL });
+    cartDispatch({ type: UPDATE_TO_PAY });
   };
 
   if (cartState.items.length == 0) {
@@ -34,8 +40,7 @@ export default function CartItem({ item }) {
       <div className={styles.infoDiv}>
         <h5 className={` xtCapitalize xtM xtBlack`}>{item.name}</h5>
         <p className={`${styles.itemPrice} xtSm xtBold xtUpperCase xkarla`}>
-          {' '}
-          {item.price}
+          {item.price} AED
         </p>
       </div>
       <button className={`${styles.itemBtn} xbtn xbtnPrimary`}>
