@@ -24,6 +24,8 @@ export default function OrderButton() {
       item.name, item.price, item.quantity;
     });
     data.bill = bill;
+    console.log('printing from client side \n');
+    console.log(data);
     axios
       .post('/api/user/place-order', data)
       .then(function (response) {

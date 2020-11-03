@@ -14,6 +14,10 @@ import {
   UPDATE_USER_MOBILE,
   UPDATE_USER_ADDRESS,
   UPDATE_USER_ORDERS,
+  UPDATE_CART_TOTAL,
+  UPDATE_DELIVERY_FEE,
+  UPDATE_TO_PAY,
+  UPDATE_DISCOUNT,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -74,12 +78,7 @@ export default function cartReducer(state, action) {
         user: { ...state.user, mobile: action.payload },
       };
     }
-    case UPDATE_REQUEST: {
-      return {
-        ...state,
-        request: action.payload,
-      };
-    }
+
     /* user cases*/
     case UPDATE_USER_ID: {
       return {
@@ -135,6 +134,54 @@ export default function cartReducer(state, action) {
         },
       };
     }
+    /* update cart request*/
+    case UPDATE_REQUEST: {
+      return {
+        ...state,
+        bill: { ...state.bill, request: action.payload },
+      };
+    }
+    /* update cart total*/
+    case UPDATE_CART_TOTAL: {
+      return {
+        ...state,
+        bill: {
+          ...state.bill,
+          total: action.payload,
+        },
+      };
+    }
+    /*update delivery fee*/
+    case UPDATE_DELIVERY_FEE: {
+      return {
+        ...state,
+        bill: {
+          ...state.bill,
+          deliveryFee: action.payload,
+        },
+      };
+    }
+    case UPDATE_DISCOUNT: {
+      return {
+        ...state,
+        bill: {
+          ...state.bill,
+          discount: action.payload,
+        },
+      };
+    }
+
+    /* update to pay */
+    case UPDATE_TO_PAY: {
+      return {
+        ...state,
+        bill: {
+          ...state.bill,
+          toPay: action.payload,
+        },
+      };
+    }
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
