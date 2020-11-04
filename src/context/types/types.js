@@ -24,3 +24,4 @@ export let UPDATE_DELIVERY_FEE = 'update_delivery_fee';
 export let UPDATE_TO_PAY = 'update_to_pay';
 export let UPDATE_DISCOUNT = 'update_discount';
 export let UPDATE_CART_TOTAL = 'update_cart_total';
+export let CLEAR_ITEMS = 'clear_items';

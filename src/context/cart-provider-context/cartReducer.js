@@ -18,6 +18,7 @@ import {
   UPDATE_DELIVERY_FEE,
   UPDATE_TO_PAY,
   UPDATE_DISCOUNT,
+  CLEAR_ITEMS,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -53,6 +54,12 @@ export default function cartReducer(state, action) {
           }
           return item;
         }),
+      };
+    }
+    case CLEAR_ITEMS: {
+      return {
+        ...state,
+        items: [],
       };
     }
     /*coupon cases*/
