@@ -21,8 +21,10 @@ export default function Title() {
           ORDER {order && order._id}
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted d-flex justify-content-between">
-          Items : {order && order.items.length} | {order && order.bill.toPay}{' '}
-          AED
+          {order && order.items.length && order.items.length > 1
+            ? `${order.items.length} items`
+            : `${order.items.length} item`}{' '}
+          | {order && order.bill.toPay} AED
           <span className={styles.help}>HELP</span>
         </Card.Subtitle>
       </Card.Body>

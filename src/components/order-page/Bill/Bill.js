@@ -35,7 +35,8 @@ export default function Bill() {
             Item Total <span>{order && order.bill.total} AED</span>
           </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between  px-2  xtBlack">
-            Delivery Fee <span>1 AED</span>
+            Delivery Fee{' '}
+            <span>{(order && order.bill.deliveryFee) || 0} AED</span>
           </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between  px-2  xtBlack">
             To Pay{' '}
