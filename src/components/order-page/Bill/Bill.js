@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
-export default function Bill() {
+export default function Bill({ specificOrder }) {
   const cartState = useCartState();
   const { user } = cartState;
   const order = user.orders && user.orders[user.orders.length - 1];
@@ -19,29 +19,52 @@ export default function Bill() {
       </Card>
       <Container className="xkarla font-italic xtBlack">
         <ListGroup variant="flush">
-          {order &&
-            order.items.map((item) => {
-              return (
-                <ListGroup.Item className="d-flex justify-content-between border-0 px-2 py-1 xtBlack">
-                  {item.name} X {item.quantity} <span>{item.price} AED</span>
-                </ListGroup.Item>
-              );
-            })}
+          {specificOrder
+            ? specificOrder &&
+              specificOrder.items.map((item) => {
+                return (
+                  <ListGroup.Item className="d-flex justify-content-between border-0 px-2 py-1 xtBlack">
+                    {item.name} X {item.quantity} <span>{item.price} AED</span>
+                  </ListGroup.Item>
+                );
+              })
+            : order &&
+              order.items.map((item) => {
+                return (
+                  <ListGroup.Item className="d-flex justify-content-between border-0 px-2 py-1 xtBlack">
+                    {item.name} X {item.quantity} <span>{item.price} AED</span>
+                  </ListGroup.Item>
+                );
+              })}
         </ListGroup>
       </Container>
       <Container className="mt-3">
         <ListGroup variant="flush">
           <ListGroup.Item className="d-flex justify-content-between  px-2  xtBlack">
-            Item Total <span>{order && order.bill.total} AED</span>
+            Item Total{' '}
+            <span>
+              {specificOrder
+                ? specificOrder && specificOrder.bill.total
+                : order && order.bill.total}{' '}
+              AED
+            </span>
           </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between  px-2  xtBlack">
             Delivery Fee{' '}
-            <span>{(order && order.bill.deliveryFee) || 0} AED</span>
+            <span>
+              {(specificOrder
+                ? specificOrder && specificOrder.bill.deliveryFee
+                : order && order.bill.deliveryFee) || 0}{' '}
+              AED
+            </span>
           </ListGroup.Item>
           <ListGroup.Item className="d-flex justify-content-between  px-2  xtBlack">
             To Pay{' '}
             <span className="font-weight-bold">
-              {order && order.bill.toPay} AED
+              {specificOrder
+                ? specificOrder && specificOrder.bill.toPay
+                : order && order.bill.toPay}{' '}
+              AED
             </span>
           </ListGroup.Item>
         </ListGroup>

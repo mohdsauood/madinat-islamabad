@@ -20,7 +20,8 @@ export default function pastOrders() {
           const timeZone = 'Asia/Dubai';
           const unhandledDate = order && order.orderedAt;
           const date = moment.tz(unhandledDate, timeZone).format(format);
-          return <Order item={{ name, price, date }} />;
+          const id = order._id;
+          return <Order item={{ name, price, date, id }} />;
         })}
     </div>
   );

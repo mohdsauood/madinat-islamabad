@@ -1,5 +1,5 @@
 import React from 'react';
-import { SHOW_NUMBER_MODAL } from '../../../context/types/types';
+import { SHOW_NUMBER_MODAL, CLEAR_ITEMS } from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
