@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.3.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.3",
     "connect-mongo": "^3.2.0",
