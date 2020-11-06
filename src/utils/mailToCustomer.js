@@ -14,9 +14,16 @@ export default async function mailToRestaurantv2(data) {
   const msg = {
     to: email,
     from: 'orders@madinatislamabad.com',
-
-    template_id: ' d-851549337da54fbfa2e800f88170e7f9',
-    dynamic_template_data: dynamicData,
+    templateId: 'd-851549337da54fbfa2e800f88170e7f9',
+    dynamicTemplateData: {
+      name: name,
+      orderNo: order._id,
+      items: order.items,
+      total: order.bill.total,
+      deliveryFee: order.bill.deliveryFee,
+      toPay: order.bill.toPay,
+      address: order.address,
+    },
   };
   sgMail
     .send(msg)
