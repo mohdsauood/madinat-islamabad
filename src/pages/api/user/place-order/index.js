@@ -1,5 +1,6 @@
 import dbConnect from '../../../../utils/dbConnect';
 import mailToRestaurantv2 from '../../../../utils/mailToRestaurantv2';
+import mailToCustomer from '../../../../utils/mailToCustomer';
 import User from '../../../../models/User';
 
 export default async function handler(req, res) {
@@ -15,7 +16,8 @@ export default async function handler(req, res) {
           { $push: { orders: { items, bill } } },
           { new: true }
         );
-        mailToRestaurantv2(result);
+        // mailToRestaurantv2(result);
+        mailToCustomer(result);
         res.status(200).json({ data: result });
       } catch (error) {
         res.status(400).json({ data: `put method error : ${error}` });

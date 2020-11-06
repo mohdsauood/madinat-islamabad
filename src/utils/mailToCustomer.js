@@ -3,12 +3,20 @@ export default async function mailToRestaurantv2(data) {
   const order = orders[orders.length - 1];
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const dynamicData = {};
+  dynamicData.name = name;
+  dynamicData.orderNo = order._id;
+  dynamicData.items = order.items;
+  dynamicData.total = order.bill.total;
+  dynamicData.deliveryFee = order.bill.deliveryFee;
+  dynamicData.toPay = order.bill.toPay;
+  dynamicData.address = order.address;
   const msg = {
-    to: 'recieveorders@madinatislamabad.com',
+    to: email,
     from: 'orders@madinatislamabad.com',
-    subject: `Order no : ${order._id}`,
-    text: `order at ${order.orderedAt} UTC `,
-    html: `<b>order at ${order.orderedAt} UTC</b>`,
+
+    template_id: ' d-851549337da54fbfa2e800f88170e7f9',
+    dynamic_template_data: dynamicData,
   };
   sgMail
     .send(msg)
