@@ -31,7 +31,9 @@ export default function Bill({ specificOrder }) {
             : order &&
               order.items.map((item) => {
                 return (
-                  <ListGroup.Item className="d-flex justify-content-between border-0 px-2 py-1 xtBlack">
+                  <ListGroup.Item
+                    key={item.name}
+                    className="d-flex justify-content-between border-0 px-2 py-1 xtBlack">
                     {item.name} X {item.quantity} <span>{item.price} AED</span>
                   </ListGroup.Item>
                 );

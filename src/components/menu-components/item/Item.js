@@ -14,7 +14,6 @@ import { useCart } from '../../../context/cart-provider-context/cart-provider-co
 export default function Item({ foodItem }) {
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
-  console.log(cartState);
   let subButtons = 'add';
   const handleClick = () => {
     cartDispatch({ type: ADD_ITEM, payload: item });
@@ -31,7 +30,6 @@ export default function Item({ foodItem }) {
 
   const handleDecrement = (e) => {
     e.stopPropagation();
-    console.log('yes handle decrement works');
     cartState.items.forEach((elem) => {
       if (elem.name == item.name && elem.quantity == 1) {
         cartDispatch({ type: REMOVE_ITEM, payload: item });
