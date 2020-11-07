@@ -13,7 +13,7 @@ export default async function mailToRestaurantv2(data) {
   sgMail
     .send(msg)
     .then(() => {
-      console.log('Email sent');
+      console.log('Email sent v2');
     })
     .catch((error) => {
       console.error(error);

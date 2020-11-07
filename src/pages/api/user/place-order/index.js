@@ -1,5 +1,6 @@
 import dbConnect from '../../../../utils/dbConnect';
 import mailToRestaurant from '../../../../utils/mailToRestaurant';
+import mailToRestaurantv2 from '../../../../utils/mailToRestaurantv2';
 import mailToCustomer from '../../../../utils/mailToCustomer';
 import User from '../../../../models/User';
 
@@ -8,7 +9,6 @@ export default async function handler(req, res) {
   switch (req.method) {
     case 'POST':
       const { id, bill, items } = req.body;
-
       // res.status(200).json({ items });
       try {
         let result = await User.findByIdAndUpdate(
@@ -17,6 +17,7 @@ export default async function handler(req, res) {
           { new: true }
         );
         mailToRestaurant(result);
+        mailToRestaurantv2(result);
         mailToCustomer(result);
         res.status(200).json({ data: result });
       } catch (error) {
