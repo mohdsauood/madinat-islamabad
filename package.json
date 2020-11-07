@@ -8,13 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.3.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.3",
     "connect-mongo": "^3.2.0",
+    "moment-timezone": "^0.5.31",
     "mongoose": "^5.10.9",
+    "mongoose-sequence": "^5.3.0",
+    "nanoid": "^3.1.16",
     "next": "^9.5.3",
     "next-auth": "^3.1.0",
     "next-connect": "^0.9.1",
+    "nodemailer": "^6.4.14",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "prop-types": "^15.7.2",

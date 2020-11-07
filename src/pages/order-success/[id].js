@@ -6,12 +6,24 @@ import Address from '../../components/order-page/address/Address';
 import Date from '../../components/order-page/date/Date';
 import Bill from '../../components/order-page/bill/Bill';
 import Overlay from '../../components/overlay/Overlay';
-import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
+import {
+  useCartState,
+  useCartDispatch,
+} from '../../context/cart-provider-context/cart-provider-context';
 import { useSession } from 'next-auth/client';
 import getUserType from '../../utils/getUserType';
+import { useRouter } from 'next/router';
+
 export default function index() {
+  const router = useRouter();
+  const { id } = router.query;
   const [session] = useSession();
   const cartDispatch = useCartDispatch();
+  const cartState = useCartState();
+  const { user } = cartState;
+  const { orders } = user;
+  const orderArray = orders && orders.filter((order) => order._id == id);
+  const specificOrder = orders && orderArray[0];
   useEffect(() => {
     async function fetchUser() {
       if (session && session.user) {
@@ -28,10 +40,10 @@ export default function index() {
     <>
       <Overlay />
       <Header />
-      <Title />
-      <Address />
-      <Date />
-      <Bill />
+      <Title specificOrder={specificOrder} />
+      <Address specificOrder={specificOrder} />
+      <Date specificOrder={specificOrder} />
+      <Bill specificOrder={specificOrder} />
     </>
   );
 }

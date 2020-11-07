@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Bill.module.css';
-import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
-
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 export default function Bill() {
-  const cartState = useCartState();
+  const [cartState, cartDispatch] = useCart();
   let totalPrice;
   if (cartState.items.length > 0) {
     totalPrice = cartState.items.reduce((accum, fooditem) => {
@@ -15,7 +14,7 @@ export default function Bill() {
       <h5 className={`xtCapitalize xtLg xtBlack`}>Bill Details</h5>
       <div className={`${styles.total} xtM xtBlack`}>
         <p>Item Total</p>
-        <p className="xtUpperCase xkarla ">{totalPrice}</p>
+        <p className="xtUpperCase xkarla ">{cartState.bill.total} AED</p>
       </div>
       <div className={`${styles.dFee} xtM xtDarkGray`}>
         <p>Delivery Fee</p>
@@ -23,7 +22,7 @@ export default function Bill() {
       </div>
       <div className={`${styles.pay} xtM xtBlack`}>
         <p>To Pay</p>
-        <p className="xtUpperCase xkarla xtBold">{totalPrice} AED</p>
+        <p className="xtUpperCase xkarla xtBold">{cartState.bill.toPay} AED</p>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import Coupon from '../coupon/Coupon';
 
 const dummyCoupon = [
   {
-    code: 'GRC45X',
+    code: 'GRC45tX',
     details: 'use code GRC45X & get 15% up to 12 AED ',
     min: 1,
   },
@@ -24,7 +24,7 @@ export default function Coupons() {
     <>
       <section className={styles.section}>
         {dummyCoupon.map((item) => (
-          <Coupon item={item} />
+          <Coupon item={item} key={item.code} />
         ))}{' '}
       </section>
     </>
