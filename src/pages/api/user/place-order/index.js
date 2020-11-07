@@ -17,7 +17,6 @@ export default async function handler(req, res) {
           { new: true }
         );
         mailToRestaurant(result);
-        mailToRestaurantv2(result);
         mailToCustomer(result);
         res.status(200).json({ data: result });
       } catch (error) {

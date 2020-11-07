@@ -4,7 +4,7 @@ export default async function mailToRestaurantv2(data) {
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: 'recieveorders@madinatislamabad.com',
+    to: 'madinatislamabadorders@gmail.com',
     from: 'orders@madinatislamabad.com',
     subject: `Order no : ${order._id}`,
     text: `order at ${order.orderedAt} UTC `,
