@@ -1,5 +1,5 @@
 import dbConnect from '../../../../utils/dbConnect';
-import mailToRestaurantv2 from '../../../../utils/mailToRestaurantv2';
+import mailToRestaurant from '../../../../utils/mailToRestaurant';
 import mailToCustomer from '../../../../utils/mailToCustomer';
 import User from '../../../../models/User';
 
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
           { $push: { orders: { items, bill } } },
           { new: true }
         );
-        // mailToRestaurantv2(result);
+        mailToRestaurant(result);
         mailToCustomer(result);
         res.status(200).json({ data: result });
       } catch (error) {

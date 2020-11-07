@@ -32,7 +32,7 @@ export default async function mailToCustomer(data) {
   sgMail
     .send(msg)
     .then(() => {
-      console.log('Email sent');
+      console.log('Email sent to customer');
     })
     .catch((error) => {
       console.error(error);

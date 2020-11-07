@@ -1,30 +1,41 @@
-import nodemailer from 'nodemailer';
+import moment from 'moment-timezone';
 
 export default async function mailToRestaurant(data) {
   const { name, email, orders, mobile } = data;
   const order = orders[orders.length - 1];
+  const format = 'Do MMMM YYYY, h:mm a';
+  const timeZone = 'Asia/Dubai';
+  const date = moment.tz(order.orderedAt, timeZone).format(format);
+  const sgMail = require('@sendgrid/mail');
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  let testAccount = await nodemailer.createTestAccount();
-  let transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
-  });
-  let info = await transporter.sendMail({
-    from: '"madinat islamabad 👻" <orders@madinat.com>', // sender address
-    to: 'swampfire.saud@gmail.com', // list of receivers
-    subject: `Order no : ${order._id}`, // Subject line
-    text: `order at ${order.orderedAt} UTC `, // plain text body
-    html: `<b>order at ${order.orderedAt} UTC</b>`, // html body
-  });
-  console.log('Message sent: %s', info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  const msg = {
+    from: 'orders@madinatislamabad.com',
+    templateId: 'd-2d44c235e0364ed882af39f03e3fdb40',
+    personalizations: [
+      {
+        to: 'madinatislamabadorders@gmail.com',
+        dynamicTemplateData: {
+          name: name,
+          orderNo: order._id,
+          items: order.items,
+          total: order.bill.total,
+          deliveryFee: order.bill.deliveryFee,
+          toPay: order.bill.toPay,
+          address: order.address,
+          mobile: mobile,
+          request: order.bill.request,
+          date: date,
+        },
+      },
+    ],
+  };
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent to restaurant');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
