@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 import { useNavbarMobile } from '../../../context/navbar-mobile-context/navbar-mobile-context';
 import { signIn, signOut } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 export default function SidenavMobile() {
+  const router = useRouter();
   const { showMenu, handleShowMenu } = useNavbarMobile();
   const cartState = useCartState();
   let totalItems;
@@ -132,7 +134,11 @@ export default function SidenavMobile() {
           </li>
         ) : (
           <li className={styles.navMenu__li} onClick={handleShowMenu}>
-            <Link href="/sign-in">
+            <Link
+              href={{
+                pathname: '/sign-in',
+                query: { from: router.asPath },
+              }}>
               <a>
                 <svg
                   width="24"

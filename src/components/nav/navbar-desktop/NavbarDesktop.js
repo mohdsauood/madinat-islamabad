@@ -192,7 +192,6 @@ export default function NavbarDesktop() {
             </Dropdown>
           ) : (
             <Link
-              href="/sign-in"
               href={{
                 pathname: '/sign-in',
                 query: { from: router.asPath },
