@@ -163,7 +163,7 @@ export default function index({ providers }) {
         </defs>
       </svg>
       <h3 className={`${styles.h3} xtCapitalize xtBold xtBlack`}>
-        Choose any of the options below
+        Welcome , Sign In to Start Your Order.
       </h3>
       <SignInButtons providers={providers} />
     </>

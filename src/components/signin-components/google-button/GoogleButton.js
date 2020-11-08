@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './GoogleButton.module.css';
 import { signIn } from 'next-auth/client';
+import { useRouter } from 'next/router';
 export default function GoogleButton({ id }) {
+  const router = useRouter();
+  const { from } = router.query;
   return (
     <button
       onClick={() =>
-        signIn(id, { callbackUrl: 'http://localhost:3000/menu/roti' })
+        signIn(id, { callbackUrl: `http://localhost:3000${from}` })
       }
       className={` ${styles.button} ${styles.googleButton}`}>
       <svg

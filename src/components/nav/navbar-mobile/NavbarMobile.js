@@ -3,8 +3,10 @@ import styles from './NavbarMobile.module.css';
 import { useNavbarMobile } from '../../../context/navbar-mobile-context/navbar-mobile-context';
 import Link from 'next/link';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+import { useRouter } from 'next/router';
 
 export default function NavbarMobile() {
+  const router = useRouter();
   const { handleShowMenu } = useNavbarMobile();
   const cartState = useCartState();
   return (
@@ -32,7 +34,11 @@ export default function NavbarMobile() {
           </a>
         </Link>
       ) : (
-        <Link href="/sign-in">
+        <Link
+          href={{
+            pathname: '/sign-in',
+            query: { from: router.asPath },
+          }}>
           <a>
             <svg
               className={styles.navbarMobileIcon}

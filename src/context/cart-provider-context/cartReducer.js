@@ -182,7 +182,6 @@ export default function cartReducer(state, action) {
 
     /* update to pay */
     case UPDATE_TO_PAY: {
-      console.log('im inside update to pay');
       return {
         ...state,
         bill: {

@@ -16,7 +16,7 @@
     "mongoose": "^5.10.9",
     "mongoose-sequence": "^5.3.0",
     "nanoid": "^3.1.16",
-    "next": "^9.5.3",
+    "next": "^10.0.1",
     "next-auth": "^3.1.0",
     "next-connect": "^0.9.1",
     "nodemailer": "^6.4.14",
