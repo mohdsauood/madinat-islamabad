@@ -77,11 +77,6 @@ const options = {
       clientId: process.env.GOOGLE_LOGIN_CLIENT_ID,
       clientSecret: process.env.GOOGLE_LOGIN_CLIENT_SECRET,
     }),
-    // Providers.Facebokok({
-    //   clientId: process.env.FACEBOOK_LOGIN_CLIENT_ID,
-    //   clientSecret: process.env.FACEBOOK_LOGIN_CLIENT_SECRET,
-    // }),
-    // ...add more providers here
   ],
 
   pages: {

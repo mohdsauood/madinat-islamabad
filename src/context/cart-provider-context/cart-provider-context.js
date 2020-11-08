@@ -22,6 +22,7 @@ const initialState = {
     toPay: null,
     coupon: null,
   },
+  pathBeforeLogin: null,
 };
 
 function CartProvider({ children }) {

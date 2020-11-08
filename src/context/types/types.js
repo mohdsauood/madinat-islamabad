@@ -25,3 +25,4 @@ export let UPDATE_TO_PAY = 'update_to_pay';
 export let UPDATE_DISCOUNT = 'update_discount';
 export let UPDATE_CART_TOTAL = 'update_cart_total';
 export let CLEAR_ITEMS = 'clear_items';
+export let UPDATE_REDIRECT_PATH = 'update_redirect_path';

@@ -19,6 +19,7 @@ import {
   UPDATE_TO_PAY,
   UPDATE_DISCOUNT,
   CLEAR_ITEMS,
+  UPDATE_REDIRECT_PATH,
 } from '../types/types';
 export default function cartReducer(state, action) {
   switch (action.type) {
@@ -182,7 +183,6 @@ export default function cartReducer(state, action) {
 
     /* update to pay */
     case UPDATE_TO_PAY: {
-      console.log('im inside update to pay');
       return {
         ...state,
         bill: {
@@ -190,6 +190,17 @@ export default function cartReducer(state, action) {
           toPay: state.items.reduce((accum, fooditem) => {
             return accum + parseInt(fooditem.price) * fooditem.quantity;
           }, 0),
+        },
+      };
+    }
+    case UPDATE_REDIRECT_PATH: {
+      console.log('loggin from update_redirect_path cart reducer');
+      console.log(action.payload);
+      return {
+        ...state,
+        pathBeforeLogin: {
+          ...state.pathBeforeLogin,
+          pathBeforeLogin: action.payload,
         },
       };
     }

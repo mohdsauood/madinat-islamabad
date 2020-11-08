@@ -4,7 +4,16 @@ import Link from 'next/link';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useSession, signOut } from 'next-auth/client';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+import { useRouter } from 'next/router';
 export default function NavbarDesktop() {
+  const [cartState, cartDispatch] = useCart();
+  const router = useRouter();
+  let totalItems;
+  cartState.items.length > 0 &&
+    (totalItems = cartState.items.reduce((accum, fooditem) => {
+      return accum + fooditem.quantity;
+    }, 0));
+
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
@@ -43,12 +52,6 @@ export default function NavbarDesktop() {
       </>
     );
   });
-  const [cartState, cartDispatch] = useCart();
-  let totalItems;
-  cartState.items.length > 0 &&
-    (totalItems = cartState.items.reduce((accum, fooditem) => {
-      return accum + fooditem.quantity;
-    }, 0));
 
   return (
     <nav className={styles.navbarDesktop}>
@@ -188,7 +191,12 @@ export default function NavbarDesktop() {
               </Dropdown.Menu>
             </Dropdown>
           ) : (
-            <Link href="/api/auth/signin">
+            <Link
+              href="/sign-in"
+              href={{
+                pathname: '/sign-in',
+                query: { from: router.pathname },
+              }}>
               <li>
                 <div
                   className={`${styles.navbarDesktop__ulSection__ul__li_div} ${styles.customDivHover}`}>
