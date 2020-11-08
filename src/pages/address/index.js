@@ -11,10 +11,29 @@ import usePlacesAutoComplete, {
   getLatLng,
 } from 'use-places-autocomplete';
 
+const libraries = ['places'];
+const mapContainerStyle = {
+  width: '100vw',
+  height: '100vh',
+};
+const center = {
+  lat: 25.337971,
+  lng: 55.393274,
+};
 export default function index() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
-    libraries: ['places'],
+    libraries,
   });
-  return <div>map</div>;
+
+  if (loadError) return 'Error Loading Maps';
+  if (!isLoaded) return 'Loading Maps';
+  return (
+    <div>
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={18}
+        center={center}></GoogleMap>
+    </div>
+  );
 }
