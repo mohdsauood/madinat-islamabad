@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 export default function GoogleButton({ id }) {
   const router = useRouter();
   const { from } = router.query;
-  console.log(from);
   return (
     <button
       onClick={() =>

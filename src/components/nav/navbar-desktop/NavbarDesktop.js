@@ -195,7 +195,7 @@ export default function NavbarDesktop() {
               href="/sign-in"
               href={{
                 pathname: '/sign-in',
-                query: { from: router.pathname },
+                query: { from: router.asPath },
               }}>
               <li>
                 <div

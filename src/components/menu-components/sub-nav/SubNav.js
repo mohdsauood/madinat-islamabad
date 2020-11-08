@@ -25,11 +25,7 @@ export default function SubNav({ item }) {
               : `${styles.nav__ul__li}`
           }
           ref={activeLi}>
-          <Link
-            href={{
-              pathname: `/menu/[item]`,
-              query: { item: elem },
-            }}>
+          <Link href={`/menu/${encodeURIComponent(elem)}`}>
             <a> {elem}</a>
           </Link>
         </li>
@@ -39,12 +35,7 @@ export default function SubNav({ item }) {
       <li key={elem} className={styles.nav__ul__li}>
         <Link
           href={
-            elem !== 'offers'
-              ? {
-                  pathname: `/menu/[item]`,
-                  query: { item: elem },
-                }
-              : '/offers'
+            elem !== 'offers' ? `/menu/${encodeURIComponent(elem)}` : '/offers'
           }>
           <a> {elem}</a>
         </Link>
