@@ -39,19 +39,7 @@ export default function index() {
     setShowModal(false);
     setMarker(null);
   };
-  // useEffect(() => {
-  //   if (
-  //     marker &&
-  //     getDistanceFromLatLonInKm(
-  //       process.env.NEXT_PUBLIC_RESTO_LAT,
-  //       process.env.NEXT_PUBLIC_RESTO_LONG,
-  //       marker.lat,
-  //       marker.lng
-  //     ) > 3
-  //   ) {
-  //     setShowModal(true);
-  //   }
-  // }, [marker]);
+
   return (
     <>
       <div>
@@ -64,6 +52,16 @@ export default function index() {
               lat: event.latLng.lat(),
               lng: event.latLng.lng(),
             });
+            if (
+              getDistanceFromLatLonInKm(
+                process.env.NEXT_PUBLIC_RESTO_LAT,
+                process.env.NEXT_PUBLIC_RESTO_LONG,
+                marker.lat,
+                marker.lng
+              ) > 3
+            ) {
+              setShowModal(true);
+            }
           }}>
           {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
         </GoogleMap>
@@ -72,15 +70,14 @@ export default function index() {
         show={showModal}
         onHide={handleModalClose}
         backdrop="static"
-        keyboard={false}>
+        keyboard={false}
+        centered>
         <Modal.Header closeButton>
           <Modal.Title>Address is out of bounds</Modal.Title>
         </Modal.Header>
         <Modal.Body>Sorry ! We Dont Deliver Food In Your Area .</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleModalClose}>
-            Choose New Address
-          </Button>
+          <Button onClick={handleModalClose}>Choose New Address</Button>
         </Modal.Footer>
       </Modal>
     </>
