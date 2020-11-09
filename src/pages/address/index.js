@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import {
   GoogleMap,
   useLoadScript,
@@ -26,6 +26,10 @@ const center = {
   lng: 55.393221974372864,
 };
 const options = {
+  zoomControl: true,
+};
+
+const circleOptions = {
   strokeColor: '#00a3a6',
   strokeOpacity: 0.4,
   strokeWeight: 2,
@@ -56,29 +60,37 @@ export default function index() {
     setMarker(initialMarker);
   };
 
+  const onMapClick = useCallback((event) => {
+    setMarker({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    });
+
+    if (
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(center.lat, center.lng),
+        new google.maps.LatLng(marker.lat, marker.lng)
+      ) > 1000
+    ) {
+      setShowModal(true);
+    }
+  }, []);
+
+  const mapRef = useRef();
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
   return (
     <>
       <div>
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={14}
+          options={options}
           center={center}
-          onClick={(event) => {
-            setMarker({
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-            });
-
-            if (
-              google.maps.geometry.spherical.computeDistanceBetween(
-                new google.maps.LatLng(center.lat, center.lng),
-                new google.maps.LatLng(marker.lat, marker.lng)
-              ) > 1000
-            ) {
-              setShowModal(true);
-            }
-          }}>
-          <Circle center={center} options={options} />
+          onClick={onMapClick}
+          onLoad={onMapLoad}>
+          <Circle center={center} options={circleOptions} />
           {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
         </GoogleMap>
       </div>
