@@ -60,26 +60,26 @@ export default function index() {
     setMarker(initialMarker);
   };
 
-  const onMapClick = useCallback((event) => {
-    setMarker({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
-    });
+  // const onMapClick = useCallback((event) => {
+  //   setMarker({
+  //     lat: event.latLng.lat(),
+  //     lng: event.latLng.lng(),
+  //   });
 
-    if (
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
-  }, []);
+  //   if (
+  //     google.maps.geometry.spherical.computeDistanceBetween(
+  //       new google.maps.LatLng(center.lat, center.lng),
+  //       new google.maps.LatLng(marker.lat, marker.lng)
+  //     ) > 1000
+  //   ) {
+  //     setShowModal(true);
+  //   }
+  // }, []);
 
-  const mapRef = useRef();
-  const onMapLoad = useCallback((map) => {
-    mapRef.current = map;
-  }, []);
+  // const mapRef = useRef();
+  // const onMapLoad = useCallback((map) => {
+  //   mapRef.current = map;
+  // }, []);
   return (
     <>
       <div>
@@ -88,13 +88,16 @@ export default function index() {
           zoom={14}
           options={options}
           center={center}
-          onClick={onMapClick}
-          onLoad={onMapLoad}>
-          <Circle center={center} options={circleOptions} />
-          {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
+          // onClick={onMapClick}
+          // onLoad={onMapLoad
+          // }
+        >
+          {/* <Circle center={center} options={circleOptions} /> */}
+          {/* {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} 
+          />} */}
         </GoogleMap>
       </div>
-      <Modal
+      {/* <Modal
         show={showModal}
         onHide={handleModalClose}
         backdrop="static"
@@ -107,7 +110,7 @@ export default function index() {
         <Modal.Footer>
           <Button onClick={handleModalClose}>Choose New Address</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 }
