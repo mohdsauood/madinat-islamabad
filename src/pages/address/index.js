@@ -16,7 +16,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Circle } from '@react-google-maps/api';
 
-const libraries = ['places'];
+const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
   width: '100%',
   height: '40vh',
@@ -52,20 +52,48 @@ export default function index() {
   });
   const [marker, setMarker] = useState(initialMarker);
   const [showModal, setShowModal] = useState(false);
-  // if (loadError) return 'Error Loading Maps';
-  // if (!isLoaded) return 'Loading Maps';
 
   const handleModalClose = () => {
     setShowModal(false);
     setMarker(initialMarker);
   };
 
-  // const onMapClick = (event) => {
-  //   setMarker({
-  //     lat: event.latLng.lat(),
-  //     lng: event.latLng.lng(),
-  //   });
+  const onMapClick = (event) => {
+    setMarker({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    });
+    console.log(
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(center.lat, center.lng),
+        new google.maps.LatLng(marker.lat, marker.lng)
+      )
+    );
+    if (
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(center.lat, center.lng),
+        new google.maps.LatLng(marker.lat, marker.lng)
+      ) > 1000
+    ) {
+      setShowModal(true);
+    }
+  };
 
+  const renderMap = () => {
+    return (
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={14}
+        options={options}
+        center={center}
+        onClick={onMapClick}>
+        <Circle center={center} options={circleOptions} />
+        {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
+      </GoogleMap>
+    );
+  };
+
+  // useEffect(() => {
   //   if (
   //     google.maps.geometry.spherical.computeDistanceBetween(
   //       new google.maps.LatLng(center.lat, center.lng),
@@ -74,49 +102,13 @@ export default function index() {
   //   ) {
   //     setShowModal(true);
   //   }
-  // };
+  // }, [marker.lat]);
+  if (loadError) return 'Error Loading Maps';
+  if (!isLoaded) return 'Loading Maps';
 
-  // const mapRef = useRef();
-  // const onMapLoad = (map) => {
-  //   mapRef.current = map;
-  // };
-
-  // const testing = useCallback(() => {
-  //   console.log('testing');
-  // }, [center.lat]);
-  const red = () => {
-    console.log('hi red');
-  };
   return (
     <>
-      <div>
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={14}
-          options={options}
-          center={center}
-          onClick={(event) => {
-            console.log('i been called');
-            setMarker({
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng(),
-            });
-
-            // if (
-            //   google.maps.geometry.spherical.computeDistanceBetween(
-            //     new google.maps.LatLng(center.lat, center.lng),
-            //     new google.maps.LatLng(marker.lat, marker.lng)
-            //   ) > 1000
-            // ) {
-            //   setShowModal(true);
-            // }
-          }}
-          //
-        >
-          <Circle center={center} options={circleOptions} />
-          {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
-        </GoogleMap>
-      </div>
+      <div>{renderMap()}</div>
       <Modal
         show={showModal}
         onHide={handleModalClose}
