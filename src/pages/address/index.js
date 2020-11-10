@@ -52,29 +52,29 @@ export default function index() {
   });
   const [marker, setMarker] = useState(initialMarker);
   const [showModal, setShowModal] = useState(false);
-  if (loadError) return 'Error Loading Maps';
-  if (!isLoaded) return 'Loading Maps';
+  // if (loadError) return 'Error Loading Maps';
+  // if (!isLoaded) return 'Loading Maps';
 
   const handleModalClose = () => {
     setShowModal(false);
     setMarker(initialMarker);
   };
 
-  const onMapClick = (event) => {
-    setMarker({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
-    });
+  // const onMapClick = (event) => {
+  //   setMarker({
+  //     lat: event.latLng.lat(),
+  //     lng: event.latLng.lng(),
+  //   });
 
-    if (
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
-  };
+  //   if (
+  //     google.maps.geometry.spherical.computeDistanceBetween(
+  //       new google.maps.LatLng(center.lat, center.lng),
+  //       new google.maps.LatLng(marker.lat, marker.lng)
+  //     ) > 1000
+  //   ) {
+  //     setShowModal(true);
+  //   }
+  // };
 
   // const mapRef = useRef();
   // const onMapLoad = (map) => {
@@ -95,7 +95,22 @@ export default function index() {
           zoom={14}
           options={options}
           center={center}
-          onClick={onMapClick}
+          onClick={(event) => {
+            console.log('i been called');
+            setMarker({
+              lat: event.latLng.lat(),
+              lng: event.latLng.lng(),
+            });
+
+            // if (
+            //   google.maps.geometry.spherical.computeDistanceBetween(
+            //     new google.maps.LatLng(center.lat, center.lng),
+            //     new google.maps.LatLng(marker.lat, marker.lng)
+            //   ) > 1000
+            // ) {
+            //   setShowModal(true);
+            // }
+          }}
           //
         >
           <Circle center={center} options={circleOptions} />
