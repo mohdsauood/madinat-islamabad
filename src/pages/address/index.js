@@ -52,8 +52,6 @@ export default function index() {
   });
   const [marker, setMarker] = useState(initialMarker);
   const [showModal, setShowModal] = useState(false);
-  if (loadError) return 'Error Loading Maps';
-  if (!isLoaded) return 'Loading Maps';
 
   const handleModalClose = () => {
     setShowModal(false);
@@ -80,6 +78,9 @@ export default function index() {
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
+
+  if (loadError) return 'Error Loading Maps';
+  if (!isLoaded) return 'Loading Maps';
   return (
     <>
       <div>
