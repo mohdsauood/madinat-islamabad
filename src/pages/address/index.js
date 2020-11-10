@@ -63,20 +63,7 @@ export default function index() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     });
-    console.log(
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      )
-    );
-    if (
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
+    console.log(window.google); //accessible here
   };
 
   const renderMap = () => {
@@ -93,16 +80,18 @@ export default function index() {
     );
   };
 
-  // useEffect(() => {
-  //   if (
-  //     google.maps.geometry.spherical.computeDistanceBetween(
-  //       new google.maps.LatLng(center.lat, center.lng),
-  //       new google.maps.LatLng(marker.lat, marker.lng)
-  //     ) > 1000
-  //   ) {
-  //     setShowModal(true);
-  //   }
-  // }, [marker.lat]);
+  useEffect(() => {
+    if (
+      //cant access google here
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(center.lat, center.lng),
+        new google.maps.LatLng(marker.lat, marker.lng)
+      ) > 1000
+    ) {
+      setShowModal(true);
+    }
+  }, [marker.lat]);
+
   if (loadError) return 'Error Loading Maps';
   if (!isLoaded) return 'Loading Maps';
 
