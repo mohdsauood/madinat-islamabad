@@ -46,10 +46,6 @@ const circleOptions = {
 const initialMarker = { lat: null, long: null };
 
 export default function index() {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    libraries,
-  });
   const [marker, setMarker] = useState(initialMarker);
   const [showModal, setShowModal] = useState(false);
 
@@ -66,34 +62,13 @@ export default function index() {
     console.log(window.google); //accessible here
   };
 
-  useEffect(() => {
-    if (
-      //cant access google here
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
-  }, [marker.lat]);
-
-  if (loadError) return 'Error Loading Maps';
-  if (!isLoaded) return 'Loading Maps';
-
   return (
     <>
       <div>
         <RenderMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={14}
-          options={options}
-          center={center}
           onMapClick={onMapClick}
-          center={center}
-          circleOptions={circleOptions}
-          position={{ lat: marker.lat, lng: marker.lng }}
           marker={marker}
+          setShowModal={setShowModal}
         />
       </div>
       <Modal
