@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, Marker, Circle, LoadScript } from '@react-google-maps/api';
-
+import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal';
+import '@reach/combobox/styles.css';
+import usePlacesAutoComplete, {
+  getGeocode,
+  getLatLng,
+} from 'use-places-autocomplete';
 const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
   width: '100%',
   height: '40vh',
 };
-const center = {
+const restoCenter = {
   lat: 25.33800452203996,
   lng: 55.393221974372864,
 };
@@ -31,18 +36,14 @@ const circleOptions = {
 
 const initialMarker = { lat: null, long: null };
 
-function RenderMap({ marker, onMapClick, setShowModal }) {
-  useEffect(() => {
-    if (
-      //cant access google here
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(center.lat, center.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
-  }, [marker.lat]);
+function RenderMap() {
+  const [marker, setMarker] = useState(initialMarker);
+  const onMapClick = (event) => {
+    setMarker({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    });
+  };
   return (
     <LoadScript
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -51,10 +52,11 @@ function RenderMap({ marker, onMapClick, setShowModal }) {
         mapContainerStyle={mapContainerStyle}
         zoom={14}
         options={options}
-        center={center}
+        center={marker}
         onClick={onMapClick}>
-        <Circle center={center} options={circleOptions} />
+        <Circle center={restoCenter} options={circleOptions} />
         {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
+        <InvalidLocationModal marker={marker} setMarker={setMarker} />
       </GoogleMap>
     </LoadScript>
   );
