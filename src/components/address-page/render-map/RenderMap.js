@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { GoogleMap, Marker, Circle, LoadScript } from '@react-google-maps/api';
 import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal';
 import '@reach/combobox/styles.css';
@@ -33,27 +33,38 @@ const circleOptions = {
   radius: 1050,
   zIndex: 1,
 };
-
+const zoom = 14;
 const initialMarker = { lat: null, long: null };
 
 function RenderMap() {
   const [marker, setMarker] = useState(initialMarker);
-  const onMapClick = (event) => {
+  const mapRef = useRef();
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
+
+  const onMapClick = useCallback((event) => {
     setMarker({
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     });
-  };
+  }, []);
+  const handleBoundsChanged = useCallback(() => {
+    const mapCenter = mapRef.current.getCenter();
+    setMarker(mapCenter);
+  }, []);
   return (
     <LoadScript
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
       libraries={libraries}>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={14}
+        zoom={zoom}
         options={options}
         center={marker}
-        onClick={onMapClick}>
+        onBoundsChanged={handleBoundsChanged}
+        onClick={onMapClick}
+        onLoad={onMapLoad}>
         <Circle center={restoCenter} options={circleOptions} />
         {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
         <InvalidLocationModal marker={marker} setMarker={setMarker} />
