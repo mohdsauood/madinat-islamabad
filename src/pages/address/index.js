@@ -14,7 +14,7 @@ import usePlacesAutoComplete, {
 import getDistanceFromLatLonInKm from '../../utils/getDistanceFromLatLonInKm.js';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Circle } from '@react-google-maps/api';
+import RenderMap from '../../components/address-page/render-map/RenderMap';
 
 const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
@@ -66,20 +66,6 @@ export default function index() {
     console.log(window.google); //accessible here
   };
 
-  const renderMap = () => {
-    return (
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={14}
-        options={options}
-        center={center}
-        onClick={onMapClick}>
-        <Circle center={center} options={circleOptions} />
-        {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
-      </GoogleMap>
-    );
-  };
-
   useEffect(() => {
     if (
       //cant access google here
@@ -97,7 +83,19 @@ export default function index() {
 
   return (
     <>
-      <div>{renderMap()}</div>
+      <div>
+        <RenderMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={14}
+          options={options}
+          center={center}
+          onMapClick={onMapClick}
+          center={center}
+          circleOptions={circleOptions}
+          position={{ lat: marker.lat, lng: marker.lng }}
+          marker={marker}
+        />
+      </div>
       <Modal
         show={showModal}
         onHide={handleModalClose}
