@@ -37,7 +37,7 @@ const zoom = 14;
 const initialMarker = { lat: null, long: null };
 
 function RenderMap() {
-  const [marker, setMarker] = useState(initialMarker);
+  const [marker, setMarker] = useState(restoCenter);
   const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
@@ -55,8 +55,12 @@ function RenderMap() {
     });
   }, []);
   const handleBoundsChanged = useCallback(() => {
-    const mapCenter = mapRef.current.getCenter();
-    setMarker(mapCenter);
+    console.log('handleboundschanged is being called');
+    const center = mapRef.current.getCenter();
+    const obj = {};
+    obj.lat = center.lat();
+    obj.lng = center.lng();
+    setMapCenter(obj);
   }, []);
   return (
     <LoadScript
@@ -68,11 +72,13 @@ function RenderMap() {
         options={options}
         center={mapCenter}
         onBoundsChanged={handleBoundsChanged}
-        onClick={onMapClick}
+        // onClick={onMapClick}
         onLoad={onMapLoad}>
         <Circle center={restoCenter} options={circleOptions} />
-        {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
-        {marker && (
+        {marker.lat && (
+          <Marker position={{ lat: marker.lat, lng: marker.lng }} />
+        )}
+        {marker.lat && (
           <InvalidLocationModal marker={marker} setMarker={setMarker} />
         )}
       </GoogleMap>
