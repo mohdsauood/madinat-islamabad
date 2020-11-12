@@ -54,6 +54,7 @@ function RenderMap() {
     landMark: null,
     saveAs: null,
   });
+  const [locationAllowed, setLocationAllowed] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
@@ -78,6 +79,9 @@ function RenderMap() {
       ) > 1000
     ) {
       setShowModal(true);
+      setLocationAllowed(false);
+    } else {
+      setLocationAllowed(true);
     }
   }, [mapCenter]);
 
@@ -137,6 +141,7 @@ function RenderMap() {
               clearValue={clearValue}
             />
           </GoogleMap>
+          {locationAllowed && <div>location allowed</div>}
         </div>
       </LoadScript>
     </>
