@@ -34,26 +34,15 @@ const circleOptions = {
   zIndex: 1,
 };
 const zoom = 14;
-const initialMarker = { lat: null, long: null };
 
 function RenderMap() {
-  const [marker, setMarker] = useState(restoCenter);
+  const [showModal, setShowModal] = useState(false);
   const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
 
-  const onMapClick = useCallback((event) => {
-    setMarker({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
-    });
-    setMapCenter({
-      lat: event.latLng.lat(),
-      lng: event.latLng.lng(),
-    });
-  }, []);
   const handleBoundsChanged = useCallback(() => {
     console.log('handleboundschanged is being called');
     const center = mapRef.current.getCenter();
@@ -62,6 +51,18 @@ function RenderMap() {
     obj.lng = center.lng();
     setMapCenter(obj);
   }, []);
+
+  const handleDragEnd = useCallback(() => {
+    if (
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(restoCenter.lat, restoCenter.lng),
+        new google.maps.LatLng(mapCenter.lat, mapCenter.lng)
+      ) > 1000
+    ) {
+      setShowModal(true);
+    }
+  }, [mapCenter]);
+
   return (
     <LoadScript
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -70,17 +71,18 @@ function RenderMap() {
         mapContainerStyle={mapContainerStyle}
         zoom={zoom}
         options={options}
-        center={mapCenter}
+        center={restoCenter}
         onBoundsChanged={handleBoundsChanged}
-        // onClick={onMapClick}
+        onDragEnd={handleDragEnd}
         onLoad={onMapLoad}>
         <Circle center={restoCenter} options={circleOptions} />
-        {marker.lat && (
-          <Marker position={{ lat: marker.lat, lng: marker.lng }} />
-        )}
-        {marker.lat && (
-          <InvalidLocationModal marker={marker} setMarker={setMarker} />
-        )}
+        {<Marker position={mapCenter} />}
+        <InvalidLocationModal
+          mapCenter={mapCenter}
+          setMapCenter={setMapCenter}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
       </GoogleMap>
     </LoadScript>
   );

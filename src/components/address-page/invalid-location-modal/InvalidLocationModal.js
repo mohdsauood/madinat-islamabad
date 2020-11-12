@@ -6,24 +6,12 @@ const restoCenter = {
   lat: 25.33800452203996,
   lng: 55.393221974372864,
 };
-const initialMarker = { lat: null, long: null };
 
-export default function InvalidLocationModal({ marker, setMarker }) {
-  const [showModal, setShowModal] = useState(false);
+export default function InvalidLocationModal({ showModal, setShowModal }) {
   const handleModalClose = () => {
-    setMarker(initialMarker);
     setShowModal(false);
   };
-  useEffect(() => {
-    if (
-      google.maps.geometry.spherical.computeDistanceBetween(
-        new google.maps.LatLng(restoCenter.lat, restoCenter.lng),
-        new google.maps.LatLng(marker.lat, marker.lng)
-      ) > 1000
-    ) {
-      setShowModal(true);
-    }
-  }, [marker.lat]);
+
   return (
     <Modal
       show={showModal}
