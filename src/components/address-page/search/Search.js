@@ -24,7 +24,6 @@ export default function Search({
   };
 
   const handleSelect = async (address) => {
-    console.log(address);
     setValue(address, false);
     clearSuggestions();
     try {

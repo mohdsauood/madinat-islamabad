@@ -48,6 +48,12 @@ function RenderMap() {
       radius: 100 * 1000,
     },
   });
+  const [address, setAddress] = useState({
+    area: null,
+    doorNo: null,
+    landMark: null,
+    saveAs: null,
+  });
   const [showModal, setShowModal] = useState(false);
   const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
@@ -101,16 +107,6 @@ function RenderMap() {
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
         libraries={libraries}>
         <div className={styles.wrapper}>
-          <Search
-            panTo={panTo}
-            ready={ready}
-            value={value}
-            status={status}
-            data={data}
-            setValue={setValue}
-            clearSuggestions={clearSuggestions}
-          />
-          <Locate panTo={panTo} />
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
             zoom={zoom}
@@ -119,6 +115,17 @@ function RenderMap() {
             onBoundsChanged={handleBoundsChanged}
             onDragEnd={handleDragEnd}
             onLoad={onMapLoad}>
+            <Search
+              panTo={panTo}
+              ready={ready}
+              value={value}
+              status={status}
+              data={data}
+              setValue={setValue}
+              setAddress={setAddress}
+              clearSuggestions={clearSuggestions}
+            />
+            <Locate panTo={panTo} />
             <Circle center={restoCenter} options={circleOptions} />
             {<Marker position={mapCenter} />}
             <InvalidLocationModal
