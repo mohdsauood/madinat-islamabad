@@ -38,6 +38,7 @@ const initialMarker = { lat: null, long: null };
 
 function RenderMap() {
   const [marker, setMarker] = useState(initialMarker);
+  const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -45,6 +46,10 @@ function RenderMap() {
 
   const onMapClick = useCallback((event) => {
     setMarker({
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    });
+    setMapCenter({
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     });
@@ -61,13 +66,15 @@ function RenderMap() {
         mapContainerStyle={mapContainerStyle}
         zoom={zoom}
         options={options}
-        center={marker}
+        center={mapCenter}
         onBoundsChanged={handleBoundsChanged}
         onClick={onMapClick}
         onLoad={onMapLoad}>
         <Circle center={restoCenter} options={circleOptions} />
         {marker && <Marker position={{ lat: marker.lat, lng: marker.lng }} />}
-        <InvalidLocationModal marker={marker} setMarker={setMarker} />
+        {marker && (
+          <InvalidLocationModal marker={marker} setMarker={setMarker} />
+        )}
       </GoogleMap>
     </LoadScript>
   );
