@@ -1,8 +1,5 @@
 import React from 'react';
-import usePlacesAutoComplete, {
-  getGeocode,
-  getLatLng,
-} from 'use-places-autocomplete';
+import { getGeocode, getLatLng } from 'use-places-autocomplete';
 import {
   Combobox,
   ComboboxInput,
@@ -13,20 +10,15 @@ import {
 import '@reach/combobox/styles.css';
 import styles from './Search.module.css';
 
-export default function Search({ panTo }) {
-  const {
-    ready,
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutoComplete({
-    requestOptions: {
-      location: { lat: () => 25.33800452203996, lng: () => 55.393221974372864 },
-      radius: 100 * 1000,
-    },
-  });
-
+export default function Search({
+  panTo,
+  ready,
+  value,
+  status,
+  data,
+  setValue,
+  clearSuggestions,
+}) {
   const handleInput = (e) => {
     setValue(e.target.value);
   };

@@ -11,13 +11,16 @@ export default function InvalidLocationModal({
   showModal,
   setShowModal,
   handleShowLocation,
+  clearValue,
 }) {
   const handleModalClose = () => {
     setShowModal(false);
+    clearValue();
   };
   const handleShow = () => {
     setShowModal(false);
     handleShowLocation();
+    clearValue();
   };
   return (
     <Modal

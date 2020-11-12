@@ -4,6 +4,7 @@ import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal
 import Search from '../search/Search';
 import Locate from '../locate/Locate';
 import styles from './RenderMap.module.css';
+import usePlacesAutoComplete from 'use-places-autocomplete';
 
 const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
@@ -35,6 +36,18 @@ const circleOptions = {
 const zoom = 14;
 
 function RenderMap() {
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions,
+  } = usePlacesAutoComplete({
+    requestOptions: {
+      location: { lat: () => 25.33800452203996, lng: () => 55.393221974372864 },
+      radius: 100 * 1000,
+    },
+  });
   const [showModal, setShowModal] = useState(false);
   const [mapCenter, setMapCenter] = useState(restoCenter);
   const mapRef = useRef();
@@ -78,13 +91,25 @@ function RenderMap() {
     const { lat, lng } = restoCenter;
     mapRef.current.panTo({ lat, lng });
   };
+
+  const clearValue = () => {
+    setValue('');
+  };
   return (
     <>
       <LoadScript
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
         libraries={libraries}>
         <div className={styles.wrapper}>
-          <Search panTo={panTo} />
+          <Search
+            panTo={panTo}
+            ready={ready}
+            value={value}
+            status={status}
+            data={data}
+            setValue={setValue}
+            clearSuggestions={clearSuggestions}
+          />
           <Locate panTo={panTo} />
           <GoogleMap
             mapContainerStyle={mapContainerStyle}
@@ -102,6 +127,7 @@ function RenderMap() {
               showModal={showModal}
               setShowModal={setShowModal}
               handleShowLocation={handleShowLocation}
+              clearValue={clearValue}
             />
           </GoogleMap>
         </div>
