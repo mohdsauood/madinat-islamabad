@@ -2,6 +2,8 @@ import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { GoogleMap, Marker, Circle, LoadScript } from '@react-google-maps/api';
 import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal';
 import Search from '../search/Search';
+import Locate from '../locate/Locate';
+import styles from './RenderMap.module.css';
 
 const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
@@ -81,25 +83,28 @@ function RenderMap() {
       <LoadScript
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
         libraries={libraries}>
-        <Search panTo={panTo} />
-        <GoogleMap
-          mapContainerStyle={mapContainerStyle}
-          zoom={zoom}
-          options={options}
-          center={restoCenter}
-          onBoundsChanged={handleBoundsChanged}
-          onDragEnd={handleDragEnd}
-          onLoad={onMapLoad}>
-          <Circle center={restoCenter} options={circleOptions} />
-          {<Marker position={mapCenter} />}
-          <InvalidLocationModal
-            mapCenter={mapCenter}
-            setMapCenter={setMapCenter}
-            showModal={showModal}
-            setShowModal={setShowModal}
-            handleShowLocation={handleShowLocation}
-          />
-        </GoogleMap>
+        <div className={styles.wrapper}>
+          <Search panTo={panTo} />
+          <Locate panTo={panTo} />
+          <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            zoom={zoom}
+            options={options}
+            center={restoCenter}
+            onBoundsChanged={handleBoundsChanged}
+            onDragEnd={handleDragEnd}
+            onLoad={onMapLoad}>
+            <Circle center={restoCenter} options={circleOptions} />
+            {<Marker position={mapCenter} />}
+            <InvalidLocationModal
+              mapCenter={mapCenter}
+              setMapCenter={setMapCenter}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              handleShowLocation={handleShowLocation}
+            />
+          </GoogleMap>
+        </div>
       </LoadScript>
     </>
   );

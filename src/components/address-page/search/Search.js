@@ -30,9 +30,7 @@ export default function Search({ panTo }) {
   const handleInput = (e) => {
     setValue(e.target.value);
   };
-  const clearInput = () => {
-    setValue('');
-  };
+
   const handleSelect = async (address) => {
     console.log(address);
     setValue(address, false);
