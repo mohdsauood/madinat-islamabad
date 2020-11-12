@@ -1,15 +1,12 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { GoogleMap, Marker, Circle, LoadScript } from '@react-google-maps/api';
 import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal';
-import '@reach/combobox/styles.css';
-import usePlacesAutoComplete, {
-  getGeocode,
-  getLatLng,
-} from 'use-places-autocomplete';
+import Search from '../search/Search';
+
 const libraries = ['places', 'geometry'];
 const mapContainerStyle = {
   width: '100%',
-  height: '40vh',
+  height: '50vh',
 };
 const restoCenter = {
   lat: 25.33800452203996,
@@ -64,27 +61,30 @@ function RenderMap() {
   }, [mapCenter]);
 
   return (
-    <LoadScript
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-      libraries={libraries}>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={zoom}
-        options={options}
-        center={restoCenter}
-        onBoundsChanged={handleBoundsChanged}
-        onDragEnd={handleDragEnd}
-        onLoad={onMapLoad}>
-        <Circle center={restoCenter} options={circleOptions} />
-        {<Marker position={mapCenter} />}
-        <InvalidLocationModal
-          mapCenter={mapCenter}
-          setMapCenter={setMapCenter}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-      </GoogleMap>
-    </LoadScript>
+    <>
+      <Search />
+      <LoadScript
+        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+        libraries={libraries}>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={zoom}
+          options={options}
+          center={restoCenter}
+          onBoundsChanged={handleBoundsChanged}
+          onDragEnd={handleDragEnd}
+          onLoad={onMapLoad}>
+          <Circle center={restoCenter} options={circleOptions} />
+          {<Marker position={mapCenter} />}
+          <InvalidLocationModal
+            mapCenter={mapCenter}
+            setMapCenter={setMapCenter}
+            showModal={showModal}
+            setShowModal={setShowModal}
+          />
+        </GoogleMap>
+      </LoadScript>
+    </>
   );
 }
 
