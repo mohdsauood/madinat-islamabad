@@ -30,11 +30,13 @@ export default function Search({ panTo }) {
   const handleInput = (e) => {
     setValue(e.target.value);
   };
+  const clearInput = () => {
+    setValue('');
+  };
   const handleSelect = async (address) => {
     console.log(address);
     setValue(address, false);
     clearSuggestions();
-
     try {
       const results = await getGeocode({ address });
       const { lat, lng } = await getLatLng(results[0]);

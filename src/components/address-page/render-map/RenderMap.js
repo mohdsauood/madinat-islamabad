@@ -60,12 +60,28 @@ function RenderMap() {
     }
   }, [mapCenter]);
 
+  const panTo = React.useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    if (
+      google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(restoCenter.lat, restoCenter.lng),
+        new google.maps.LatLng(lat, lng)
+      ) > 1000
+    ) {
+      setShowModal(true);
+    }
+  }, []);
+  const handleShowLocation = () => {
+    console.log('handleshow location is called');
+    const { lat, lng } = restoCenter;
+    mapRef.current.panTo({ lat, lng });
+  };
   return (
     <>
-      <Search />
       <LoadScript
         googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
         libraries={libraries}>
+        <Search panTo={panTo} />
         <GoogleMap
           mapContainerStyle={mapContainerStyle}
           zoom={zoom}
@@ -81,6 +97,7 @@ function RenderMap() {
             setMapCenter={setMapCenter}
             showModal={showModal}
             setShowModal={setShowModal}
+            handleShowLocation={handleShowLocation}
           />
         </GoogleMap>
       </LoadScript>

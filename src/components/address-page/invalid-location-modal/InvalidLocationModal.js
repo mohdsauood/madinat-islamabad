@@ -7,11 +7,18 @@ const restoCenter = {
   lng: 55.393221974372864,
 };
 
-export default function InvalidLocationModal({ showModal, setShowModal }) {
+export default function InvalidLocationModal({
+  showModal,
+  setShowModal,
+  handleShowLocation,
+}) {
   const handleModalClose = () => {
     setShowModal(false);
   };
-
+  const handleShow = () => {
+    setShowModal(false);
+    handleShowLocation();
+  };
   return (
     <Modal
       show={showModal}
@@ -19,12 +26,15 @@ export default function InvalidLocationModal({ showModal, setShowModal }) {
       backdrop="static"
       keyboard={false}
       centered>
-      <Modal.Header closeButton>
-        <Modal.Title>Address is out of bounds</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Sorry ! We Dont Deliver Food In Your Area .</Modal.Body>
+      <Modal.Header className="py-2 px-2" closeButton></Modal.Header>
+      <Modal.Body className="py-2 px-5 text-center">
+        <h4>Sorry ! We Dont Deliver Food In Your Area .</h4>
+      </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleModalClose}>Choose New Address</Button>
+        <Button variant="secondary" onClick={handleShow}>
+          See Our Delivery Locations
+        </Button>
       </Modal.Footer>
     </Modal>
   );
