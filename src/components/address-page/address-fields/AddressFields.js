@@ -1,17 +1,20 @@
 import React from 'react';
 import styles from './AddressFields.module.css';
 import Button from 'react-bootstrap/Button';
-
 import Form from 'react-bootstrap/Form';
+import * as yup from 'yup';
+
+const { Formik } = formik;
+
+const schema = yup.object({
+  name: yup.string().required(),
+  area: yup.string().required(),
+  street: yup.string().required(),
+  doorNo: yup.string().required(),
+  landMark: yup.string().required(),
+});
 
 export default function AddressFields() {
-  const [address, setAddress] = useState({
-    name: null,
-    area: null,
-    street: null,
-    doorNo: null,
-    landMark: null,
-  });
   return (
     <>
       <h5 className="text-center font-weight-bold mb-1">Add Address Details</h5>
