@@ -36,24 +36,13 @@ const circleOptions = {
 const zoom = 14;
 
 function RenderMap() {
-  const {
-    ready,
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutoComplete({
-    requestOptions: {
-      location: { lat: () => 25.33800452203996, lng: () => 55.393221974372864 },
-      radius: 100 * 1000,
-    },
-  });
   const [address, setAddress] = useState({
     area: null,
     doorNo: null,
     landMark: null,
     saveAs: null,
   });
+  const [clearSearchInput, setClearSearchInput] = useState(false);
   const [locationAllowed, setLocationAllowed] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [mapCenter, setMapCenter] = useState(restoCenter);
@@ -102,9 +91,6 @@ function RenderMap() {
     mapRef.current.panTo({ lat, lng });
   };
 
-  const clearValue = () => {
-    setValue('');
-  };
   return (
     <>
       <LoadScript
@@ -121,13 +107,9 @@ function RenderMap() {
             onLoad={onMapLoad}>
             <Search
               panTo={panTo}
-              ready={ready}
-              value={value}
-              status={status}
-              data={data}
-              setValue={setValue}
               setAddress={setAddress}
-              clearSuggestions={clearSuggestions}
+              setClearSearchInput={setClearSearchInput}
+              clearSearchInput={clearSearchInput}
             />
             <Locate panTo={panTo} />
             <Circle center={restoCenter} options={circleOptions} />
@@ -138,7 +120,7 @@ function RenderMap() {
               showModal={showModal}
               setShowModal={setShowModal}
               handleShowLocation={handleShowLocation}
-              clearValue={clearValue}
+              setClearSearchInput={setClearSearchInput}
             />
           </GoogleMap>
           {locationAllowed && <div>location allowed</div>}
