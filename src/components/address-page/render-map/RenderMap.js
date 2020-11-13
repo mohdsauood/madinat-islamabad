@@ -4,6 +4,7 @@ import InvalidLocationModal from '../invalid-location-modal/InvalidLocationModal
 import Search from '../search/Search';
 import Locate from '../locate/Locate';
 import styles from './RenderMap.module.css';
+import AddressFields from '../address-fields/AddressFields';
 import usePlacesAutoComplete from 'use-places-autocomplete';
 
 const libraries = ['places', 'geometry'];
@@ -36,12 +37,6 @@ const circleOptions = {
 const zoom = 14;
 
 function RenderMap() {
-  const [address, setAddress] = useState({
-    area: null,
-    doorNo: null,
-    landMark: null,
-    saveAs: null,
-  });
   const [clearSearchInput, setClearSearchInput] = useState(false);
   const [locationAllowed, setLocationAllowed] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -107,7 +102,6 @@ function RenderMap() {
             onLoad={onMapLoad}>
             <Search
               panTo={panTo}
-              setAddress={setAddress}
               setClearSearchInput={setClearSearchInput}
               clearSearchInput={clearSearchInput}
             />
@@ -123,7 +117,7 @@ function RenderMap() {
               setClearSearchInput={setClearSearchInput}
             />
           </GoogleMap>
-          {locationAllowed && <div>location allowed</div>}
+          {locationAllowed && <AddressFields />}
         </div>
       </LoadScript>
     </>
