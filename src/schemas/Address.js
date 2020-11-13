@@ -18,9 +18,7 @@ const AddressSchema = new mongoose.Schema({
   },
   city: {
     type: String,
-  },
-  default: {
-    type: Boolean,
+    default: 'sharjah',
   },
 });
 
