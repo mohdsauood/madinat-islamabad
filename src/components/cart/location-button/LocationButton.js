@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SHOW_ADDRESS_MODAL } from '../../../context/types/types';
 import styles from './LocationButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
@@ -8,6 +8,7 @@ export default function LocationButton() {
     console.log('i been called');
     cartDispatch({ type: SHOW_ADDRESS_MODAL });
   };
+
   return (
     <section onClick={handleClick} className={styles.sec}>
       <div className={styles.iconDiv}>

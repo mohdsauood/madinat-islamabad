@@ -12,24 +12,15 @@ import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
 import getUserType from '../../utils/getUserType';
-
 import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
+import updateUserFromSession from '../../utils/updateUserFromSession';
 import { useSession } from 'next-auth/client';
 
 export default function index() {
-  const [session] = useSession();
   const cartDispatch = useCartDispatch();
+  const [session] = useSession();
   useEffect(() => {
-    async function fetchUser() {
-      if (session && session.user) {
-        const userProperties = Object.keys(session.user);
-        userProperties.forEach((property) => {
-          const type = getUserType(property);
-          cartDispatch({ type, payload: session.user[property] });
-        });
-      }
-    }
-    fetchUser();
+    updateUserFromSession(session, cartDispatch);
   }, [session]);
 
   return (

@@ -22,6 +22,7 @@ const initialState = {
     toPay: null,
     coupon: null,
   },
+  selectedAddress: null,
 };
 
 function CartProvider({ children }) {
