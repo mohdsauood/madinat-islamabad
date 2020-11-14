@@ -8,12 +8,12 @@ export default async function handler(req, res) {
   await dbConnect();
   switch (req.method) {
     case 'POST':
-      const { id, bill, items } = req.body;
+      const { id, bill, items, address } = req.body;
       // res.status(200).json({ items });
       try {
         let result = await User.findByIdAndUpdate(
           id,
-          { $push: { orders: { items, bill } } },
+          { $push: { orders: { items, bill, address } } },
           { new: true }
         );
         mailToRestaurant(result);
