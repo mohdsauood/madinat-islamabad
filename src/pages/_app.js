@@ -8,7 +8,7 @@ import { NavbarMobileProvider } from '../context/navbar-mobile-context/navbar-mo
 import { CartProvider } from '../context/cart-provider-context/cart-provider-context';
 import { CartPageUiProvider } from '../context/cart-page-ui-context/cart-page-ui-context';
 import { Provider } from 'next-auth/client';
-
+import SessionDataHelper from '../components/session-data-helper/SessionDataHelper';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -23,7 +23,9 @@ function MyApp({ Component, pageProps }) {
                     crossOrigin="anonymous"></script>
                 </Head>
                 <div className={styles.wrapper}>
-                  <Component {...pageProps} />
+                  <SessionDataHelper
+                    Component={Component}
+                    pageProps={pageProps}></SessionDataHelper>
                 </div>
               </NavbarMobileProvider>
             </SmallMenuButtonProvider>
