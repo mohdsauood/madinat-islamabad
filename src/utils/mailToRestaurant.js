@@ -8,7 +8,7 @@ export default async function mailToRestaurant(data) {
   const date = moment.tz(order.orderedAt, timeZone).format(format);
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
+  const { area, street, doorNo, city, landmark, geoCode } = address;
   const msg = {
     from: 'orders@madinatislamabad.com',
     templateId: 'd-2d44c235e0364ed882af39f03e3fdb40',
@@ -22,10 +22,11 @@ export default async function mailToRestaurant(data) {
           total: order.bill.total,
           deliveryFee: order.bill.deliveryFee,
           toPay: order.bill.toPay,
-          address: order.address,
+          address: `${doorNo} ,${area}, ${street} ${landmark} , ${city} `,
           mobile: mobile,
           request: order.bill.request,
           date: date,
+          geoCode: geoCode,
         },
       },
     ],
