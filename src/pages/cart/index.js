@@ -11,18 +11,8 @@ import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
-import getUserType from '../../utils/getUserType';
-import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
-import updateUserFromSession from '../../utils/updateUserFromSession';
-import { useSession } from 'next-auth/client';
 
 export default function index() {
-  const cartDispatch = useCartDispatch();
-  const [session] = useSession();
-  useEffect(() => {
-    updateUserFromSession(session, cartDispatch);
-  }, [session]);
-
   return (
     <>
       <NavbarDesktop />

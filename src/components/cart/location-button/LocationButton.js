@@ -1,16 +1,26 @@
 import React, { useEffect } from 'react';
 import { SHOW_ADDRESS_MODAL } from '../../../context/types/types';
 import styles from './LocationButton.module.css';
+import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
+import { useRouter } from 'next/router';
+
 export default function LocationButton() {
+  const cartState = useCartState();
   const cartDispatch = useCartPageUiDispatch();
-  const handleClick = () => {
-    console.log('i been called');
+  const { selectedAddress } = cartState;
+  const router = useRouter();
+
+  const handleShowAddress = () => {
     cartDispatch({ type: SHOW_ADDRESS_MODAL });
   };
-
+  const handleRouting = () => {
+    router.push('/address');
+  };
   return (
-    <section onClick={handleClick} className={styles.sec}>
+    <section
+      onClick={selectedAddress ? handleShowAddress : handleRouting}
+      className={styles.sec}>
       <div className={styles.iconDiv}>
         <svg
           className={styles.svg}
@@ -30,11 +40,18 @@ export default function LocationButton() {
           />
         </svg>
         <div className={styles.addressDiv}>
-          <p className="xtBlack xtCapitalize ">choose address</p>
-          <p className="xtGray xtSm">none</p>
+          <p className="xtBlack xtCapitalize ">
+            {selectedAddress ? selectedAddress.area : 'choose address'}
+          </p>
+          <p className="xtGray xtSm">
+            {selectedAddress ? selectedAddress.name : 'none'}
+          </p>
         </div>
       </div>
-      <span className={`${styles.changeSpan} xtPrimary`}>CHANGE</span>
+
+      <span className={`${styles.changeSpan} xtPrimary`}>
+        {selectedAddress ? 'CHANGE' : 'ADD'}
+      </span>
     </section>
   );
 }
