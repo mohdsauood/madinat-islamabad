@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
+import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+import axios from 'axios';
 
 const schema = yup.object({
   name: yup.string(),
@@ -13,14 +15,26 @@ const schema = yup.object({
   landMark: yup.string(),
 });
 
-export default function AddressFields() {
+export default function AddressFields({ geoLocation }) {
+  const cartState = useCartState();
+  const { user } = cartState;
+  const id = user.id;
   return (
     <>
       <h5 className="text-center font-weight-bold mb-2">Add Address Details</h5>
       <Formik
         validationSchema={schema}
         onSubmit={(values) => {
-          console.log(values);
+          const data = { values, geoLocation, id };
+          axios
+            .post('/api/user/add-address', data)
+            .then(function (response) {
+              console.log('onSubmit method');
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         }}
         initialValues={{
           name: '',

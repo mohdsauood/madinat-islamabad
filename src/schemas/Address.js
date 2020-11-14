@@ -21,6 +21,14 @@ const AddressSchema = new mongoose.Schema({
     type: String,
     default: 'sharjah',
   },
+  geoCode: {
+    lat: {
+      type: Number,
+    },
+    lng: {
+      type: Number,
+    },
+  },
 });
 
 export default AddressSchema;

@@ -117,7 +117,7 @@ function RenderMap() {
               setClearSearchInput={setClearSearchInput}
             />
           </GoogleMap>
-          {locationAllowed && <AddressFields />}
+          {locationAllowed && <AddressFields geoLocation={mapCenter} />}
         </div>
       </LoadScript>
     </>
