@@ -182,12 +182,19 @@ export default function cartReducer(state, action) {
       };
     }
     case INIT_SELECTED_ADDRESS: {
-      console.log(action.payload);
       const address = action.payload;
       const latestAddress = address[address.length - 1];
       return {
         ...state,
         selectedAddress: latestAddress,
+      };
+    }
+    case UPDATE_SELECTED_ADDRESS: {
+      const id = action.payload;
+      const address = state.user.address.filter((address) => address._id == id);
+      return {
+        ...state,
+        selectedAddress: address[0],
       };
     }
 

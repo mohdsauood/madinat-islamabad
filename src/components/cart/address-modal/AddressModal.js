@@ -30,8 +30,12 @@ export default function AddressModal() {
   const formatedAddress =
     address &&
     address.map((address) => {
-      let { name, doorNo, area, street, landmark, city } = address;
-      return { name, address: `${doorNo}, ${area} ,${street} ${city}` };
+      let { _id, name, doorNo, area, street, landmark, city } = address;
+      return {
+        id: _id,
+        name,
+        address: `${doorNo}, ${area} ,${street} ${city}`,
+      };
     });
 
   const handleClose = () => {
@@ -48,9 +52,12 @@ export default function AddressModal() {
       <Container fluid className={'pt-0 pl-0 pr-0'}>
         <ListGroup>
           {formatedAddress &&
-            formatedAddress.map((item) => <AddressLi item={item} />)}
+            formatedAddress.map((item) => (
+              <AddressLi handleClose={handleClose} item={item} />
+            ))}
           <Link href="/address">
             <ListGroup.Item
+              onClick={handleClose}
               className={`${styles.addBtn}  xtUpperCase d-block w-100`}>
               <svg
                 className={styles.svg}

@@ -6,16 +6,20 @@ import * as yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const schema = yup.object({
   name: yup.string(),
-  area: yup.string().required(),
+  area: yup.string().required('Please Enter Your Area'),
   street: yup.string(),
-  doorNo: yup.string().required(),
+  doorNo: yup
+    .string()
+    .required('Please Enter Your House No/Door No / Block No'),
   landMark: yup.string(),
 });
 
 export default function AddressFields({ geoLocation }) {
+  const router = useRouter();
   const cartState = useCartState();
   const { user } = cartState;
   const id = user.id;
@@ -31,6 +35,7 @@ export default function AddressFields({ geoLocation }) {
             .then(function (response) {
               console.log('onSubmit method');
               console.log(response);
+              router.back();
             })
             .catch(function (error) {
               console.log(error);
