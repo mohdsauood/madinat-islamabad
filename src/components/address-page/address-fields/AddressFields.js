@@ -37,7 +37,7 @@ export default function AddressFields({ geoLocation }) {
             });
         }}
         initialValues={{
-          name: '',
+          name: 'home',
           area: '',
           street: '',
           doorNo: '',
