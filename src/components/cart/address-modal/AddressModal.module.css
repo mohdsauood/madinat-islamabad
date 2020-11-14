@@ -1,6 +1,7 @@
 .addBtn {
   display: flex;
   color: var(--primary-100);
+  cursor: pointer;
 }
 
 .svg {

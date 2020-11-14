@@ -21,9 +21,18 @@ Cortlandt Manor, New York(NY), 10567`,
 Garden City, Utah(UT), 84028`,
   },
 ];
-export default function CouponModal() {
+export default function AddressModal() {
   const [uiState, uiDispatch] = useCartPageUi();
-  //   const [cartState, cartDispatch] = useCart();
+  const [cartState, cartDispatch] = useCart();
+  const {
+    user: { address },
+  } = cartState;
+  const formatedAddress =
+    address &&
+    address.map((address) => {
+      let { name, doorNo, area, street, landmark, city } = address;
+      return { name, address: `${doorNo}, ${area} ,${street} ${city}` };
+    });
 
   const handleClose = () => {
     uiDispatch({ type: HIDE_ADDRESS_MODAL });
@@ -38,10 +47,9 @@ export default function CouponModal() {
       </Modal.Header>
       <Container fluid className={'pt-0 pl-0 pr-0'}>
         <ListGroup>
-          {fakeAddress.map((item) => (
-            <AddressLi item={item} />
-          ))}
-          <Link href="/user/add-address">
+          {formatedAddress &&
+            formatedAddress.map((item) => <AddressLi item={item} />)}
+          <Link href="/address">
             <ListGroup.Item
               className={`${styles.addBtn}  xtUpperCase d-block w-100`}>
               <svg
