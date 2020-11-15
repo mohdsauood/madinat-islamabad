@@ -10,8 +10,8 @@ import {
 } from '../../../context/cart-provider-context/cart-provider-context';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import updateAddressFromResponse from '../../../utils/user-data-helper/updateAddressFromResponse';
-
+import updateUserFromSession from '../../../utils/updateUserFromSession';
+import { getSession } from 'next-auth/client';
 const schema = yup.object({
   name: yup.string(),
   area: yup.string().required('Please Enter Your Area'),
@@ -38,15 +38,15 @@ export default function AddressFields({ geoLocation }) {
           axios
             .post('/api/user/add-address', data)
             .then(function (response) {
-              console.log('onSubmit method');
+              console.log('onSubmit method i called updateUserFromSession');
               console.log(response);
               const {
-                data: {
-                  data: { address },
-                },
+                data: { data },
               } = response;
-              // updateAddressFromResponse(address, cartDispatch);
-              router.back();
+              getSession().then((res) => {
+                updateUserFromSession(res, cartDispatch);
+                router.back();
+              });
             })
             .catch(function (error) {
               console.log(error);

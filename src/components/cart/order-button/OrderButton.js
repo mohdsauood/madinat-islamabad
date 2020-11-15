@@ -6,7 +6,8 @@ import { useCart } from '../../../context/cart-provider-context/cart-provider-co
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { date } from 'yup';
-
+import updateUserFromSession from '../../../utils/updateUserFromSession';
+import { getSession } from 'next-auth/client';
 export default function OrderButton() {
   const router = useRouter();
   const cartUiDispatch = useCartPageUiDispatch();
@@ -48,10 +49,11 @@ export default function OrderButton() {
       .post('/api/user/place-order', data)
       .then(function (response) {
         console.log(response);
-        if (response) {
+        getSession().then((res) => {
+          updateUserFromSession(res, cartDispatch);
           cartDispatch({ type: CLEAR_ITEMS });
           router.push('/order-success');
-        }
+        });
       })
       .catch(function (error) {
         console.log(error);
