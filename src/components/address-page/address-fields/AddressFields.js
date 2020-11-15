@@ -4,9 +4,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import * as yup from 'yup';
 import { Formik, Field, ErrorMessage } from 'formik';
-import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
+import {
+  useCartDispatch,
+  useCartState,
+} from '../../../context/cart-provider-context/cart-provider-context';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import updateAddressFromResponse from '../../../utils/user-data-helper/updateAddressFromResponse';
 
 const schema = yup.object({
   name: yup.string(),
@@ -23,6 +27,7 @@ export default function AddressFields({ geoLocation }) {
   const cartState = useCartState();
   const { user } = cartState;
   const id = user.id;
+  const cartDispatch = useCartDispatch();
   return (
     <>
       <h5 className="text-center font-weight-bold mb-2">Add Address Details</h5>
@@ -35,6 +40,12 @@ export default function AddressFields({ geoLocation }) {
             .then(function (response) {
               console.log('onSubmit method');
               console.log(response);
+              const {
+                data: {
+                  data: { address },
+                },
+              } = response;
+              // updateAddressFromResponse(address, cartDispatch);
               router.back();
             })
             .catch(function (error) {

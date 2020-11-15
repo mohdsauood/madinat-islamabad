@@ -8,19 +8,7 @@ import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-u
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 import { HIDE_ADDRESS_MODAL } from '../../../context/types/types';
 import AddressLi from '../address-li/AddressLi.js';
-const fakeAddress = [
-  {
-    name: 'hotel malibu',
-    address: `110 Highland Dr
-Cortlandt Manor, New York(NY), 10567`,
-  },
-  { name: 'home', address: `608 Clinton StMarshall, Michigan(MI), 49068` },
-  {
-    name: 'office',
-    address: `2940 S Panorama Dr
-Garden City, Utah(UT), 84028`,
-  },
-];
+
 export default function AddressModal() {
   const [uiState, uiDispatch] = useCartPageUi();
   const [cartState, cartDispatch] = useCart();
@@ -34,7 +22,9 @@ export default function AddressModal() {
       return {
         id: _id,
         name,
-        address: `${doorNo}, ${area} ,${street} ${city}`,
+        address: `${doorNo && doorNo}, ${area && area} ,${
+          street && street + ','
+        } ${landmark && landmark + ','}${city}`,
       };
     });
 

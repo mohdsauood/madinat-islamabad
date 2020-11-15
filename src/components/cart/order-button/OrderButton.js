@@ -37,11 +37,11 @@ export default function OrderButton() {
     });
     data.bill = bill;
     data.address = {
-      name: selectedAddress.name,
+      name: selectedAddress.name || '',
       area: selectedAddress.area,
-      street: selectedAddress.street,
+      street: selectedAddress.street || '',
       doorNo: selectedAddress.doorNo,
-      landmark: selectedAddress.landmark,
+      landmark: selectedAddress.landmark || '',
       geoCode: selectedAddress.geoCode,
     };
     axios
