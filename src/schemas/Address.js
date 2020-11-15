@@ -14,7 +14,7 @@ const AddressSchema = new mongoose.Schema({
   doorNo: {
     type: String,
   },
-  landmark: {
+  landMark: {
     type: String,
   },
   city: {

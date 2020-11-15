@@ -3,4 +3,12 @@
   margin: 0 auto;
   margin-top: 4rem;
   margin-bottom: 3rem;
+  background-color: lightgray;
+  color: gray;
+  border: 0px;
+}
+
+.btn:hover {
+  background-color: lightgray;
+  color: gray;
 }
