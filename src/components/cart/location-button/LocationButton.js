@@ -4,8 +4,21 @@ import styles from './LocationButton.module.css';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
-export default function LocationButton() {
+const variants = {
+  open: {
+    x: [30, -30, 20, -20],
+    transition: {
+      type: 'spring',
+      delay: 0.1,
+    },
+  },
+  closed: {
+    x: 0,
+  },
+};
+export default function LocationButton({ noAddress }) {
   const cartState = useCartState();
   const cartDispatch = useCartPageUiDispatch();
   const { selectedAddress } = cartState;
@@ -18,7 +31,9 @@ export default function LocationButton() {
     router.push('/address');
   };
   return (
-    <section
+    <motion.section
+      animate={noAddress ? 'open' : 'closed'}
+      variants={variants}
       onClick={selectedAddress ? handleShowAddress : handleRouting}
       className={styles.sec}>
       <div className={styles.iconDiv}>
@@ -52,6 +67,6 @@ export default function LocationButton() {
       <span className={`${styles.changeSpan} xtPrimary`}>
         {selectedAddress ? 'CHANGE' : 'ADD'}
       </span>
-    </section>
+    </motion.section>
   );
 }

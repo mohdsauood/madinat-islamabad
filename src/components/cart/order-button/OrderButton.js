@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { date } from 'yup';
 import updateUserFromSession from '../../../utils/updateUserFromSession';
 import { getSession } from 'next-auth/client';
-export default function OrderButton() {
+export default function OrderButton({ setNoAddress }) {
   const router = useRouter();
   const cartUiDispatch = useCartPageUiDispatch();
   const [cartState, cartDispatch] = useCart();
@@ -22,7 +22,10 @@ export default function OrderButton() {
       return;
     }
     if (!cartState.selectedAddress) {
-      console.log('hi hi');
+      setNoAddress(true);
+      setTimeout(() => {
+        setNoAddress(false);
+      }, 500);
       return;
     }
     const { items, user, bill, selectedAddress } = cartState;
