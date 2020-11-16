@@ -86,13 +86,13 @@ a:hover {
 .xbtnOutline {
   background-color: white;
   color: var(--primary-100);
-  border: 2px solid var(--primary-100);
+  border: none;
 }
 
 .xbtnBlue {
   background-color: var(--blue-button);
 }
-.xxbtnPrimary:hover {
+.xbtnPrimary:hover {
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;

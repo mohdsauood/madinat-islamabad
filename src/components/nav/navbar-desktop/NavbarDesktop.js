@@ -27,8 +27,7 @@ export default function NavbarDesktop() {
               e.preventDefault();
               onClick(e);
             }}>
-            <div
-              className={`${styles.navbarDesktop__ulSection__ul__li_div} ${styles.customDivHover}`}>
+            <div className={styles.navbarDesktop__ulSection__ul__li_div}>
               <span
                 className={styles.navbarDesktop__ulSection__ul__li__div__span}>
                 <svg
