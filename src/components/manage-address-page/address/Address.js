@@ -3,7 +3,30 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from './Address.module.css';
-export default function Address() {
+import axios from 'axios';
+import updateUserFromSession from '../../../utils/updateUserFromSession';
+import { getSession } from 'next-auth/client';
+import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+export default function Address({ address }) {
+  const [cartState, cartDispatch] = useCart();
+  const { user } = cartState;
+  const currentAddressId = address._id;
+  const handleDelete = () => {
+    const updatedAddress = user.address.filter(
+      (address) => address._id != currentAddressId
+    );
+    axios
+      .post('/api/user/delete-address', { updatedAddress, id: user.id })
+      .then(function (response) {
+        console.log(response);
+        getSession().then((res) => {
+          updateUserFromSession(res, cartDispatch);
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <Container className="d-flex mt-1">
       <svg
@@ -16,15 +39,16 @@ export default function Address() {
       </svg>
       <Card className="border-0 ">
         <Card.Body className="pt-0">
-          <Card.Title className="xtBlack">Home</Card.Title>
+          <Card.Title className="xtBlack">
+            {address.name !== undefined ? address.name : 'address'}
+          </Card.Title>
           <Card.Text className="mb-2 text-muted">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {address.doorNo + ' , ' + address.area + ' '}
+            {address.street ? address.street + ' ' : ' '}
+            {address.landMark ? address.landMark + ' ' : ' '}
+            {address.city}
           </Card.Text>
-          <Card.Link as={Button} className={styles.btn}>
-            edit
-          </Card.Link>
-          <Card.Link as={Button} className={styles.btn}>
+          <Card.Link as={Button} className={styles.btn} onClick={handleDelete}>
             delete
           </Card.Link>
         </Card.Body>
