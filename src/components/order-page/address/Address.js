@@ -23,10 +23,24 @@ export default function Address({ specificOrder }) {
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted d-flex justify-content-between">
           {specificOrder
-            ? `${specificOrder.address.doorNo} , ${specificOrder.address.area} , ${specificOrder.address.street}
-          ${specificOrder.address.landmark} ${specificOrder.address.city}`
-            : `${address.doorNo} , ${address.area} , ${address.street}
-          ${address.landmark} ${address.city}`}
+            ? `${specificOrder.address.doorNo} , ${
+                specificOrder.address.area
+              } , ${
+                specificOrder.address.street !== undefined
+                  ? specificOrder.address.street
+                  : ''
+              }
+          ${
+            specificOrder.address.landmark !== undefined
+              ? specificOrder.address.landmark
+              : ''
+          } ${specificOrder.address.city}`
+            : `${address.doorNo} , ${address.area} , ${
+                address.street !== undefined ? address.street : ''
+              }
+          ${address.landmark !== undefined ? address.landmark : ''} ${
+                address.city
+              }`}
         </Card.Subtitle>
       </Card.Body>
     </Card>
