@@ -9,7 +9,7 @@ import { useCartDispatch } from '../../../context/cart-provider-context/cart-pro
 import { useSession } from 'next-auth/client';
 import getUserType from '../../../utils/getUserType';
 import Overlay from '../../../components/overlay/Overlay';
-
+import ProtectedRoute from '../../../utils/ProtectedRoute';
 export default function index() {
   const [session] = useSession();
   const cartDispatch = useCartDispatch();
@@ -28,14 +28,16 @@ export default function index() {
 
   return (
     <>
-      <Overlay />
-      <Header />
-      <div className={styles.div}>
-        <UserDetails />
-        <Options />
-        <PastOrders />
-      </div>
-      <NumberModal />
+      <ProtectedRoute>
+        <Overlay />
+        <Header />
+        <div className={styles.div}>
+          <UserDetails />
+          <Options />
+          <PastOrders />
+        </div>
+        <NumberModal />
+      </ProtectedRoute>
     </>
   );
 }
