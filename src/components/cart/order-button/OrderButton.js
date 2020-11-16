@@ -21,6 +21,10 @@ export default function OrderButton() {
       cartUiDispatch({ type: SHOW_NUMBER_MODAL });
       return;
     }
+    if (!cartState.selectedAddress) {
+      console.log('hi hi');
+      return;
+    }
     const { items, user, bill, selectedAddress } = cartState;
     const data = {};
     user.address.forEach((element) => {
