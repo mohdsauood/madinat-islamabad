@@ -3,11 +3,11 @@ import styles from './index.module.css';
 import TitleHeader from '../../components/title-header/TitleHeader';
 import SignInButtons from '../../components/signin-components/signIn-buttons/SignInButtons';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
-import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
+
 import getUserType from '../../utils/getUserType';
 import { useCartDispatch } from '../../context/cart-provider-context/cart-provider-context';
 import { providers, useSession, signIn } from 'next-auth/client';
-
+import Header from '../../components/header/Header';
 export default function index({ providers }) {
   const [session] = useSession();
   const cartDispatch = useCartDispatch();
@@ -25,7 +25,7 @@ export default function index({ providers }) {
   }, [session]);
   return (
     <>
-      <NavbarDesktop />
+      <Header />
       <TitleHeader title="sign-in" />
       <HeroBanner
         styless={{
