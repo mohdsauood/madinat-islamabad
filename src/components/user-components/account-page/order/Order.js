@@ -30,7 +30,13 @@ export default function Order({ item }) {
         <button className={`${styles.btn} ${styles.btn2} xbtn xbtnOutline`}>
           reorder
         </button>{' '}
-        <button className={`${styles.btn} xbtn xbtnPrimary`}>rate us</button>
+        <button className={`${styles.btn} xbtn xbtnPrimary`}>
+          <a
+            href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TEoqLzAxNsw2YLRSNagwTjVNM01KSTIxMEtOMTBNszKoMAFyk4ySzM1NzNOMzS2SvQRzE1My8xJLFDKLcxJzE5MSUwAK0xZQ&q=madinat+islamabad&rlz=1C1CHBF_enIN836IN836&oq=madinat+islamabad&aqs=chrome.1.69i57j46i39i175i199j69i59j69i60l3.4261j0j7&sourceid=chrome&ie=UTF-8#lrd=0x3e5f5bdb406cd05f:0x4bdbb2b7747f378c,3,,,"
+            target="_blank">
+            rate us
+          </a>
+        </button>
       </div>
     </div>
   );
