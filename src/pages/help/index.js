@@ -217,7 +217,7 @@ export default function index() {
       </h3>
       <div className={styles.div}>
         <a
-          href="tel:0561222712"
+          href="tel:065598847"
           className={` ${styles.button} ${styles.callButton}`}>
           <svg
             className={`${styles.button__svg} ${styles.callSvg}`}
@@ -228,11 +228,11 @@ export default function index() {
             <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z" />
           </svg>
           <span className={`${styles.button__span} xtM xkarla xtBold`}>
-            056-3221-211
+            Call @ 06 559 8847
           </span>
         </a>
         <a
-          href="mailto:abx@gmail.com"
+          href="mailto:help@madinatislamabad.com"
           className={` ${styles.button} ${styles.emailButton}`}>
           <svg
             className={`${styles.button__svg} ${styles.emailSvg}`}
@@ -243,7 +243,7 @@ export default function index() {
             <path d="M0 3v18h24V3H0zm6.623 7.929L2 16.641V7.183l4.623 3.746zM2.482 5h19.035L12 12.713 2.482 5zm5.694 7.188L12 15.287l3.83-3.104L21.442 19H2.663l5.513-6.812zm9.208-1.264L22 7.183v9.348l-4.616-5.607z" />
           </svg>
           <span className={`${styles.button__span} xtM xkarla xtBold`}>
-            help@madinatisla.com
+            Email Us
           </span>
         </a>
       </div>

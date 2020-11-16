@@ -13,7 +13,7 @@ export default function Title({ id }) {
     return orders && orderArray[0];
   })();
   return (
-    <Card className="ml-3 mr-3">
+    <Card className="ml-3 mr-3 mt-4">
       <Card.Body className="p-2">
         <Card.Title className="align-middle xtBlack">
           <svg

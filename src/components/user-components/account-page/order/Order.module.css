@@ -52,6 +52,9 @@
   padding-bottom: 0.3rem;
 }
 
-.btn2 {
+.btn2,
+.btn2:hover {
   box-shadow: 2px 1px lightgray;
+  color: darkgray;
+  background-color: lightgray;
 }
