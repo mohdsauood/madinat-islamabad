@@ -10,12 +10,17 @@ import {
   UPDATE_TO_PAY,
 } from '../../../context/types/types';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
+import { useRouter } from 'next/router';
 
 export default function Item({ foodItem }) {
+  const router = useRouter();
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
   const handleClick = () => {
+    if (!cartState.user.name) {
+      router.push('/sign-in');
+    }
     cartDispatch({ type: ADD_ITEM, payload: item });
     cartDispatch({ type: UPDATE_CART_TOTAL });
     cartDispatch({ type: UPDATE_TO_PAY });
