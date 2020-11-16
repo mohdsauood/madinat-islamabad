@@ -87,6 +87,7 @@ a:hover {
   background-color: white;
   color: var(--primary-100);
   border: none;
+  box-shadow: 2px 2px lightgray;
 }
 
 .xbtnBlue {
