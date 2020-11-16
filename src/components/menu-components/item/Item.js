@@ -60,9 +60,9 @@ export default function Item({ foodItem }) {
         subButtons = 'add';
       }
     });
-  // useEffect(() => {
-  //   setitem(foodItem);
-  // }, [foodItem]);
+  useEffect(() => {
+    setitem(foodItem);
+  }, [foodItem]);
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
