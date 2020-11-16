@@ -3,6 +3,14 @@ export default async function mailToCustomer(data) {
   const order = orders[orders.length - 1];
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const {
+    area,
+    street = '',
+    doorNo,
+    city,
+    landmark = '',
+    geoCode,
+  } = order.address;
   const dynamicData = {};
   dynamicData.name = name;
   dynamicData.orderNo = order._id;
@@ -24,7 +32,7 @@ export default async function mailToCustomer(data) {
           total: order.bill.total,
           deliveryFee: order.bill.deliveryFee,
           toPay: order.bill.toPay,
-          address: order.address,
+          address: `${doorNo} ,${area}, ${street} ${landmark} , ${city} `,
         },
       },
     ],

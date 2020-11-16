@@ -18,7 +18,15 @@ export default function AddressModal() {
   const formatedAddress =
     address &&
     address.map((address) => {
-      let { _id, name, doorNo, area, street, landmark, city } = address;
+      let {
+        _id,
+        name,
+        doorNo,
+        area,
+        street = '',
+        landmark = '',
+        city,
+      } = address;
       return {
         id: _id,
         name,
