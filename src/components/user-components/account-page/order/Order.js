@@ -27,7 +27,9 @@ export default function Order({ item }) {
       </Link>
       <p className={`${styles.date} xtSm`}>{item.date}</p>
       <div className={`${styles.buttonDiv} xtSm`}>
-        <button className={`${styles.btn} xbtn xbtnOutline`}>reorder</button>{' '}
+        <button className={`${styles.btn} ${styles.btn2} xbtn xbtnOutline`}>
+          reorder
+        </button>{' '}
         <button className={`${styles.btn} xbtn xbtnPrimary`}>rate us</button>
       </div>
     </div>

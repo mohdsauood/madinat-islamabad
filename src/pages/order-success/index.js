@@ -6,16 +6,19 @@ import Address from '../../components/order-page/address/Address';
 import Date from '../../components/order-page/date/Date';
 import Bill from '../../components/order-page/bill/Bill';
 import Overlay from '../../components/overlay/Overlay';
+import ProtectedRoute from '../../utils/ProtectedRoute';
 
 export default function index() {
   return (
     <>
-      <Overlay />
-      <Header />
-      <Title />
-      <Address />
-      <Date />
-      <Bill />
+      <ProtectedRoute>
+        <Overlay />
+        <Header />
+        <Title />
+        <Address />
+        <Date />
+        <Bill />
+      </ProtectedRoute>
     </>
   );
 }

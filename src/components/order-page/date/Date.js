@@ -3,13 +3,19 @@ import styles from './Date.module.css';
 import Card from 'react-bootstrap/Card';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
 import moment from 'moment-timezone';
-export default function Date({ specificOrder }) {
+export default function Date({ id }) {
   const cartState = useCartState();
   const { user } = cartState;
   const order = user.orders && user.orders[user.orders.length - 1];
   const unhandledDate = order && order.orderedAt;
   const format = 'Do MMMM YYYY, h:mm a';
   const timeZone = 'Asia/Dubai';
+  let specificOrder = (() => {
+    if (!id) return null;
+    const { orders } = user;
+    const orderArray = orders && orders.filter((order) => order._id == id);
+    return orders && orderArray[0];
+  })();
   const formatedDate = specificOrder
     ? moment.tz(specificOrder.orderedAt, timeZone).format(format)
     : moment.tz(unhandledDate, timeZone).format(format);

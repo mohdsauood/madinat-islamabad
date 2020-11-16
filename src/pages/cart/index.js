@@ -11,32 +11,27 @@ import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
-import { useRouter } from 'next/router';
-import isUserAuthenticated from '../../utils/isUserAuthenticated';
+import ProtectedRoute from '../../utils/ProtectedRoute';
 export default function index() {
-  const router = useRouter();
-  useEffect(() => {
-    if (!isUserAuthenticated) {
-      router.push('/sign-in');
-    }
-  }, []);
   return (
     <>
-      <NavbarDesktop />
-      <TitleHeader title={'Cart'} />
-      <div className={styles.div}>
-        <CartItems />
-        <Divider height={'0.1rem'} />
-        <AddReq />
-        <Divider height={'0.5rem'} />
-        <ApplyCoupon />
-        <Divider height={'0.1rem'} />
-        <Bill />
-        <Buttons />
-        <CouponModal />
-        <NumberModal />
-        <AddressModal />
-      </div>
+      <ProtectedRoute>
+        <NavbarDesktop />
+        <TitleHeader title={'Cart'} />
+        <div className={styles.div}>
+          <CartItems />
+          <Divider height={'0.1rem'} />
+          <AddReq />
+          <Divider height={'0.5rem'} />
+          <ApplyCoupon />
+          <Divider height={'0.1rem'} />
+          <Bill />
+          <Buttons />
+          <CouponModal />
+          <NumberModal />
+          <AddressModal />
+        </div>
+      </ProtectedRoute>
     </>
   );
 }

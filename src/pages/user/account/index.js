@@ -8,6 +8,7 @@ import NumberModal from '../../../components/cart/number-modal/NumberModal';
 import { useCartDispatch } from '../../../context/cart-provider-context/cart-provider-context';
 import { useSession } from 'next-auth/client';
 import getUserType from '../../../utils/getUserType';
+import Overlay from '../../../components/overlay/Overlay';
 
 export default function index() {
   const [session] = useSession();
@@ -27,6 +28,7 @@ export default function index() {
 
   return (
     <>
+      <Overlay />
       <Header />
       <div className={styles.div}>
         <UserDetails />
