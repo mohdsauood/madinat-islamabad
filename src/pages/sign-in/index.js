@@ -11,11 +11,12 @@ export default function index({ providers }) {
   return (
     <>
       <Header />
-      <TitleHeader title="sign-in" />
       <BreadCrumbs
         path={[{ name: 'home', path: '/' }]}
         currentPage={{ name: 'sign-in' }}
       />
+      <TitleHeader title="sign-in" />
+
       <HeroBanner
         styless={{
           color: '#AE16B1',
