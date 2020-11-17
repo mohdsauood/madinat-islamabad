@@ -16,6 +16,11 @@ export default function SidenavMobile() {
     (totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0));
+  const handleSignOut = () => {
+    handleShowMenu();
+    signOut();
+    router.push('/');
+  };
   return (
     <div
       className={
@@ -114,12 +119,7 @@ export default function SidenavMobile() {
           </Link>
         </li>
         {cartState.user.name ? (
-          <li
-            className={styles.navMenu__li}
-            onClick={() => {
-              handleShowMenu();
-              signOut();
-            }}>
+          <li className={styles.navMenu__li} onClick={handleSignOut}>
             <a href="">
               <svg
                 width="24"

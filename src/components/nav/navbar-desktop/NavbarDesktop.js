@@ -13,7 +13,10 @@ export default function NavbarDesktop() {
     (totalItems = cartState.items.reduce((accum, fooditem) => {
       return accum + fooditem.quantity;
     }, 0));
-
+  const handleSignOut = () => {
+    signOut();
+    router.push('/');
+  };
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
     return (
       <>
@@ -184,7 +187,7 @@ export default function NavbarDesktop() {
                   {' '}
                   <Link href="/user/account">View Account</Link>
                 </div>
-                <div className={styles.accountLink} onClick={signOut}>
+                <div className={styles.accountLink} onClick={handleSignOut}>
                   SignOut
                 </div>
               </Dropdown.Menu>
