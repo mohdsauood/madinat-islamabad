@@ -18,7 +18,6 @@ export default function Address({ address }) {
     axios
       .post('/api/user/delete-address', { updatedAddress, id: user.id })
       .then(function (response) {
-        console.log(response);
         getSession().then((res) => {
           updateUserFromSession(res, cartDispatch);
         });

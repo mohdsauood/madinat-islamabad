@@ -55,7 +55,6 @@ export default function OrderButton({ setNoAddress }) {
     axios
       .post('/api/user/place-order', data)
       .then(function (response) {
-        console.log(response);
         getSession().then((res) => {
           updateUserFromSession(res, cartDispatch);
           cartDispatch({ type: CLEAR_ITEMS });

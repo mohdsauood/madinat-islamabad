@@ -26,9 +26,7 @@ export default function NumberModal() {
     data.id = cartState.user.id;
     axios
       .put('/api/user/update-mobile', data)
-      .then(function (response) {
-        console.log(response.data);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });

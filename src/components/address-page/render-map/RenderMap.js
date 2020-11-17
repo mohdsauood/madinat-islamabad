@@ -47,7 +47,6 @@ function RenderMap() {
   }, []);
 
   const handleBoundsChanged = useCallback(() => {
-    console.log('handleboundschanged is being called');
     const center = mapRef.current.getCenter();
     const obj = {};
     obj.lat = center.lat();
@@ -81,7 +80,6 @@ function RenderMap() {
     }
   }, []);
   const handleShowLocation = () => {
-    console.log('handleshow location is called');
     const { lat, lng } = restoCenter;
     mapRef.current.panTo({ lat, lng });
   };

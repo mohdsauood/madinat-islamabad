@@ -38,8 +38,6 @@ export default function AddressFields({ geoLocation }) {
           axios
             .post('/api/user/add-address', data)
             .then(function (response) {
-              console.log('onSubmit method i called updateUserFromSession');
-              console.log(response);
               const {
                 data: { data },
               } = response;

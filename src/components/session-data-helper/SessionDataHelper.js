@@ -8,7 +8,6 @@ export default function SessionDataHelper({ Component, pageProps }) {
   const [session] = useSession();
 
   useEffect(() => {
-    console.log('session change triggered useEffect');
     updateUserFromSession(session, cartDispatch);
   }, [session]);
   return (
