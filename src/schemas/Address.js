@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const AddressSchema = new mongoose.Schema({
   name: {
     type: String,
+    default: 'home',
   },
   area: {
     type: String,
@@ -13,14 +14,20 @@ const AddressSchema = new mongoose.Schema({
   doorNo: {
     type: String,
   },
-  landmark: {
+  landMark: {
     type: String,
   },
   city: {
     type: String,
+    default: 'sharjah',
   },
-  default: {
-    type: Boolean,
+  geoCode: {
+    lat: {
+      type: Number,
+    },
+    lng: {
+      type: Number,
+    },
   },
 });
 

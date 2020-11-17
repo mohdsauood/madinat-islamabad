@@ -24,11 +24,6 @@
   transition: color fill;
   transition-duration: 0.5s;
 }
-.customDivHover:hover {
-  fill: var(--black-100);
-  color: var(--black-100);
-  transform: none;
-}
 
 .accountLink {
   padding-top: 0.3rem;

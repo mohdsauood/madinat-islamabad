@@ -2,12 +2,18 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import styles from './Title.module.css';
 import { useCartState } from '../../../context/cart-provider-context/cart-provider-context';
-export default function Title({ specificOrder }) {
+export default function Title({ id }) {
   const cartState = useCartState();
   const { user } = cartState;
   const order = user.orders && user.orders[user.orders.length - 1];
+  let specificOrder = (() => {
+    if (!id) return null;
+    const { orders } = user;
+    const orderArray = orders && orders.filter((order) => order._id == id);
+    return orders && orderArray[0];
+  })();
   return (
-    <Card className="ml-3 mr-3">
+    <Card className="ml-3 mr-3 mt-4">
       <Card.Body className="p-2">
         <Card.Title className="align-middle xtBlack">
           <svg

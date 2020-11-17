@@ -61,7 +61,6 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--black-100);
 }
 a:hover {
   text-decoration: none;
@@ -86,13 +85,14 @@ a:hover {
 .xbtnOutline {
   background-color: white;
   color: var(--primary-100);
-  border: 2px solid var(--primary-100);
+  border: none;
+  box-shadow: 2px 2px lightgray;
 }
 
 .xbtnBlue {
   background-color: var(--blue-button);
 }
-.xxbtnPrimary:hover {
+.xbtnPrimary:hover {
   cursor: pointer;
   transition-property: all;
   transition-duration: 0.5s;
@@ -192,4 +192,15 @@ a:hover {
 
 li {
   list-style-type: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
 }

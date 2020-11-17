@@ -1,38 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './SocialSection.module.css';
+import HelperModal from '../helper-modal/HelperModal';
 
 export default function SocialSection() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <section className={styles.socialSec}>
-      <p className={styles.socialSec__p}>
-        follow our social media to see exclusive offers
-      </p>
-      <section className={styles.socialSec__iconsDiv}>
-        <div className={styles.socialSec__iconsDiv__subDiv}>
-          <i
-            aria-hidden
-            className={`fab fa-facebook-square ${styles.fbIcon} fa-2x`}></i>
-          <p className={styles.socialSec__iconsDiv__subDiv_p}>
-            fb/Madinat.islamabad
-          </p>
-        </div>
-        <div className={styles.socialSec__iconsDiv__subDiv}>
-          <i
-            aria-hidden
-            className={`fab fa-snapchat-square ${styles.scIcon} fa-2x`}></i>
-          <p className={styles.socialSec__iconsDiv__subDiv_p}>
-            Sc: madinatislamabad
-          </p>
-        </div>
-        <div className={styles.socialSec__iconsDiv__subDiv}>
-          <i
-            aria-hidden
-            className={`fab fa-instagram-square ${styles.igIcon} fa-2x`}></i>
-          <p className={styles.socialSec__iconsDiv__subDiv_p}>
-            @Madinatislamabad
-          </p>
-        </div>
+    <>
+      <section className={styles.socialSec}>
+        <p className={styles.socialSec__p}>
+          follow our social media to see exclusive offers
+        </p>
+        <section className={styles.socialSec__iconsDiv}>
+          <div
+            className={styles.socialSec__iconsDiv__subDiv}
+            onClick={handleShow}>
+            <i
+              aria-hidden
+              className={`fab fa-facebook-square ${styles.fbIcon} fa-2x`}></i>
+            <p className={styles.socialSec__iconsDiv__subDiv_p}>
+              fb/Madinat.islamabad
+            </p>
+          </div>
+          <div
+            className={styles.socialSec__iconsDiv__subDiv}
+            onClick={handleShow}>
+            <i
+              aria-hidden
+              className={`fab fa-snapchat-square ${styles.scIcon} fa-2x`}></i>
+            <p className={styles.socialSec__iconsDiv__subDiv_p}>
+              Sc: madinatislamabad
+            </p>
+          </div>
+          <div
+            className={styles.socialSec__iconsDiv__subDiv}
+            onClick={handleShow}>
+            <i
+              aria-hidden
+              className={`fab fa-instagram-square ${styles.igIcon} fa-2x`}></i>
+            <p className={styles.socialSec__iconsDiv__subDiv_p}>
+              @Madinatislamabad
+            </p>
+          </div>
+        </section>
       </section>
-    </section>
+      <HelperModal show={show} handleClose={handleClose} />
+    </>
   );
 }

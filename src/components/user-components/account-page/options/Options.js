@@ -63,7 +63,7 @@ export default function Options() {
         </ListGroup.Item>
       </Link>
       <Link href="/user/change-theme">
-        <ListGroup.Item className={styles.li}>
+        <ListGroup.Item className={`${styles.li} ${styles.grayButton}`}>
           <svg
             className={styles.svg}
             width="100%"
@@ -77,7 +77,9 @@ export default function Options() {
             />
           </svg>
 
-          <span className={styles.span}>Change Theme</span>
+          <span className={`${styles.span} ${styles.graySpan}`}>
+            Change Theme
+          </span>
         </ListGroup.Item>
       </Link>
     </ListGroup>

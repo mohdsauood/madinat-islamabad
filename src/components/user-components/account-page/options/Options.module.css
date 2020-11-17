@@ -23,3 +23,15 @@
 .svg {
   width: 1.7rem;
 }
+
+.grayButton,
+.grayButton:hover {
+  color: lightgray !important;
+  background-color: darkgray;
+  display: none;
+}
+
+.graySpan,
+.graySpan:hover {
+  color: lightgray;
+}

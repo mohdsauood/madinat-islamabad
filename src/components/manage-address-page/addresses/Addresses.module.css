@@ -9,7 +9,7 @@
   margin-bottom: 3rem;
   display: block;
   border-color: var(--green-button);
-  color: var(--green-button);
+  color: var(--green-button) !important;
 }
 
 @media screen and (min-width: 1200px) {

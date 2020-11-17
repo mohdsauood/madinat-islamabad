@@ -5,8 +5,10 @@ import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/car
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-
-export default function OrderButton() {
+import { date } from 'yup';
+import updateUserFromSession from '../../../utils/updateUserFromSession';
+import { getSession } from 'next-auth/client';
+export default function OrderButton({ setNoAddress }) {
   const router = useRouter();
   const cartUiDispatch = useCartPageUiDispatch();
   const [cartState, cartDispatch] = useCart();
@@ -19,7 +21,14 @@ export default function OrderButton() {
       cartUiDispatch({ type: SHOW_NUMBER_MODAL });
       return;
     }
-    const { items, user, bill } = cartState;
+    if (!cartState.selectedAddress) {
+      setNoAddress(true);
+      setTimeout(() => {
+        setNoAddress(false);
+      }, 500);
+      return;
+    }
+    const { items, user, bill, selectedAddress } = cartState;
     const data = {};
     user.address.forEach((element) => {
       if (element.default) {
@@ -35,15 +44,22 @@ export default function OrderButton() {
       return obj;
     });
     data.bill = bill;
-    console.log(data.items);
+    data.address = {
+      name: selectedAddress.name || '',
+      area: selectedAddress.area,
+      street: selectedAddress.street || '',
+      doorNo: selectedAddress.doorNo,
+      landmark: selectedAddress.landmark || '',
+      geoCode: selectedAddress.geoCode,
+    };
     axios
       .post('/api/user/place-order', data)
       .then(function (response) {
-        console.log(response);
-        if (response) {
+        getSession().then((res) => {
+          updateUserFromSession(res, cartDispatch);
           cartDispatch({ type: CLEAR_ITEMS });
           router.push('/order-success');
-        }
+        });
       })
       .catch(function (error) {
         console.log(error);

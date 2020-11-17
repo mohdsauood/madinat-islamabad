@@ -12,7 +12,9 @@ export default function NumberModal() {
   const [uiState, uiDispatch] = useCartPageUi();
   const [cartState, cartDispatch] = useCart();
   const handleChange = (e) => {
-    cartDispatch({ type: UPDATE_NUMBER, payload: e.target.value });
+    const { value, maxLength } = e.target;
+    const message = value.slice(0, maxLength);
+    cartDispatch({ type: UPDATE_NUMBER, payload: message });
   };
   const handleClose = () => {
     uiDispatch({ type: HIDE_NUMBER_MODAL });
@@ -24,9 +26,7 @@ export default function NumberModal() {
     data.id = cartState.user.id;
     axios
       .put('/api/user/update-mobile', data)
-      .then(function (response) {
-        console.log(response.data);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         console.log(error);
       });
@@ -47,6 +47,8 @@ export default function NumberModal() {
             placeholder="Enter Mobile Number"
             aria-label="mobileNumber"
             aria-describedby="basic-addon1"
+            type="number"
+            maxLength={10}
           />
         </InputGroup>
       </Modal.Body>

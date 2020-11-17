@@ -10,28 +10,11 @@ import SmallMenu from '../../../components/menu-components/small-menu/SmallMenu'
 import Main from '../../../components/menu-components/main/Main';
 import CartSection from '../../../components/menu-components/cart-section/CartSection';
 import ViewCartButton from '../../../components/menu-components/viewcart-button/ViewCartButton';
-import { useCartDispatch } from '../../../context/cart-provider-context/cart-provider-context';
-import { useSession } from 'next-auth/client';
-import getUserType from '../../../utils/getUserType';
 
 export default function index() {
   const router = useRouter();
   const { item } = router.query;
   const path = router.pathname;
-  const [session] = useSession();
-  const cartDispatch = useCartDispatch();
-  useEffect(() => {
-    async function fetchUser() {
-      if (session && session.user) {
-        const userProperties = Object.keys(session.user);
-        userProperties.forEach((property) => {
-          const type = getUserType(property);
-          cartDispatch({ type, payload: session.user[property] });
-        });
-      }
-    }
-    fetchUser();
-  }, [session]);
 
   return (
     <>

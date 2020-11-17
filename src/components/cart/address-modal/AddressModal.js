@@ -8,22 +8,33 @@ import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-u
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 import { HIDE_ADDRESS_MODAL } from '../../../context/types/types';
 import AddressLi from '../address-li/AddressLi.js';
-const fakeAddress = [
-  {
-    name: 'hotel malibu',
-    address: `110 Highland Dr
-Cortlandt Manor, New York(NY), 10567`,
-  },
-  { name: 'home', address: `608 Clinton StMarshall, Michigan(MI), 49068` },
-  {
-    name: 'office',
-    address: `2940 S Panorama Dr
-Garden City, Utah(UT), 84028`,
-  },
-];
-export default function CouponModal() {
+
+export default function AddressModal() {
   const [uiState, uiDispatch] = useCartPageUi();
-  //   const [cartState, cartDispatch] = useCart();
+  const [cartState, cartDispatch] = useCart();
+  const {
+    user: { address },
+  } = cartState;
+  const formatedAddress =
+    address &&
+    address.map((address) => {
+      let {
+        _id,
+        name,
+        doorNo,
+        area,
+        street = '',
+        landmark = '',
+        city,
+      } = address;
+      return {
+        id: _id,
+        name,
+        address: `${doorNo && doorNo}, ${area && area} ,${
+          street && street + ','
+        } ${landmark && landmark + ','}${city}`,
+      };
+    });
 
   const handleClose = () => {
     uiDispatch({ type: HIDE_ADDRESS_MODAL });
@@ -38,11 +49,13 @@ export default function CouponModal() {
       </Modal.Header>
       <Container fluid className={'pt-0 pl-0 pr-0'}>
         <ListGroup>
-          {fakeAddress.map((item) => (
-            <AddressLi item={item} />
-          ))}
-          <Link href="/user/add-address">
+          {formatedAddress &&
+            formatedAddress.map((item, index) => (
+              <AddressLi handleClose={handleClose} key={index} item={item} />
+            ))}
+          <Link href="/address">
             <ListGroup.Item
+              onClick={handleClose}
               className={`${styles.addBtn}  xtUpperCase d-block w-100`}>
               <svg
                 className={styles.svg}

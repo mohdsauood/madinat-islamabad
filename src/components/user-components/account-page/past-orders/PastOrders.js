@@ -21,7 +21,7 @@ export default function pastOrders() {
           const unhandledDate = order && order.orderedAt;
           const date = moment.tz(unhandledDate, timeZone).format(format);
           const id = order._id;
-          return <Order item={{ name, price, date, id }} />;
+          return <Order item={{ name, price, date, id }} key={id} />;
         })}
     </div>
   );
