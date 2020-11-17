@@ -1,6 +1,5 @@
 import dbConnect from '../../../../utils/dbConnect';
 import mailToRestaurant from '../../../../utils/mailToRestaurant';
-import mailToRestaurantv2 from '../../../../utils/mailToRestaurantv2';
 import mailToCustomer from '../../../../utils/mailToCustomer';
 import User from '../../../../models/User';
 
