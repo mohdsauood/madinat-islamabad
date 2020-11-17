@@ -5,11 +5,18 @@ import SignInButtons from '../../components/signin-components/signIn-buttons/Sig
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import { providers, useSession, signIn } from 'next-auth/client';
 import Header from '../../components/header/Header';
+import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+
 export default function index({ providers }) {
   return (
     <>
       <Header />
+      <BreadCrumbs
+        path={[{ name: 'home', path: '/' }]}
+        currentPage={{ name: 'sign-in' }}
+      />
       <TitleHeader title="sign-in" />
+
       <HeroBanner
         styless={{
           color: '#AE16B1',
