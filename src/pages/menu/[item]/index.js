@@ -10,7 +10,7 @@ import SmallMenu from '../../../components/menu-components/small-menu/SmallMenu'
 import Main from '../../../components/menu-components/main/Main';
 import CartSection from '../../../components/menu-components/cart-section/CartSection';
 import ViewCartButton from '../../../components/menu-components/viewcart-button/ViewCartButton';
-
+import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   const router = useRouter();
   const { item } = router.query;
@@ -20,6 +20,10 @@ export default function index() {
     <>
       <Overlay />
       <Header />
+      <BreadCrumbs
+        path={[{ name: 'home', path: '/' }]}
+        currentPage={{ name: 'menu' }}
+      />
       <Main>
         <SubNav item={item} />
         <Items item={item} />

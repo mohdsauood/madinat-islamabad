@@ -12,11 +12,16 @@ import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
 import ProtectedRoute from '../../utils/ProtectedRoute';
+import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   return (
     <>
       <ProtectedRoute>
         <NavbarDesktop />
+        <BreadCrumbs
+          path={[{ name: 'home', path: '/' }]}
+          currentPage={{ name: 'cart' }}
+        />
         <TitleHeader title={'Cart'} />
         <div className={styles.div}>
           <CartItems />

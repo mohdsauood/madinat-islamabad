@@ -2,12 +2,17 @@ import React from 'react';
 import Header from '../../components/header/Header';
 import Overlay from '../../components/overlay/Overlay';
 import styles from './index.module.css';
+import Link from 'next/link';
+import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   return (
     <>
       <Overlay />
       <Header />
-
+      <BreadCrumbs
+        path={[{ name: 'home', path: '/' }]}
+        currentPage={{ name: 'Page Not Found' }}
+      />
       <svg
         className={styles.svg}
         width="100%"
@@ -240,7 +245,7 @@ export default function index() {
       </p>
       <button
         className={`${styles.button} xtUpperCase xkarla xtXlg xtBold xbtn xbtnOutline`}>
-        retry
+        <Link href="/">go to home</Link>
       </button>
     </>
   );

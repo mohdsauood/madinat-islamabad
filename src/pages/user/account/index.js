@@ -7,12 +7,17 @@ import Options from '../../../components/user-components/account-page/options/Op
 import NumberModal from '../../../components/cart/number-modal/NumberModal';
 import Overlay from '../../../components/overlay/Overlay';
 import ProtectedRoute from '../../../utils/ProtectedRoute';
+import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   return (
     <>
       <ProtectedRoute>
         <Overlay />
         <Header />
+        <BreadCrumbs
+          path={[{ name: 'home', path: '/' }]}
+          currentPage={{ name: 'view-account' }}
+        />
         <div className={styles.div}>
           <UserDetails />
           <Options />

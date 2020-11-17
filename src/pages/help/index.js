@@ -3,10 +3,18 @@ import styles from './index.module.css';
 import TitleHeader from '../../components/title-header/TitleHeader';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
+import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   return (
     <>
       <NavbarDesktop />
+      <BreadCrumbs
+        path={[
+          { name: 'home', path: '/' },
+          { name: 'view-account', path: '/user/view-account' },
+        ]}
+        currentPage={{ name: 'help' }}
+      />
       <TitleHeader title="help and support" />
       <HeroBanner
         styless={{

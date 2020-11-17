@@ -1,11 +1,11 @@
 import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Link from 'next/link';
-
+import styles from './BreadCrumbs.module.css';
 export default function BreadCrumbs({ path, currentPage }) {
   const crumbs = path.map((item) => {
     return (
-      <Breadcrumb.Item>
+      <Breadcrumb.Item key={item.name}>
         <Link href={item.path}>{item.name}</Link>
       </Breadcrumb.Item>
     );
