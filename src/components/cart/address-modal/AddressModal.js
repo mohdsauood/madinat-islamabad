@@ -50,8 +50,8 @@ export default function AddressModal() {
       <Container fluid className={'pt-0 pl-0 pr-0'}>
         <ListGroup>
           {formatedAddress &&
-            formatedAddress.map((item) => (
-              <AddressLi handleClose={handleClose} item={item} />
+            formatedAddress.map((item, index) => (
+              <AddressLi handleClose={handleClose} key={index} item={item} />
             ))}
           <Link href="/address">
             <ListGroup.Item
