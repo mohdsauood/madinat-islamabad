@@ -29,6 +29,7 @@
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .link {
