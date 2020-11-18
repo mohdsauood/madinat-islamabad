@@ -21,7 +21,7 @@ export default async function mailToRestaurant(data) {
     templateId: 'd-2d44c235e0364ed882af39f03e3fdb40',
     personalizations: [
       {
-        to: 'madinatislamabadorders@gmail.com',
+        to: 'recieveorders@madinatislamabad.com',
         dynamicTemplateData: {
           name: name,
           orderNo: order._id,
