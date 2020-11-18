@@ -6,11 +6,12 @@ import HeroBanner from '../../components/signin-components/herobanner/HeroBanner
 import { providers, useSession, signIn } from 'next-auth/client';
 import Header from '../../components/header/Header';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
-
+import Overlay from '../../components/overlay/Overlay';
 export default function index({ providers }) {
   return (
     <>
       <Header />
+      <Overlay />
       <BreadCrumbs
         path={[{ name: 'home', path: '/' }]}
         currentPage={{ name: 'sign-in' }}
