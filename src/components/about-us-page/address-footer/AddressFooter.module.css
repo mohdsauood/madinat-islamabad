@@ -1,0 +1,43 @@
+.container {
+  margin-top: 5rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  color: var(--black-100);
+}
+.addressContent {
+  margin-top: 0.5rem;
+  color: var(--black-75);
+  font-family: karla;
+  word-wrap: normal !important;
+}
+
+.link,
+.link:hover {
+  width: 80%;
+  text-align: center;
+  padding: 0.1rem;
+  max-width: 150px;
+  display: flex;
+  margin-top: 0.5rem;
+  background-color: rgb(86, 97, 250);
+  color: white;
+  border-radius: 16px;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+}
+.svg {
+  width: 1rem;
+  margin-left: 0.5rem;
+  fill: white;
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    margin-top: 1rem;
+  }
+  .link {
+    margin-top: 1rem;
+  }
+}
