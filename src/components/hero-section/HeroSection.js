@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './HeroSection.module.css';
 import Link from 'next/link';
 import TextLoop from 'react-text-loop';
+import OurStory from '../our-story/OurStory';
 export default function HeroSection() {
   return (
     <section className={styles.heroSection}>
@@ -18,6 +19,7 @@ export default function HeroSection() {
           order now
         </a>
       </Link>
+      <OurStory />
     </section>
   );
 }

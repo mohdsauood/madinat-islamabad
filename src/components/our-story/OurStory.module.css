@@ -1,0 +1,34 @@
+.div {
+  margin-top: 1rem;
+}
+.title {
+  font-size: 19px;
+}
+
+.content {
+  margin-top: 0.5rem;
+  font-weight: normal;
+  color: var(--black-75);
+  font-size: 18px;
+  overflow: hidden;
+  line-height: 1.4rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.linkDiv {
+  margin-top: 1rem;
+  text-align: right;
+}
+.link {
+  padding: 0.5rem 0;
+  color: var(--primary-100);
+}
+
+.linkSvg {
+  margin-left: 0.2rem;
+  width: 1rem;
+  fill: var(--primary-100);
+}
