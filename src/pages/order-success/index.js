@@ -7,13 +7,21 @@ import Date from '../../components/order-page/date/Date';
 import Bill from '../../components/order-page/bill/Bill';
 import Overlay from '../../components/overlay/Overlay';
 import ProtectedRoute from '../../utils/ProtectedRoute';
-
+import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
   return (
     <>
       <ProtectedRoute>
         <Overlay />
         <Header />
+        <BreadCrumbs
+          path={[
+            { name: 'home', path: '/' },
+            { name: 'menu', path: '/menu/roti' },
+            { name: 'cart', path: '/cart' },
+          ]}
+          currentPage={{ name: 'order-sucess' }}
+        />
         <Title />
         <Address />
         <Date />
