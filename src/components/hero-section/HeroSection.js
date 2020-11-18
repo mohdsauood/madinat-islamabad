@@ -20,8 +20,8 @@ export default function HeroSection() {
             order now
           </a>
         </Link>
-        <OurStory />
       </div>
+      <OurStory />
     </section>
   );
 }
