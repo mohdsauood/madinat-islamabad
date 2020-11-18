@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './OurStory.module.css';
 export default function OurStory() {
   return (
-    <div className={styles.div}>
+    <div className={styles.divx}>
       <h2 className={`xtBold xkarla xtBlack ${styles.title}`}>Our Story</h2>
       <h2 className={styles.content}>
         A legacy of Authentic Arabic cuisine So we had this passion. Food. And

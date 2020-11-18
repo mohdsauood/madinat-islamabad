@@ -1,4 +1,4 @@
-.div {
+.divx {
   margin-top: 1rem;
 }
 .title {
@@ -19,14 +19,20 @@
 }
 
 .linkDiv {
-  margin-top: 1rem;
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
+
 .link {
   padding: 0.5rem 0;
   color: var(--primary-100);
 }
 
+.link:hover {
+  color: #d62c0b;
+}
 .linkSvg {
   margin-left: 0.2rem;
   width: 1rem;

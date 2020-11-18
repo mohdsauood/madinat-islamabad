@@ -6,20 +6,22 @@ import OurStory from '../our-story/OurStory';
 export default function HeroSection() {
   return (
     <section className={styles.heroSection}>
-      <p className={styles.heroSection__p}>
-        serving{' '}
-        <TextLoop>
-          <span>breakfast from 6am .</span>
-          <span>lunch from 12 pm .</span>
-          <span>dinner from 7pm .</span>
-        </TextLoop>
-      </p>
-      <Link href="/menu/roti">
-        <a className={`xbtn xbtnPrimary ${styles.heroSection__button}`}>
-          order now
-        </a>
-      </Link>
-      <OurStory />
+      <div>
+        <p className={styles.heroSection__p}>
+          serving{' '}
+          <TextLoop>
+            <span>breakfast from 6am .</span>
+            <span>lunch from 12 pm .</span>
+            <span>dinner from 7pm .</span>
+          </TextLoop>
+        </p>
+        <Link href="/menu/roti">
+          <a className={`xbtn xbtnPrimary ${styles.heroSection__button}`}>
+            order now
+          </a>
+        </Link>
+        <OurStory />
+      </div>
     </section>
   );
 }
