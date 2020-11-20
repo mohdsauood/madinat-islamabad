@@ -61,7 +61,7 @@ const events = {
     console.log('sign in sucessfull');
   },
   signOut: async (message) => {
-    console.log('sign out su sucessfull');
+    console.log('sign out sucessfull');
   },
   session: async (message) => {
     console.log('session is active');
