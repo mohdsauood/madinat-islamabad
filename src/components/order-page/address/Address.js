@@ -5,7 +5,6 @@ import { useCartState } from '../../../context/cart-provider-context/cart-provid
 export default function Address({ id }) {
   const cartState = useCartState();
   const { user } = cartState;
-  console.log(user);
   const order = user.orders && user.orders[user.orders.length - 1];
 
   let specificOrder = (() => {
