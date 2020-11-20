@@ -6,7 +6,10 @@ export default function ProtectedRoute({ children }) {
   const cartState = useCartState();
   useEffect(() => {
     if (!cartState.user.name) {
-      router.push('/sign-in');
+      router.push({
+        pathname: '/sign-in',
+        query: { from: router.asPath },
+      });
     }
   }, [cartState]);
   return <div> {children}</div>;

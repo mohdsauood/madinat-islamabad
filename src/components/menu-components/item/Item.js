@@ -19,7 +19,10 @@ export default function Item({ foodItem }) {
   let subButtons = 'add';
   const handleClick = () => {
     if (!cartState.user.name) {
-      router.push('/sign-in');
+      router.push({
+        pathname: '/sign-in',
+        query: { from: router.asPath },
+      });
     }
     cartDispatch({ type: ADD_ITEM, payload: item });
     cartDispatch({ type: UPDATE_CART_TOTAL });
