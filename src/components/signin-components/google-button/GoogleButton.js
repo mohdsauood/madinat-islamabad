@@ -8,7 +8,11 @@ export default function GoogleButton({ id }) {
   return (
     <button
       onClick={() =>
-        signIn(id, { callbackUrl: `http://localhost:3000${from}` })
+        signIn(id, {
+          callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}${
+            from == '/' ? ' ' : from
+          }`,
+        })
       }
       className={` ${styles.button} ${styles.googleButton}`}>
       <svg
