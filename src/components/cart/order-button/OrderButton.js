@@ -28,6 +28,11 @@ export default function OrderButton({ setNoAddress }) {
       }, 500);
       return;
     }
+    if (cartState.bill.total < 8) {
+      alert('Minimum Order Total for Delivery is 8 AED');
+      return;
+    }
+
     const { items, user, bill, selectedAddress } = cartState;
     const data = {};
     user.address.forEach((element) => {
