@@ -1,11 +1,14 @@
 import React from 'react';
-import { SHOW_NUMBER_MODAL, CLEAR_ITEMS } from '../../../context/types/types';
+import {
+  SHOW_NUMBER_MODAL,
+  CLEAR_ITEMS,
+  SHOW_MINIMUM_TOTAL_MODAL,
+} from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { date } from 'yup';
 import updateUserFromSession from '../../../utils/updateUserFromSession';
 import { getSession } from 'next-auth/client';
 export default function OrderButton({ setNoAddress }) {
@@ -29,7 +32,8 @@ export default function OrderButton({ setNoAddress }) {
       return;
     }
     if (cartState.bill.total < 8) {
-      alert('Minimum Order Total for Delivery is 8 AED');
+      cartUiDispatch({ type: SHOW_MINIMUM_TOTAL_MODAL });
+      console.log('Minimum Order Total for Delivery is 8 AED');
       return;
     }
 

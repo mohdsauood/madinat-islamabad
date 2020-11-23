@@ -6,15 +6,11 @@ import Divider from '../divider/Divider';
 
 export default function Buttons() {
   const [noAddress, setNoAddress] = useState(false);
-  const [totalIsLess, setTotalIsLess] = useState(false);
   return (
     <div className={styles.buttonsDiv}>
       <Divider height="0.4rem" />
       <LocationButton noAddress={noAddress} />
-      <OrderButton
-        setNoAddress={setNoAddress}
-        setTotalIsLess={setTotalIsLess}
-      />
+      <OrderButton setNoAddress={setNoAddress} />
     </div>
   );
 }

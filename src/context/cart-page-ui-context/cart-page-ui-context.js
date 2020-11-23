@@ -9,6 +9,7 @@ const intialState = {
   showCouponSuccessModal: false,
   showNumberModal: false,
   showAddressModal: false,
+  showMinimumTotalModal: false,
 };
 function CartPageUiProvider({ children }) {
   const [state, dispatch] = useReducer(cartPageUiReducer, intialState);
