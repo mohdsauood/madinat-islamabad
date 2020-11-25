@@ -5,13 +5,12 @@ import { useRouter } from 'next/router';
 export default function GoogleButton({ id }) {
   const router = useRouter();
   const { from } = router.query;
+  console.log(from.slice(1));
   return (
     <button
       onClick={() =>
         signIn(id, {
-          callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}${
-            from == '/' ? ' ' : from
-          }`,
+          callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}${from.slice(1)}`,
         })
       }
       className={` ${styles.button} ${styles.googleButton}`}>
