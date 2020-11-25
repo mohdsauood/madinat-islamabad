@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { HIDE_MINIMUM_TOTAL_MODAL } from '../../../context/types/types';
 import { useRouter } from 'next/router';
-
+import styles from './MinimumTotalModal.module.css';
 export default function MinimumTotalModal() {
   const [cartUiState, cartUiDispatch] = useCartPageUi();
   const { showMinimumTotalModal } = cartUiState;
@@ -26,7 +26,10 @@ export default function MinimumTotalModal() {
       centered>
       <Modal.Header className="py-2 px-2" closeButton></Modal.Header>
       <Modal.Body className="py-2 px-5 text-center ">
-        <h4>Sorry ! Minimum Item Total for Delivery is 8 AED</h4>
+        <h4 className={styles.h4}>
+          <span className={styles.span}>Sorry ! </span>Minimum Item Total for
+          Delivery is 8 AED
+        </h4>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={handleRedirect}>Add More Items</Button>
