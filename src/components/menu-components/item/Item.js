@@ -17,12 +17,25 @@ export default function Item({ foodItem }) {
   const [item, setitem] = useState(foodItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
+  const checkIfItemIsPresent = () => {
+    let flag = false;
+    cartState.items.forEach((elem) => {
+      if (elem.name == item.name && elem.quantity > 0) {
+        flag = true;
+      }
+    });
+    return flag;
+  };
   const handleClick = () => {
     if (!cartState.user.name) {
       router.push({
         pathname: '/sign-in',
         query: { from: router.asPath },
       });
+    }
+    if (checkIfItemIsPresent()) {
+      //stop propagation
+      return;
     }
     cartDispatch({ type: ADD_ITEM, payload: item });
     cartDispatch({ type: UPDATE_CART_TOTAL });
