@@ -8,6 +8,8 @@ import {
   HIDE_NUMBER_MODAL,
   SHOW_COUPON_SUCCESS_MODAL,
   HIDE_COUPON_SUCCESS_MODAL,
+  SHOW_MINIMUM_TOTAL_MODAL,
+  HIDE_MINIMUM_TOTAL_MODAL,
 } from '../types/types';
 export default function cartPageUiReducer(state, action) {
   switch (action.type) {
@@ -27,7 +29,10 @@ export default function cartPageUiReducer(state, action) {
     case HIDE_COUPON_SUCCESS_MODAL: {
       return { ...state, showCouponSuccessModal: !state.showNumberModal };
     }
-
+    case SHOW_MINIMUM_TOTAL_MODAL:
+    case HIDE_MINIMUM_TOTAL_MODAL: {
+      return { ...state, showMinimumTotalModal: !state.showMinimumTotalModal };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }

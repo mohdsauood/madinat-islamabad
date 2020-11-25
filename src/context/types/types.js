@@ -27,3 +27,5 @@ export let UPDATE_CART_TOTAL = 'update_cart_total';
 export let CLEAR_ITEMS = 'clear_items';
 export let UPDATE_SELECTED_ADDRESS = 'update_selected_address';
 export let INIT_SELECTED_ADDRESS = 'init_selected_address';
+export let SHOW_MINIMUM_TOTAL_MODAL = 'show_minimum_total_modal';
+export let HIDE_MINIMUM_TOTAL_MODAL = 'hide_minimum_total_modal';

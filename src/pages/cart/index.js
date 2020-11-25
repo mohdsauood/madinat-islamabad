@@ -11,6 +11,7 @@ import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
+import MinimumTotalModal from '../../components/cart/minimum-total-modal/MinimumTotalModal';
 import ProtectedRoute from '../../utils/ProtectedRoute';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 export default function index() {
@@ -35,6 +36,7 @@ export default function index() {
           <CouponModal />
           <NumberModal />
           <AddressModal />
+          <MinimumTotalModal />
         </div>
       </ProtectedRoute>
     </>
