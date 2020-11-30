@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import styles from './SubNav.module.css';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-export default function SubNav({ item }) {
-  const activeLi = useRef(null);
-
-  let items = [
+export default function SubNav({
+  item,
+  categories = [
     'roti',
     'gravies',
     'biriyani',
@@ -13,7 +12,11 @@ export default function SubNav({ item }) {
     'rice',
     'combos',
     'kebab',
-  ].map((elem) => {
+  ],
+}) {
+  const activeLi = useRef(null);
+
+  let items = categories.map((elem) => {
     const refProp = {};
     if (elem == item) {
       refProp.ref = activeLi;

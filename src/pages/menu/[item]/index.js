@@ -11,12 +11,13 @@ import Main from '../../../components/menu-components/main/Main';
 import CartSection from '../../../components/menu-components/cart-section/CartSection';
 import ViewCartButton from '../../../components/menu-components/viewcart-button/ViewCartButton';
 import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
-import fetchMenu from '../../../utils/fetchMenu';
-export default function index({ data }) {
+import fetchMenu from '../../../utils/fetch-from-strapi/fetchMenu';
+import fetchCategories from '../../../utils/fetch-from-strapi/fetchCategories';
+export default function index({ menu }) {
   const router = useRouter();
   const { item } = router.query;
   const path = router.pathname;
-  console.log(data);
+  console.log(menu);
   return (
     <>
       <Overlay />
@@ -38,12 +39,15 @@ export default function index({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  let data = await fetchMenu('/restaurant-menus');
-  console.log(data);
-  if (data == undefined) {
-    data = 'none';
-  }
+  const {
+    params: { item },
+  } = context;
+  // const time = getTime();
+  const menu = await fetchMenu(
+    `/restaurant-menus?time_eq=breakfast&category_eq=${item}`
+  );
+  const categoriesData = fetchCategories();
   return {
-    props: { data },
+    props: { menu, categoriesData },
   };
 }
