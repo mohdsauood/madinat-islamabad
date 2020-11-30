@@ -14,7 +14,7 @@ export default function CartItems() {
 
   useEffect(() => {
     if (cartState.items.length == 0) {
-      router.push('/menu/roti');
+      router.push('/menu/paratha');
     }
   }, [cartState]);
   return <div className={styles.itemsDiv}>{items}</div>;

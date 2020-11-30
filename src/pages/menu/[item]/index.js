@@ -13,11 +13,12 @@ import ViewCartButton from '../../../components/menu-components/viewcart-button/
 import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
 import fetchMenu from '../../../utils/fetch-from-strapi/fetchMenu';
 import fetchCategories from '../../../utils/fetch-from-strapi/fetchCategories';
-export default function index({ menu }) {
+import { get } from 'mongoose';
+import getTime from '../../../utils/getTime';
+export default function index({ menu, categories, categoriesObj }) {
   const router = useRouter();
   const { item } = router.query;
   const path = router.pathname;
-  console.log(menu);
   return (
     <>
       <Overlay />
@@ -27,10 +28,10 @@ export default function index({ menu }) {
         currentPage={{ name: 'menu' }}
       />
       <Main>
-        <SubNav item={item} />
-        <Items item={item} />
+        <SubNav item={item} categories={categories} />
+        <Items item={item} menu={menu} />
         <MenuButton />
-        <SmallMenu item={item} />
+        <SmallMenu item={item} categoriesObj={categoriesObj} />
         <ViewCartButton />
         <CartSection />
       </Main>
@@ -42,12 +43,17 @@ export async function getServerSideProps(context) {
   const {
     params: { item },
   } = context;
-  // const time = getTime();
-  const menu = await fetchMenu(
-    `/restaurant-menus?time_eq=breakfast&category_eq=${item}`
-  );
-  const categoriesData = fetchCategories();
+  const time = getTime();
+  // const menu = await fetchMenu(
+  //   `/restaurant-menus?time_eq=breakfast&category_eq=${item}`
+  // );
+  // const categories = await fetchCategories(
+  //   `/restaurant-menus?time_eq=breakfast`
+  // );
+  const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
+  const categoriesObj = await fetchCategories(`/restaurant-menus`);
+  const categories = Object.keys(categoriesObj);
   return {
-    props: { menu, categoriesData },
+    props: { menu, categories, categoriesObj },
   };
 }

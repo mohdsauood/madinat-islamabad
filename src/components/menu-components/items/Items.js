@@ -9,21 +9,8 @@ const dummyData = {
   price: '4',
   imgUrl: '/assets/paratha.jpg',
 };
-export default function Items({ item }) {
-  let names = [];
-  if (item !== 'Undefined') {
-    names.push(`tandoori chicken ${item}`);
-    names.push(`plain ${item}`);
-    names.push(`${item}`);
-  }
-  let items = (
-    <>
-      {' '}
-      <Item foodItem={{ name: `${names[0]}`, ...dummyData }} />
-      <Item foodItem={{ name: `${names[1]}`, ...dummyData }} />
-      <Item foodItem={{ name: `${names[2]}`, ...dummyData }} />
-    </>
-  );
+export default function Items({ item, menu }) {
+  let items = menu.map((item) => <Item menuItem={item} />);
   return <section className={styles.itemsSec}>{item && items}</section>;
 }
 

@@ -12,9 +12,9 @@ import {
 import { useCart } from '../../../context/cart-provider-context/cart-provider-context';
 import { useRouter } from 'next/router';
 
-export default function Item({ foodItem }) {
+export default function Item({ foodItem, menuItem }) {
   const router = useRouter();
-  const [item, setitem] = useState(foodItem);
+  const [item, setitem] = useState(menuItem);
   const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
   const checkIfItemIsPresent = () => {
@@ -77,8 +77,8 @@ export default function Item({ foodItem }) {
       }
     });
   useEffect(() => {
-    setitem(foodItem);
-  }, [foodItem]);
+    setitem(menuItem);
+  }, [menuItem]);
   return (
     <section className={styles.itemSec}>
       <div className={styles.itemSec__div}>
@@ -90,7 +90,7 @@ export default function Item({ foodItem }) {
       </div>
       <div
         className={styles.itemSec__btnDiv}
-        style={{ backgroundImage: `url(${item?.imgUrl})` }}>
+        style={{ backgroundImage: `url(${item?.image})` }}>
         <button
           onClick={handleClick}
           className={` xbtn xbtnPrimary ${styles.itemSec__btnDiv__btn} `}>
@@ -102,5 +102,5 @@ export default function Item({ foodItem }) {
 }
 
 Item.propTypes = {
-  foodItem: PropTypes.object.isRequired,
+  menuItem: PropTypes.object.isRequired,
 };

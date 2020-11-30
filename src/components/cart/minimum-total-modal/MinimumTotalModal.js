@@ -15,7 +15,7 @@ export default function MinimumTotalModal() {
   };
   const handleRedirect = () => {
     cartUiDispatch({ type: HIDE_MINIMUM_TOTAL_MODAL });
-    router.push('/menu/roti');
+    router.push('/menu/paratha');
   };
   return (
     <Modal

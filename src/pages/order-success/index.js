@@ -17,7 +17,7 @@ export default function index() {
         <BreadCrumbs
           path={[
             { name: 'home', path: '/' },
-            { name: 'menu', path: '/menu/roti' },
+            { name: 'menu', path: '/menu/paratha' },
             { name: 'cart', path: '/cart' },
           ]}
           currentPage={{ name: 'order-sucess' }}
