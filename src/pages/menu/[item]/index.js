@@ -11,11 +11,12 @@ import Main from '../../../components/menu-components/main/Main';
 import CartSection from '../../../components/menu-components/cart-section/CartSection';
 import ViewCartButton from '../../../components/menu-components/viewcart-button/ViewCartButton';
 import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
-export default function index() {
+import fetchMenu from '../../../utils/fetchMenu';
+export default function index({ data }) {
   const router = useRouter();
   const { item } = router.query;
   const path = router.pathname;
-
+  console.log(data);
   return (
     <>
       <Overlay />
@@ -34,4 +35,15 @@ export default function index() {
       </Main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  let data = await fetchMenu('/restaurant-menus');
+  console.log(data);
+  if (data == undefined) {
+    data = 'none';
+  }
+  return {
+    props: { data },
+  };
 }

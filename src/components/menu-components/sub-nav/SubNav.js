@@ -9,34 +9,25 @@ export default function SubNav({ item }) {
     'roti',
     'gravies',
     'biriyani',
-    'offers',
     'deserts',
     'rice',
     'combos',
     'kebab',
   ].map((elem) => {
+    const refProp = {};
     if (elem == item) {
-      return (
-        <li
-          key={elem}
-          className={
-            elem == item
-              ? `${styles.nav__ul__li} ${styles.activeLi}`
-              : `${styles.nav__ul__li}`
-          }
-          ref={activeLi}>
-          <Link href={`/menu/${encodeURIComponent(elem)}`}>
-            <a> {elem}</a>
-          </Link>
-        </li>
-      );
+      refProp.ref = activeLi;
     }
     return (
-      <li key={elem} className={styles.nav__ul__li}>
-        <Link
-          href={
-            elem !== 'offers' ? `/menu/${encodeURIComponent(elem)}` : '/offers'
-          }>
+      <li
+        key={elem}
+        className={
+          elem == item
+            ? `${styles.nav__ul__li} ${styles.activeLi}`
+            : `${styles.nav__ul__li}`
+        }
+        {...refProp}>
+        <Link href={`/menu/${encodeURIComponent(elem)}`}>
           <a> {elem}</a>
         </Link>
       </li>
