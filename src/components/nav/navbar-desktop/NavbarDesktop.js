@@ -101,7 +101,7 @@ export default function NavbarDesktop() {
               </li>
             </a>
           </Link>
-          <Link href="/menu/roti">
+          <Link href="/menu/paratha">
             <a>
               <li className={styles.navbarDesktop__ulSection__ul__li}>
                 <div className={styles.navbarDesktop__ulSection__ul__li_div}>

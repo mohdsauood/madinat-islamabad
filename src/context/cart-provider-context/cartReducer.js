@@ -156,9 +156,11 @@ export default function cartReducer(state, action) {
         ...state,
         bill: {
           ...state.bill,
-          total: state.items.reduce((accum, fooditem) => {
-            return accum + parseInt(fooditem.price) * fooditem.quantity;
-          }, 0),
+          total: state.items
+            .reduce((accum, fooditem) => {
+              return accum + Number(fooditem.price) * fooditem.quantity;
+            }, 0)
+            .toFixed(2),
         },
       };
     }
@@ -204,9 +206,11 @@ export default function cartReducer(state, action) {
         ...state,
         bill: {
           ...state.bill,
-          toPay: state.items.reduce((accum, fooditem) => {
-            return accum + parseInt(fooditem.price) * fooditem.quantity;
-          }, 0),
+          toPay: state.items
+            .reduce((accum, fooditem) => {
+              return accum + Number(fooditem.price) * fooditem.quantity;
+            }, 0)
+            .toFixed(2),
         },
       };
     }

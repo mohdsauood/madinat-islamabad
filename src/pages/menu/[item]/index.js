@@ -44,14 +44,14 @@ export async function getServerSideProps(context) {
     params: { item },
   } = context;
   const time = getTime();
-  // const menu = await fetchMenu(
-  //   `/restaurant-menus?time_eq=breakfast&category_eq=${item}`
-  // );
-  // const categories = await fetchCategories(
-  //   `/restaurant-menus?time_eq=breakfast`
-  // );
-  const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
-  const categoriesObj = await fetchCategories(`/restaurant-menus`);
+  const menu = await fetchMenu(
+    `/restaurant-menus?time_eq=${time}&category_eq=${item}`
+  );
+  const categoriesObj = await fetchCategories(
+    `/restaurant-menus?time_eq=${time}`
+  );
+  // const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
+  // const categoriesObj = await fetchCategories(`/restaurant-menus`);
   const categories = Object.keys(categoriesObj);
   return {
     props: { menu, categories, categoriesObj },
