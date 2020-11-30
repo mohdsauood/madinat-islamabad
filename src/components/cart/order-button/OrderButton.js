@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+
 import {
   SHOW_NUMBER_MODAL,
   CLEAR_ITEMS,
@@ -11,6 +13,15 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import updateUserFromSession from '../../../utils/updateUserFromSession';
 import { getSession } from 'next-auth/client';
+
+function isRestoClosed() {
+  const format = 'HH:mm ';
+  const currentTime = moment();
+  const bt = moment('06:00', format);
+  const at = moment('23:00', format);
+  return currentTime.isBefore(bt) || currentTime.isAfter(at);
+}
+
 export default function OrderButton({ setNoAddress }) {
   const router = useRouter();
   const cartUiDispatch = useCartPageUiDispatch();
@@ -34,6 +45,10 @@ export default function OrderButton({ setNoAddress }) {
     if (cartState.bill.total < 8) {
       cartUiDispatch({ type: SHOW_MINIMUM_TOTAL_MODAL });
       console.log('Minimum Order Total for Delivery is 8 AED');
+      return;
+    }
+    if (isRestoClosed()) {
+      console.log('resto is closed sorry no order allowed');
       return;
     }
 

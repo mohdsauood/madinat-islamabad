@@ -10,7 +10,7 @@ const dummyData = {
   imgUrl: '/assets/paratha.jpg',
 };
 export default function Items({ item, menu }) {
-  let items = menu.map((item) => <Item menuItem={item} />);
+  let items = menu.map((item) => <Item menuItem={item} key={item.name} />);
   return <section className={styles.itemsSec}>{item && items}</section>;
 }
 

@@ -3,6 +3,7 @@ import styles from './SmallMenu.module.css';
 import { useSmallMenuButton } from '../../../context/smallmenu-button-context/smallmenu-button-context';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function SmallMenu({ item, categoriesObj }) {
   const { showSmallMenu, handleShowSmallMenu } = useSmallMenuButton();
@@ -12,19 +13,22 @@ export default function SmallMenu({ item, categoriesObj }) {
   const liItems = [];
   for (let category in categoriesObj) {
     liItems.push(
-      <li
-        className={
-          item == category
-            ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
-            : styles.smallMenuSec__ul__li
-        }>
-        <Link href={`/menu/${category}`}>
-          <a className={styles.smallMenuSec__ul__li__a}>
-            <p>{category}</p>
-            <p>{categoriesObj[category]}</p>
-          </a>
-        </Link>
-      </li>
+      <>
+        <li
+          key={uuidv4()}
+          className={
+            item == category
+              ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
+              : styles.smallMenuSec__ul__li
+          }>
+          <Link href={`/menu/${category}`}>
+            <a className={styles.smallMenuSec__ul__li__a}>
+              <p>{category}</p>
+              <p>{categoriesObj[category]}</p>
+            </a>
+          </Link>
+        </li>
+      </>
     );
   }
   return (
