@@ -37,8 +37,9 @@
 }
 /*top product title star icon*/
 .productSection__infoDiv_title__icon {
-  color: #ff3008;
+  fill: #ff3008;
   margin-right: 1rem;
+  width: 1rem;
 }
 
 /* product info title div*/

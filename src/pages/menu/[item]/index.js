@@ -13,7 +13,6 @@ import ViewCartButton from '../../../components/menu-components/viewcart-button/
 import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
 import fetchMenu from '../../../utils/fetch-from-strapi/fetchMenu';
 import fetchCategories from '../../../utils/fetch-from-strapi/fetchCategories';
-import { get } from 'mongoose';
 import getTime from '../../../utils/getTime';
 export default function index({ menu, categories, categoriesObj }) {
   const router = useRouter();

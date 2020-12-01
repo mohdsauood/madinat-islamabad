@@ -3,11 +3,11 @@ import styles from './CouponProductsSection.module.css';
 import CouponSection from '../coupon-section/CouponSection.js';
 import ProductsSection from '../products-section/ProductsSection.js';
 
-export default function CouponProductSection() {
+export default function CouponProductSection({ menu }) {
   return (
     <section className={styles.couponProductsSection}>
       <CouponSection />
-      <ProductsSection />
+      <ProductsSection menu={menu} />
     </section>
   );
 }

@@ -17,8 +17,9 @@
 }
 /* top products circle*/
 .productsSection__h6__icon {
-  margin-right: 0.5rem;
-  color: #ff3008;
+  fill: #ff3008;
+  margin-right: 1rem;
+  width: 1rem;
 }
 
 @media screen and (min-width: 1200px) {
