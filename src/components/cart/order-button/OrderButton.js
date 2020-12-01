@@ -83,8 +83,8 @@ export default function OrderButton({ setNoAddress }) {
       .then(function (response) {
         getSession().then((res) => {
           updateUserFromSession(res, cartDispatch);
-          cartDispatch({ type: CLEAR_ITEMS });
           router.push('/order-success');
+          cartDispatch({ type: CLEAR_ITEMS });
         });
       })
       .catch(function (error) {

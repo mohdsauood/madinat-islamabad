@@ -12,10 +12,12 @@ export default function CartItems() {
     <CartItem item={item} key={index} />
   ));
 
-  useEffect(() => {
-    if (cartState.items.length == 0) {
-      router.push('/menu/paratha');
-    }
-  }, [cartState]);
+  // cause this routes order success page to menu reason is cart is empty . so i disabled it
+
+  // useEffect(() => {
+  //   if (cartState.items.length == 0) {
+  //     router.push('/menu/paratha');
+  //   }
+  // }, [cartState]);
   return <div className={styles.itemsDiv}>{items}</div>;
 }
