@@ -13,22 +13,20 @@ export default function SmallMenu({ item, categoriesObj }) {
   const liItems = [];
   for (let category in categoriesObj) {
     liItems.push(
-      <>
-        <li
-          key={uuidv4()}
-          className={
-            item == category
-              ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
-              : styles.smallMenuSec__ul__li
-          }>
-          <Link href={`/menu/${category}`}>
-            <a className={styles.smallMenuSec__ul__li__a}>
-              <p>{category}</p>
-              <p>{categoriesObj[category]}</p>
-            </a>
-          </Link>
-        </li>
-      </>
+      <li
+        key={uuidv4()}
+        className={
+          item == category
+            ? `${styles.smallMenuSec__ul__li} ${styles.currentItem}`
+            : styles.smallMenuSec__ul__li
+        }>
+        <Link href={`/menu/${category}`}>
+          <a className={styles.smallMenuSec__ul__li__a}>
+            <p>{category}</p>
+            <p>{categoriesObj[category]}</p>
+          </a>
+        </Link>
+      </li>
     );
   }
   return (
