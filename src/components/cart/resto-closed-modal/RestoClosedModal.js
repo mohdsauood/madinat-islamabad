@@ -6,13 +6,13 @@ import { HIDE_RESTO_CLOSED_MODAL } from '../../../context/types/types';
 import styles from './index.module.css';
 export default function RestoClosedModal() {
   const [cartUiState, cartUiDispatch] = useCartPageUi();
-  const { showRestoClosedModal } = cartUiState;
+  const { showRestoCloseModal } = cartUiState;
   const handleModalClose = () => {
     cartUiDispatch({ type: HIDE_RESTO_CLOSED_MODAL });
   };
   return (
     <Modal
-      show={showRestoClosedModal}
+      show={showRestoCloseModal}
       onHide={handleModalClose}
       backdrop="static"
       keyboard={false}
@@ -20,8 +20,8 @@ export default function RestoClosedModal() {
       <Modal.Header className="py-2 px-2" closeButton></Modal.Header>
       <Modal.Body className="py-2 px-5 text-center ">
         <h4 className={styles.h4}>
-          <span className={styles.span}>Sorry ! Restaurant is closed</span>Our
-          Timings : 6am - 11pm
+          <span className={styles.span}>Sorry ! we are closed</span>Our Timings
+          : 6am - 11pm
         </h4>
       </Modal.Body>
       <Modal.Footer>
