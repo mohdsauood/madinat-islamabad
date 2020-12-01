@@ -6,6 +6,7 @@ export default function GoogleButton({ id }) {
   const router = useRouter();
   const { from } = router.query;
   console.log(from.slice(1));
+  console.log(process.env.NEXT_PUBLIC_SITE_URL);
   return (
     <button
       onClick={() =>
