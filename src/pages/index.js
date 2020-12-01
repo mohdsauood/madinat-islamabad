@@ -20,7 +20,7 @@ export default function Home({ menu }) {
 export async function getServerSideProps(context) {
   const time = getTime();
   const menu = await fetchMenu(
-    `/restaurant-menus?time_eq=${time}&category_eq=top-products`
+    `restaurant-menus?time_eq=${time}&category_eq=top-products`
   );
   return {
     props: { menu },
