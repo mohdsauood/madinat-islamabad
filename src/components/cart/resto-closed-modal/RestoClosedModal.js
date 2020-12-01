@@ -3,13 +3,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-ui-context';
 import { HIDE_RESTO_CLOSED_MODAL } from '../../../context/types/types';
-import { useRouter } from 'next/router';
 import styles from './index.module.css';
 export default function RestoClosedModal() {
   const [cartUiState, cartUiDispatch] = useCartPageUi();
   const { showRestoClosedModal } = cartUiState;
-  const router = useRouter();
-
   const handleModalClose = () => {
     cartUiDispatch({ type: HIDE_RESTO_CLOSED_MODAL });
   };
