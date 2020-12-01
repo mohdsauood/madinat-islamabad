@@ -29,3 +29,5 @@ export let UPDATE_SELECTED_ADDRESS = 'update_selected_address';
 export let INIT_SELECTED_ADDRESS = 'init_selected_address';
 export let SHOW_MINIMUM_TOTAL_MODAL = 'show_minimum_total_modal';
 export let HIDE_MINIMUM_TOTAL_MODAL = 'hide_minimum_total_modal';
+export let SHOW_RESTO_CLOSED_MODAL = 'show_resto_closed_modal';
+export let HIDE_RESTO_CLOSED_MODAL = 'hide_resto_closed_modal';

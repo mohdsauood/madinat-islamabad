@@ -1,0 +1,11 @@
+.h4 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.span {
+  font-size: 1.7rem;
+  display: block;
+  color: rgb(0, 102, 255);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

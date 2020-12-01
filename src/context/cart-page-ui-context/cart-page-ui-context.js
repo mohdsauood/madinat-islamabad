@@ -10,6 +10,7 @@ const intialState = {
   showNumberModal: false,
   showAddressModal: false,
   showMinimumTotalModal: false,
+  showRestoCloseModal: false,
 };
 function CartPageUiProvider({ children }) {
   const [state, dispatch] = useReducer(cartPageUiReducer, intialState);

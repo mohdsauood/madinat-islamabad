@@ -5,6 +5,7 @@ import {
   SHOW_NUMBER_MODAL,
   CLEAR_ITEMS,
   SHOW_MINIMUM_TOTAL_MODAL,
+  SHOW_RESTO_CLOSED_MODAL,
 } from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
@@ -47,7 +48,8 @@ export default function OrderButton({ setNoAddress }) {
       console.log('Minimum Order Total for Delivery is 8 AED');
       return;
     }
-    if (isRestoClosed()) {
+    if (!isRestoClosed()) {
+      cartUiDispatch({ type: SHOW_RESTO_CLOSED_MODAL });
       console.log('resto is closed sorry no order allowed');
       return;
     }
