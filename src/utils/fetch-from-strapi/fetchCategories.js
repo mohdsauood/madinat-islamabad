@@ -4,7 +4,6 @@ export default async function fetchCategories(path) {
   const data = await fetchAPI(path);
   const categoriesData = {};
   data.forEach((item) => {
-    console.log(categoriesData[item.category]);
     if (!categoriesData[item.category]) {
       categoriesData[item.category] = Number(1);
     } else {
