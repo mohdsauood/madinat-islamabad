@@ -49,7 +49,7 @@ export async function getServerSideProps(context) {
   const categoriesObj = await fetchCategories(
     `restaurant-menus?time_eq=${time}`
   );
-  console.log(menu);
+  console.log(`time is ${time} and item is ${item}`);
   // const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
   // const categoriesObj = await fetchCategories(`/restaurant-menus`);
   const categories = Object.keys(categoriesObj);
