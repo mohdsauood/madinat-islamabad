@@ -15,6 +15,7 @@ function checkTime(beforeTime, afterTime) {
   const currentTime = moment();
   const bt = moment(beforeTime, format);
   const at = moment(afterTime, format);
+  console.log(currentTime);
   return currentTime.isBetween(bt, at);
 }
 
