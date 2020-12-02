@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './index.module.css';
+import moment from 'moment';
 import { useRouter } from 'next/router';
 import Header from '../../../components/header/Header';
 import Overlay from '../../../components/overlay/Overlay';
@@ -42,7 +43,8 @@ export async function getServerSideProps(context) {
   const {
     params: { item },
   } = context;
-  const time = getTime();
+  const currentTime = moment();
+  const time = getTime(currentTime);
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=${item}`
   );
