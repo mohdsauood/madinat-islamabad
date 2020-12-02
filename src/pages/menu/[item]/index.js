@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './index.module.css';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { useRouter } from 'next/router';
 import Header from '../../../components/header/Header';
 import Overlay from '../../../components/overlay/Overlay';
@@ -43,8 +43,7 @@ export async function getServerSideProps(context) {
   const {
     params: { item },
   } = context;
-  const currentTime = moment();
-  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+  const currentTime = moment().tz('Asia/Dubai');
   const time = getTime(currentTime);
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=${item}`
@@ -52,6 +51,7 @@ export async function getServerSideProps(context) {
   const categoriesObj = await fetchCategories(
     `restaurant-menus?time_eq=${time}`
   );
+  console.log('current time is ' + currentTime);
   console.log(`time is ${time} and item is ${item}`);
   // const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
   // const categoriesObj = await fetchCategories(`/restaurant-menus`);
