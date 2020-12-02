@@ -6,6 +6,7 @@ import Main from '../components/main/Main';
 import Footer from '../components/footer/Footer';
 import getTime from '../utils/getTime';
 import fetchMenu from '../utils/fetch-from-strapi/fetchMenu';
+import moment from 'moment-timezone';
 export default function Home({ menu }) {
   return (
     <>
@@ -18,7 +19,8 @@ export default function Home({ menu }) {
 }
 
 export async function getServerSideProps(context) {
-  const time = getTime();
+  const currentTime = moment().tz('Asia/Dubai');
+  const time = getTime(currentTime);
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=top-products`
   );
