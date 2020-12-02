@@ -2,6 +2,15 @@
   margin: 0 1rem;
 }
 
+.voidSvg {
+  margin-top: 2rem;
+  width: 35%;
+}
+.ch3 {
+  margin-top: 2rem;
+  font-family: karla;
+  text-transform: uppercase;
+}
 @media screen and (min-width: 1200px) {
   .section {
     display: flex;
