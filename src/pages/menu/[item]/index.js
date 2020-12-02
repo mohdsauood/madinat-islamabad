@@ -45,18 +45,12 @@ export async function getServerSideProps(context) {
   } = context;
   const currentTime = moment().tz('Asia/Dubai');
   const time = getTime(currentTime);
-  console.log(moment().tz('Asia/Dubai').format('MMMM Do YYYY, h:mm:ss a'));
-  console.log('current time is ' + currentTime);
-  console.log(`time is ${time} and item is ${item}`);
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=${item}`
   );
   const categoriesObj = await fetchCategories(
     `restaurant-menus?time_eq=${time}`
   );
-
-  // const menu = await fetchMenu(`/restaurant-menus?category_eq=${item}`);
-  // const categoriesObj = await fetchCategories(`/restaurant-menus`);
   const categories = Object.keys(categoriesObj);
   return {
     props: { menu, categories, categoriesObj },
