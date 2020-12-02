@@ -44,6 +44,7 @@ export async function getServerSideProps(context) {
     params: { item },
   } = context;
   const currentTime = moment();
+  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
   const time = getTime(currentTime);
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=${item}`
