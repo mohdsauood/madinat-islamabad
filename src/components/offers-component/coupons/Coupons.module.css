@@ -4,7 +4,7 @@
 
 .voidSvg {
   margin-top: 2rem;
-  width: 35%;
+  width: 85%;
 }
 .ch3 {
   margin-top: 2rem;
@@ -15,5 +15,9 @@
   .section {
     display: flex;
     justify-content: space-between;
+  }
+  .voidSvg {
+    margin-top: 2rem;
+    width: 35%;
   }
 }
