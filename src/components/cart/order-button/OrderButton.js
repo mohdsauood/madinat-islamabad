@@ -6,6 +6,8 @@ import {
   CLEAR_ITEMS,
   SHOW_MINIMUM_TOTAL_MODAL,
   SHOW_RESTO_CLOSED_MODAL,
+  SHOW_SPINNER,
+  HIDE_SPINNER,
 } from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
@@ -53,7 +55,7 @@ export default function OrderButton({ setNoAddress }) {
       console.log('resto is closed sorry no order allowed');
       return;
     }
-
+    cartUiDispatch({ type: SHOW_SPINNER });
     const { items, user, bill, selectedAddress } = cartState;
     const data = {};
     user.address.forEach((element) => {
@@ -82,12 +84,14 @@ export default function OrderButton({ setNoAddress }) {
       .post('/api/user/place-order', data)
       .then(function (response) {
         getSession().then((res) => {
+          cartUiDispatch({ type: HIDE_SPINNER });
           updateUserFromSession(res, cartDispatch);
           router.push('/order-success');
           cartDispatch({ type: CLEAR_ITEMS });
         });
       })
       .catch(function (error) {
+        cartUiDispatch({ type: HIDE_SPINNER });
         console.log(error);
       });
   };
