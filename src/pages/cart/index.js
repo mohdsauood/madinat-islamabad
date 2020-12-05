@@ -17,10 +17,13 @@ import ProtectedRoute from '../../utils/ProtectedRoute';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 import Spinner from 'react-bootstrap/Spinner';
 import { useCartPageUiState } from '../../context/cart-page-ui-context/cart-page-ui-context';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
   const { showSpinner } = useCartPageUiState();
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <NavbarDesktop />
         <BreadCrumbs
@@ -52,3 +55,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Restaurant | Cart',
+  noindex: true,
+};

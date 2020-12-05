@@ -15,12 +15,15 @@ import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
 import fetchMenu from '../../../utils/fetch-from-strapi/fetchMenu';
 import fetchCategories from '../../../utils/fetch-from-strapi/fetchCategories';
 import getTime from '../../../utils/getTime';
+import { NextSeo } from 'next-seo';
+
 export default function index({ menu, categories, categoriesObj }) {
   const router = useRouter();
   const { item } = router.query;
   const path = router.pathname;
   return (
     <>
+      <NextSeo {...seo} />
       <Overlay />
       <Header />
       <BreadCrumbs
@@ -56,3 +59,9 @@ export async function getServerSideProps(context) {
     props: { menu, categories, categoriesObj },
   };
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Menu',
+  description:
+    'Browse through our menu that updates according to timings of breakfast , lunch , dinner and place your order ',
+};

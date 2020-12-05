@@ -4,10 +4,12 @@ import Addresses from '../../../components/manage-address-page/addresses/Address
 import NavbarDesktop from '../../../components/nav/navbar-desktop/NavbarDesktop';
 import ProtectedRoute from '../../../utils/ProtectedRoute';
 import BreadCrumbs from '../../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
 
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <NavbarDesktop />
         <BreadCrumbs
@@ -23,3 +25,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Manage Address',
+  noindex: true,
+};

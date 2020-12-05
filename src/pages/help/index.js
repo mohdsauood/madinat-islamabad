@@ -4,9 +4,11 @@ import TitleHeader from '../../components/title-header/TitleHeader';
 import HeroBanner from '../../components/signin-components/herobanner/HeroBanner';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <NavbarDesktop />
       <BreadCrumbs
         path={[
@@ -258,3 +260,9 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Contact Us | Help | Madinat Islamabad Sharjah',
+  description:
+    'If you need to get hold of us, you may contact our restaurant by calling at 065598847 or send a mail at help@madinatislamabad.com',
+};

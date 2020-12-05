@@ -8,9 +8,12 @@ import Bill from '../../components/order-page/bill/Bill';
 import Overlay from '../../components/overlay/Overlay';
 import ProtectedRoute from '../../utils/ProtectedRoute';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <Overlay />
         <Header />
@@ -30,3 +33,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Order Details',
+  noindex: true,
+};
