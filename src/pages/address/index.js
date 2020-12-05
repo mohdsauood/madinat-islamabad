@@ -4,9 +4,11 @@ import RenderMap from '../../components/address-page/render-map/RenderMap';
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 import ProtectedRoute from '../../utils/ProtectedRoute';
+import { NextSeo } from 'next-seo';
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <NavbarDesktop />
         <BreadCrumbs
@@ -24,3 +26,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: ' Madinat Islamabad Restaurant | Add Your Address ',
+  noindex: true,
+};
