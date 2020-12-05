@@ -5,6 +5,7 @@ import HeroBanner from '../../components/signin-components/herobanner/HeroBanner
 import NavbarDesktop from '../../components/nav/navbar-desktop/NavbarDesktop';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 import { NextSeo } from 'next-seo';
+import AddressFooter from '../../components/about-us-page/address-footer/AddressFooter';
 export default function index() {
   return (
     <>
@@ -257,6 +258,7 @@ export default function index() {
           </span>
         </a>
       </div>
+      <AddressFooter />
     </>
   );
 }

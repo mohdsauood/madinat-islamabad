@@ -6,6 +6,7 @@ import Main from '../components/main/Main';
 import Footer from '../components/footer/Footer';
 import getTime from '../utils/getTime';
 import fetchMenu from '../utils/fetch-from-strapi/fetchMenu';
+import AddressFooter from '../components/about-us-page/address-footer/AddressFooter';
 import moment from 'moment-timezone';
 export default function Home({ menu }) {
   return (
@@ -13,6 +14,7 @@ export default function Home({ menu }) {
       <Overlay />
       <Header />
       <Main menu={menu} />
+      <AddressFooter />
       <Footer />
     </>
   );
