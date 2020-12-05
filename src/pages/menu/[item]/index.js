@@ -48,6 +48,25 @@ export async function getServerSideProps(context) {
   } = context;
   const currentTime = moment().tz('Asia/Dubai');
   const time = getTime(currentTime);
+  if (time == 'dinner') {
+    const menu = await fetchMenu(
+      `restaurant-menus?time_eq=${
+        item == 'bbq-and-grill' ? 'dinner' : 'lunch'
+      }&category_eq=${item}`
+    );
+
+    const lunchCategoriesObj = await fetchCategories(
+      `restaurant-menus?time_eq=lunch`
+    );
+    const dinnerCategoriesObj = await fetchCategories(
+      `restaurant-menus?time_eq=${time}`
+    );
+    const categoriesObj = { ...lunchCategoriesObj, ...dinnerCategoriesObj };
+    const categories = Object.keys(categoriesObj);
+    return {
+      props: { menu, categories, categoriesObj },
+    };
+  }
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=${item}`
   );
@@ -55,6 +74,7 @@ export async function getServerSideProps(context) {
     `restaurant-menus?time_eq=${time}`
   );
   const categories = Object.keys(categoriesObj);
+
   return {
     props: { menu, categories, categoriesObj },
   };
