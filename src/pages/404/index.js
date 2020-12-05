@@ -4,9 +4,12 @@ import Overlay from '../../components/overlay/Overlay';
 import styles from './index.module.css';
 import Link from 'next/link';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <Overlay />
       <Header />
       <BreadCrumbs
@@ -250,3 +253,10 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Page not Found',
+  description:
+    'The page you are looking for is not available , please try again later',
+  noindex: true,
+};

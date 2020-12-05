@@ -12,6 +12,8 @@ import SessionDataHelper from '../components/session-data-helper/SessionDataHelp
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../../next-seo.config';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -25,6 +27,7 @@ function MyApp({ Component, pageProps }) {
           <CartProvider>
             <SmallMenuButtonProvider>
               <NavbarMobileProvider>
+                <DefaultSeo {...SEO} />
                 <Head>
                   <link
                     rel="apple-touch-icon"
