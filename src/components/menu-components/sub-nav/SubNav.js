@@ -17,6 +17,7 @@ export default function SubNav({
   const activeLi = useRef(null);
 
   let items = categories.map((elem) => {
+    const regex = new RegExp('-', 'g');
     const refProp = {};
     if (elem == item) {
       refProp.ref = activeLi;
@@ -31,7 +32,7 @@ export default function SubNav({
         }
         {...refProp}>
         <Link href={`/menu/${encodeURIComponent(elem)}`}>
-          <a> {elem}</a>
+          <a> {elem.replace(regex, '·')}</a>
         </Link>
       </li>
     );
