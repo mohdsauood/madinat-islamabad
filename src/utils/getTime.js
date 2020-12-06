@@ -2,10 +2,13 @@ import moment from 'moment';
 
 export default function getTime(currentTime) {
   if (checkTime(currentTime, '06:00', '12:00')) {
+    console.log('its breakfast');
     return 'breakfast';
   } else if (checkTime(currentTime, '12:00', '17:00')) {
+    console.log('its lunch');
     return 'lunch';
   } else {
+    console.log('its dinner');
     return 'dinner';
   }
 }

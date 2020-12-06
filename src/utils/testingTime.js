@@ -18,8 +18,8 @@ function checkTime(currentTime, beforeTime, afterTime) {
 }
 
 // const time = moment().tz('Asia/Dubai').format('HH:mm ');
-// const breakfastStart = moment('05-12-2020 06:00', 'DD-MM-YYYY HH:mm');
-// const breakfastEnd = moment('05-12-2020 12:00', 'DD-MM-YYYY HH:mm');
+const breakfastStart = moment('05-12-2020 06:00', 'DD-MM-YYYY HH:mm');
+const breakfastEnd = moment('05-12-2020 12:00', 'DD-MM-YYYY HH:mm');
 
 // const lunchStart = moment('05-12-2020 12:00', 'DD-MM-YYYY HH:mm');
 // const lunchEnd = moment('05-12-2020 17:00', 'DD-MM-YYYY HH:mm');
@@ -27,10 +27,14 @@ function checkTime(currentTime, beforeTime, afterTime) {
 // console.log(
 //   `breakfast time : ${breakfastStart} - ${breakfastEnd} \n lunch time : ${lunchStart} - ${lunchEnd}`
 // );
-// console.log(sevenAm.isBetween(lunchStart, lunchEnd));
 
-const sevenAm = moment('05-12-2020 21:12', 'DD-MM-YYYY HH:mm');
+const sevenAm = moment('05-12-2020 13:32', 'DD-MM-YYYY HH:mm');
 
-console.log(moment().tz('Asia/Dubai').format('HH:mm '));
+// console.log(moment().tz('Asia/Dubai').format('HH:mm '));
 
-console.log(moment().format('HH:mm'));
+// console.log(moment().format('HH:mm'));
+
+// console.log(sevenAm);
+// console.log(sevenAm.isBetween(breakfastStart, breakfastEnd));
+
+console.log(getTime(sevenAm));
