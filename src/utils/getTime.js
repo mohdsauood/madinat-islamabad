@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 export default function getTime(currentTime) {
+  console.log(checkTime(currentTime, '06:00', '12:00'));
   if (checkTime(currentTime, '06:00', '12:00')) {
     console.log('its breakfast');
     return 'breakfast';
