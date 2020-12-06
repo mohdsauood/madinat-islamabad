@@ -3,7 +3,7 @@
 /*fonts */
 .slide1__h5 {
   font-size: 1.3rem;
-  width: 12ch;
+  width: 75%;
   text-transform: capitalize;
   color: white;
 }
@@ -27,6 +27,9 @@
 }
 
 /*temp slides*/
+.slideMain {
+  background-size: cover;
+}
 .slide1 {
   background-image: url('/assets/2.JPG');
   background-size: cover;

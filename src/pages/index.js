@@ -8,12 +8,12 @@ import getTime from '../utils/getTime';
 import fetchMenu from '../utils/fetch-from-strapi/fetchMenu';
 import AddressFooter from '../components/about-us-page/address-footer/AddressFooter';
 import moment from 'moment-timezone';
-export default function Home({ menu }) {
+export default function Home({ menu, coupons }) {
   return (
     <>
       <Overlay />
       <Header />
-      <Main menu={menu} />
+      <Main menu={menu} coupons={coupons} />
       <AddressFooter />
       <Footer />
     </>
@@ -26,7 +26,8 @@ export async function getServerSideProps(context) {
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=top-products`
   );
+  const coupons = await fetchMenu(`coupons?time_eq=${time}`);
   return {
-    props: { menu },
+    props: { menu, coupons },
   };
 }
