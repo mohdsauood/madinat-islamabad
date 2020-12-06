@@ -8,9 +8,7 @@ SwiperCore.use([Pagination, Autoplay]);
 
 export default function CouponSection({ coupons }) {
   const router = useRouter();
-  const handleRouting = () => {
-    coupon.redirect && router.push(coupon.redirect);
-  };
+
   return (
     <section className={styles.sliderSection}>
       <Swiper
