@@ -18,8 +18,8 @@ function checkTime(currentTime, beforeTime, afterTime) {
   const format = 'HH:mm ';
   const bt = moment(beforeTime, format);
   const at = moment(afterTime, format);
-  console.log('before time' + bt);
-  console.log('after time' + at);
+  console.log('before time' + bt.format(format));
+  console.log('after time' + at.format(format));
   return currentTime.isBetween(bt, at);
 }
 
