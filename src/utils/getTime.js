@@ -1,6 +1,7 @@
-import moment from 'moment';
-
-export default function getTime(currentTime) {
+// import moment from 'moment';
+import moment from 'moment-timezone';
+export default function getTime() {
+  const currentTime = moment.tz('Asia/Dubai');
   if (checkTime(currentTime, '06:00', '11:59')) {
     console.log('its breakfast');
     return 'breakfast';
