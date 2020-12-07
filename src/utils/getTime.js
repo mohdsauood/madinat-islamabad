@@ -22,7 +22,8 @@ function checkTime(currentTime, beforeTime, afterTime) {
   console.log('before time ' + bt.format('h mm a DD'));
   console.log('after time ' + at.format('h mm a DD'));
   console.log('printing server time ' + moment().format('h mm a DD'));
-  return currentTime.isBetween(bt, at);
+  return moment.tz('Asia/Dubai').isBetween(bt, at);
+  // return currentTime.isBetween(bt, at);
 }
 
 /*
