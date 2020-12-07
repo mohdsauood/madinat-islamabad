@@ -4,7 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'next/image';
-
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Link from 'next/link';
 export default function AddressFooter() {
   return (
     <Container className={styles.container}>
@@ -52,6 +54,25 @@ export default function AddressFooter() {
         <Col xs={12} md={12} className="text-center mt-4 font-italic xkarla">
           For Any Queries , You Can Email Us At
           <strong> help@madinatislamabad.com</strong>
+        </Col>
+        <Col
+          xs={12}
+          md={12}
+          lg={12}
+          className="text-center mt-4 font-italic xkarla">
+          <Navbar bg="light">
+            <Nav className={`mx-auto ${styles.linkNav} `}>
+              <Nav.Link as="span">
+                <Link href="/about">About Us</Link>
+              </Nav.Link>
+              <Nav.Link as="span">
+                <Link href="/privacy-policy">Privacy Policy</Link>
+              </Nav.Link>
+              <Nav.Link as="span">
+                <Link href="/terms-of-service">Terms Of Service</Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar>
         </Col>
       </Row>
     </Container>

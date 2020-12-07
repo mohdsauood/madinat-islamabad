@@ -33,6 +33,16 @@
   fill: white;
 }
 
+.linkNav {
+  cursor: pointer;
+  color: var(--black-100);
+}
+.linkNav span {
+  color: var(--black-100) !important;
+}
+.linkNav span:hover {
+  color: black !important;
+}
 @media screen and (min-width: 1200px) {
   .title {
     margin-top: 1rem;

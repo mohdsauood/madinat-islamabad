@@ -8,7 +8,8 @@ import Header from '../../components/header/Header';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 import Overlay from '../../components/overlay/Overlay';
 import { NextSeo } from 'next-seo';
-
+import AddressFooter from '../../components/about-us-page/address-footer/AddressFooter';
+import Footer from '../../components/footer/Footer';
 export default function index({ providers }) {
   return (
     <>
@@ -160,6 +161,8 @@ export default function index({ providers }) {
         Welcome , Sign In to Start Your Order.
       </h3>
       <SignInButtons providers={providers} />
+      <AddressFooter />
+      <Footer />
     </>
   );
 }
