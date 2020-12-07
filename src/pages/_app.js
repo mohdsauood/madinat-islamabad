@@ -14,12 +14,25 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as gtag from '../utils/gtag';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <>
       <Provider session={pageProps.session}>
