@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
     params: { item },
   } = context;
   const currentTime = moment().tz('Asia/Dubai');
-  const time = getTime(currentTime);
+  const time = getTime();
   if (time == 'dinner') {
     const menu = await fetchMenu(
       `restaurant-menus?time_eq=${

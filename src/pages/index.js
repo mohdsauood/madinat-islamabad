@@ -22,7 +22,7 @@ export default function Home({ menu, coupons }) {
 
 export async function getServerSideProps(context) {
   const currentTime = moment().tz('Asia/Dubai');
-  const time = getTime(currentTime);
+  const time = getTime();
   const menu = await fetchMenu(
     `restaurant-menus?time_eq=${time}&category_eq=top-products`
   );
