@@ -20,6 +20,7 @@ function checkTime(currentTime, beforeTime, afterTime) {
   console.log('current time ' + currentTime.format('h mm a DD'));
   console.log('before time ' + bt.format('h mm a DD'));
   console.log('after time ' + at.format('h mm a DD'));
+  console.log('printing server time ' + moment().format('h mm a DD'));
   return currentTime.isBetween(bt, at);
 }
 
