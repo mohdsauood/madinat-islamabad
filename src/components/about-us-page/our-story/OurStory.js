@@ -11,27 +11,27 @@ export default function OurStory() {
         <Col xs={12} md={6}>
           <h3 className={styles.title}>Our Story</h3>
           <p className={styles.content}>
-            Family-built from day one, Bait Al Mandi Restaurant opened its doors
-            in 2001 and has been serving traditional homemade Arabic cuisine to
-            rave reviews in the UAE ever since.
+            In light of the recent Coronavirus (COVID-19) outbreak, rest assured
+            that Madinat islamabad is taking every step possible to ensure the
+            safety of our customers, personnel and delivery partners.
             <br />
             <br />
-            It is a result of family’s passion for food and mouth-watering
-            authentic Arabic recipes traditionally prepared with dedication and
-            love.
+            Since inception, high food quality and hygiene standards have always
+            taken centre stage at madinat islamabad sharjah. We believe in
+            quality assurance and have implemented stringent food safety values
+            and quality controls in our restaurant.
             <br />
             <br />
-            Our Mandi became famous and since then, we have been one of the most
-            highly acclaimed homegrown brand in the UAE food industry and been
-            recognized as UAE’s most-loved Mandi food chain.
+            Madinat islamabad is a result of family's passion for food and mouth
+            watering authentic pakistani/indian recipes prepared with dedication
+            and love.
             <br />
             <br />
             We pride ourselves on creating authentic food and an experience that
-            will leave an imprint on our guests who come to visit us, not only
-            by our food but by our traditions. Our recipe for success is simple
-            – prepare our food with love and treat our customers like family,
-            giving them the most authentic Arabic cuisine experience that is
-            second to none.
+            will leave an imprint on our guests who order food or come to visit
+            us . Our recipe for success is simple – prepare our food with love
+            and treat our customers like family, giving them the most authentic
+            experience that is second to none.
           </p>
         </Col>
         <Col xs={12} md={6}>
