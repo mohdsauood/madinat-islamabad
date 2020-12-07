@@ -16,16 +16,21 @@ const dummyData = [
     image: '/assets/biriyani.jpg',
   },
 ];
-export default function ProductsSection() {
-  const products = dummyData.map((product) => {
+export default function ProductsSection({ menu }) {
+  const products = menu.map((product) => {
     return <Product key={product.name} product={product} />;
   });
   return (
     <section className={styles.productsSection}>
       <h6 className={styles.productsSection__h6}>
-        <i
-          aria-hidden
-          className={`${styles.productsSection__h6__icon} fas fa-circle fa-sm`}></i>
+        <svg
+          className={styles.productsSection__h6__icon}
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="12" />
+        </svg>
         top products
       </h6>
       {products}

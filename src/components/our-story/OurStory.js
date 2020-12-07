@@ -17,12 +17,13 @@ export default function OurStory() {
           Our Story
         </h2>
         <h2 className={styles.content}>
-          A legacy of Authentic Arabic cuisine So we had this passion. Food. And
-          we love preparing Arabic dishes developed by our ancestors and handed
-          down to generations. In 2001, our passion became a restaurant. We
-          named it Bait Al Mandi which means “House of Mandi”. People love us
-          not only because we are one of the highly acclaimed homegrown brand in
-          the UAE but because we serve great food.
+          Madinat islamabad is a result of family's passion for food and mouth
+          watering authentic pakistani/indian recipes prepared with dedication
+          and love. We pride ourselves on creating authentic food and an
+          experience that will leave an imprint on our guests who order food or
+          come to visit us . Our recipe for success is simple – prepare our food
+          with love and treat our customers like family, giving them the most
+          authentic experience that is second to none.
         </h2>
         <div className={styles.linkDiv}>
           <Link href="/about">

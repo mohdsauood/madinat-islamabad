@@ -12,11 +12,18 @@ import CouponModal from '../../components/cart/coupon-modal/CouponModal';
 import AddressModal from '../../components/cart/address-modal/AddressModal';
 import NumberModal from '../../components/cart/number-modal/NumberModal';
 import MinimumTotalModal from '../../components/cart/minimum-total-modal/MinimumTotalModal';
+import RestoClosedModal from '../../components/cart/resto-closed-modal/RestoClosedModal';
 import ProtectedRoute from '../../utils/ProtectedRoute';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import Spinner from 'react-bootstrap/Spinner';
+import { useCartPageUiState } from '../../context/cart-page-ui-context/cart-page-ui-context';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
+  const { showSpinner } = useCartPageUiState();
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <NavbarDesktop />
         <BreadCrumbs
@@ -37,8 +44,19 @@ export default function index() {
           <NumberModal />
           <AddressModal />
           <MinimumTotalModal />
+          <RestoClosedModal />
+          {showSpinner && (
+            <div className={styles.spinner}>
+              <Spinner animation="border" />
+            </div>
+          )}
         </div>
       </ProtectedRoute>
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Restaurant | Cart',
+  noindex: true,
+};

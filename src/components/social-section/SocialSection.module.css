@@ -60,19 +60,20 @@
 .fbIcon,
 .igIcon,
 .scIcon {
+  width: 2.3rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .fbIcon {
-  color: #4070eb;
+  fill: #4070eb;
 }
 .igIcon {
-  color: #da51df;
+  fill: #da51df;
 }
 .scIcon {
-  color: #fcf82c;
+  fill: #fcf82c;
 }
 
 .fbIcon:hover,

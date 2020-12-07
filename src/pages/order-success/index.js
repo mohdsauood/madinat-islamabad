@@ -8,16 +8,19 @@ import Bill from '../../components/order-page/bill/Bill';
 import Overlay from '../../components/overlay/Overlay';
 import ProtectedRoute from '../../utils/ProtectedRoute';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <Overlay />
         <Header />
         <BreadCrumbs
           path={[
             { name: 'home', path: '/' },
-            { name: 'menu', path: '/menu/roti' },
+            { name: 'menu', path: '/menu/paratha' },
             { name: 'cart', path: '/cart' },
           ]}
           currentPage={{ name: 'order-sucess' }}
@@ -30,3 +33,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Order Details',
+  noindex: true,
+};

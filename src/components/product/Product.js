@@ -1,61 +1,24 @@
 import React, { useState } from 'react';
 import styles from './Product.module.css';
 import PropTypes from 'prop-types';
-import { useCart } from '../../context/cart-provider-context/cart-provider-context';
-import {
-  ADD_ITEM,
-  REMOVE_ITEM,
-  INCREASE_ITEM,
-  DECREASE_ITEM,
-} from '../../context/types/types';
+import Link from 'next/link';
 
 export default function Product({ product }) {
   const [item, setitem] = useState(product);
-  const [cartState, cartDispatch] = useCart();
   let subButtons = 'add';
-
-  const handleClick = () => {
-    cartDispatch({ type: ADD_ITEM, payload: item });
-  };
-
-  const handleIncrement = (e) => {
-    e.stopPropagation();
-    cartDispatch({ type: INCREASE_ITEM, payload: item });
-  };
-  const handleDecrement = (e) => {
-    e.stopPropagation();
-    cartState.items.forEach((elem) => {
-      if (elem.name == item.name && elem.quantity == 1) {
-        cartDispatch({ type: REMOVE_ITEM, payload: item });
-      }
-    });
-    cartDispatch({ type: DECREASE_ITEM, payload: item });
-  };
-  //set button content
-  cartState.items.length == 0 && (subButtons = 'add');
-
-  cartState.items.length > 0 &&
-    cartState.items.forEach((elem, index) => {
-      if (elem.name == item.name && elem.quantity > 0) {
-        subButtons = (
-          <>
-            <span onClick={handleDecrement}>-</span>
-            {elem.quantity}
-            <span onClick={handleIncrement}>+</span>
-          </>
-        );
-      } else if (elem.name == item.name && elem.quantity == 0) {
-        subButtons = 'add';
-      }
-    });
 
   return (
     <section className={styles.productSection}>
       <div className={styles.productSection__infoDiv}>
         <div className={styles.productSection__infoDiv_title}>
-          <i
-            aria-hidden
-            className={`${styles.productSection__infoDiv_title__icon} far fa-star fa-lg`}></i>
+          <svg
+            className={styles.productSection__infoDiv_title__icon}
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24">
+            <path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" />
+          </svg>
           <h5 className={styles.productSection__infoDiv_title__h5}>
             {item?.name}
           </h5>
@@ -63,15 +26,14 @@ export default function Product({ product }) {
         <p className={styles.productSection__description}>
           {item?.description}
         </p>
-        <span className={styles.productSection__price}>{item?.price}</span>
+        <span className={styles.productSection__price}>{item?.price} AED</span>
       </div>
       <div
         className={styles.productSection__buttonDiv}
         style={{ backgroundImage: `url(${item?.image})` }}>
         <button
-          onClick={handleClick}
           className={`${styles.productSection__buttonDiv__button} xbtn xbtnOutline`}>
-          {subButtons}
+          <Link href={`/menu/${item?.category}`}>{subButtons}</Link>
         </button>
       </div>
     </section>

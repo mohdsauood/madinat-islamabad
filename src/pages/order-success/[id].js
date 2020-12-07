@@ -10,11 +10,14 @@ import { useRouter } from 'next/router';
 import ProtectedRoute from '../../utils/ProtectedRoute';
 import TitleHeader from '../../components/title-header/TitleHeader';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
+import { NextSeo } from 'next-seo';
+
 export default function index() {
   const router = useRouter();
   const { id } = router.query;
   return (
     <>
+      <NextSeo {...seo} />
       <ProtectedRoute>
         <Overlay />
         <Header />
@@ -34,3 +37,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Order Details',
+  noindex: true,
+};

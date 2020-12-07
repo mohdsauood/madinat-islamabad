@@ -15,7 +15,7 @@ export default function HeroSection() {
             <span>dinner from 7pm .</span>
           </TextLoop>
         </p>
-        <Link href="/menu/roti">
+        <Link href="/menu/paratha">
           <a className={`xbtn xbtnPrimary ${styles.heroSection__button}`}>
             order now
           </a>

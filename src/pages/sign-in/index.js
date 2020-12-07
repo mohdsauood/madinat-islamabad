@@ -7,9 +7,12 @@ import { providers, useSession, signIn } from 'next-auth/client';
 import Header from '../../components/header/Header';
 import BreadCrumbs from '../../components/bread-crumbs/BreadCrumbs';
 import Overlay from '../../components/overlay/Overlay';
+import { NextSeo } from 'next-seo';
+
 export default function index({ providers }) {
   return (
     <>
+      <NextSeo {...seo} />
       <Header />
       <Overlay />
       <BreadCrumbs
@@ -168,3 +171,9 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | Sign in',
+  description:
+    'sign in to madinat islamabad app and place your order right away',
+};

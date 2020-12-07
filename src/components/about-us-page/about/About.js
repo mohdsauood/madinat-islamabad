@@ -8,8 +8,9 @@ export default function About() {
       <Container>
         <h2 className={styles.title}>About Us</h2>
         <h1 className={styles.content}>
-          “Bait Al Mandi is not only the first Mandi restaurant chain in the
-          UAE, it is also the most popular”
+          Madinat Islamabad has perfected the ‘Dum Pukht’ style of cooking where
+          food is cooked on low flame, trapping all the natural flavours inside,
+          resulting in fragrantly delicious dishes.
         </h1>
       </Container>
     </Jumbotron>

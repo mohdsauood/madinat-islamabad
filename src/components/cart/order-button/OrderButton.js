@@ -1,8 +1,13 @@
 import React from 'react';
+import moment from 'moment';
+
 import {
   SHOW_NUMBER_MODAL,
   CLEAR_ITEMS,
   SHOW_MINIMUM_TOTAL_MODAL,
+  SHOW_RESTO_CLOSED_MODAL,
+  SHOW_SPINNER,
+  HIDE_SPINNER,
 } from '../../../context/types/types';
 import styles from './OrderButton.module.css';
 import { useCartPageUiDispatch } from '../../../context/cart-page-ui-context/cart-page-ui-context';
@@ -11,6 +16,15 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import updateUserFromSession from '../../../utils/updateUserFromSession';
 import { getSession } from 'next-auth/client';
+
+function isRestoClosed() {
+  const format = 'HH:mm ';
+  const currentTime = moment();
+  const bt = moment('06:00', format);
+  const at = moment('23:00', format);
+  return currentTime.isBefore(bt) || currentTime.isAfter(at);
+}
+
 export default function OrderButton({ setNoAddress }) {
   const router = useRouter();
   const cartUiDispatch = useCartPageUiDispatch();
@@ -33,10 +47,13 @@ export default function OrderButton({ setNoAddress }) {
     }
     if (cartState.bill.total < 8) {
       cartUiDispatch({ type: SHOW_MINIMUM_TOTAL_MODAL });
-      console.log('Minimum Order Total for Delivery is 8 AED');
       return;
     }
-
+    if (isRestoClosed()) {
+      cartUiDispatch({ type: SHOW_RESTO_CLOSED_MODAL });
+      return;
+    }
+    cartUiDispatch({ type: SHOW_SPINNER });
     const { items, user, bill, selectedAddress } = cartState;
     const data = {};
     user.address.forEach((element) => {
@@ -65,12 +82,14 @@ export default function OrderButton({ setNoAddress }) {
       .post('/api/user/place-order', data)
       .then(function (response) {
         getSession().then((res) => {
+          cartUiDispatch({ type: HIDE_SPINNER });
           updateUserFromSession(res, cartDispatch);
-          cartDispatch({ type: CLEAR_ITEMS });
           router.push('/order-success');
+          cartDispatch({ type: CLEAR_ITEMS });
         });
       })
       .catch(function (error) {
+        cartUiDispatch({ type: HIDE_SPINNER });
         console.log(error);
       });
   };

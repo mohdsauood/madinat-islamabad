@@ -9,9 +9,11 @@ export default function ViewCartButton() {
     return accum + fooditem.quantity;
   }, 0);
   totalItems = totalItems > 1 ? `${totalItems} items` : `${totalItems} item`;
-  let totalPrice = cartState.items.reduce((accum, fooditem) => {
-    return accum + parseInt(fooditem.price) * fooditem.quantity;
-  }, 0);
+  let totalPrice = cartState.items
+    .reduce((accum, fooditem) => {
+      return accum + Number(fooditem.price) * fooditem.quantity;
+    }, 0)
+    .toFixed(2);
   return (
     cartState.items.length > 0 && (
       <Link href="/cart">

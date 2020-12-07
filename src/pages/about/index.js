@@ -6,9 +6,11 @@ import About from '../../components/about-us-page/about/About';
 import OurStory from '../../components/about-us-page/our-story/OurStory';
 import Footer from '../../components/footer/Footer';
 import AddressFooter from '../../components/about-us-page/address-footer/AddressFooter';
+import { NextSeo } from 'next-seo';
 export default function index() {
   return (
     <>
+      <NextSeo {...seo} />
       <Header />
       <Overlay />
       <BreadCrumbs
@@ -22,3 +24,8 @@ export default function index() {
     </>
   );
 }
+
+const seo = {
+  title: 'Madinat Islamabad Sharjah | About us',
+  description: `Madinat islamabad is a result of family's passion for food and mouth watering authentic pakistani/indian recipes prepared with dedication and love`,
+};

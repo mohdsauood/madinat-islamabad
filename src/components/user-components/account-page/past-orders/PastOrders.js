@@ -7,14 +7,13 @@ export default function pastOrders() {
   const cartState = useCartState();
   const { user } = cartState;
   const { orders } = user;
-
   return (
     <div className={styles.div}>
       <h6 className={`${styles.h6} xtUpperCase xtM xtBold`}>past orders</h6>
       {orders &&
         orders.map((order) => {
           const name =
-            order.items.length > 1 ? 'multiple items' : order.items[0].name;
+            order.items.length > 1 ? 'multiple items' : order.items[0]?.name;
           const price = order.bill.toPay;
           const format = 'Do MMMM, h:mm a';
           const timeZone = 'Asia/Dubai';

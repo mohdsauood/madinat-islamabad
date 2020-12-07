@@ -2,42 +2,37 @@ import React, { useEffect, useRef } from 'react';
 import styles from './SubNav.module.css';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-export default function SubNav({ item }) {
-  const activeLi = useRef(null);
-
-  let items = [
+export default function SubNav({
+  item,
+  categories = [
     'roti',
     'gravies',
     'biriyani',
-    'offers',
     'deserts',
     'rice',
     'combos',
     'kebab',
-  ].map((elem) => {
+  ],
+}) {
+  const activeLi = useRef(null);
+
+  let items = categories.map((elem) => {
+    const regex = new RegExp('-', 'g');
+    const refProp = {};
     if (elem == item) {
-      return (
-        <li
-          key={elem}
-          className={
-            elem == item
-              ? `${styles.nav__ul__li} ${styles.activeLi}`
-              : `${styles.nav__ul__li}`
-          }
-          ref={activeLi}>
-          <Link href={`/menu/${encodeURIComponent(elem)}`}>
-            <a> {elem}</a>
-          </Link>
-        </li>
-      );
+      refProp.ref = activeLi;
     }
     return (
-      <li key={elem} className={styles.nav__ul__li}>
-        <Link
-          href={
-            elem !== 'offers' ? `/menu/${encodeURIComponent(elem)}` : '/offers'
-          }>
-          <a> {elem}</a>
+      <li
+        key={elem}
+        className={
+          elem == item
+            ? `${styles.nav__ul__li} ${styles.activeLi}`
+            : `${styles.nav__ul__li}`
+        }
+        {...refProp}>
+        <Link href={`/menu/${encodeURIComponent(elem)}`}>
+          <a> {elem.replace(regex, '·')}</a>
         </Link>
       </li>
     );

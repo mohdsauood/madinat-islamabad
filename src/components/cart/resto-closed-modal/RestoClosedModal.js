@@ -2,24 +2,17 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useCartPageUi } from '../../../context/cart-page-ui-context/cart-page-ui-context';
-import { HIDE_MINIMUM_TOTAL_MODAL } from '../../../context/types/types';
-import { useRouter } from 'next/router';
-import styles from './MinimumTotalModal.module.css';
-export default function MinimumTotalModal() {
+import { HIDE_RESTO_CLOSED_MODAL } from '../../../context/types/types';
+import styles from './index.module.css';
+export default function RestoClosedModal() {
   const [cartUiState, cartUiDispatch] = useCartPageUi();
-  const { showMinimumTotalModal } = cartUiState;
-  const router = useRouter();
-
+  const { showRestoCloseModal } = cartUiState;
   const handleModalClose = () => {
-    cartUiDispatch({ type: HIDE_MINIMUM_TOTAL_MODAL });
-  };
-  const handleRedirect = () => {
-    cartUiDispatch({ type: HIDE_MINIMUM_TOTAL_MODAL });
-    router.push('/menu/paratha');
+    cartUiDispatch({ type: HIDE_RESTO_CLOSED_MODAL });
   };
   return (
     <Modal
-      show={showMinimumTotalModal}
+      show={showRestoCloseModal}
       onHide={handleModalClose}
       backdrop="static"
       keyboard={false}
@@ -27,12 +20,11 @@ export default function MinimumTotalModal() {
       <Modal.Header className="py-2 px-2" closeButton></Modal.Header>
       <Modal.Body className="py-2 px-5 text-center ">
         <h4 className={styles.h4}>
-          <span className={styles.span}>Sorry ! </span>Minimum Item Total for
-          Delivery is 8 AED
+          <span className={styles.span}>Sorry ! we are closed</span>Our Timings
+          : 6am - 11pm
         </h4>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleRedirect}>Add More Items</Button>
         <Button variant="secondary" onClick={handleModalClose}>
           Ok
         </Button>

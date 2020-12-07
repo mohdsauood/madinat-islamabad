@@ -10,6 +10,10 @@ import {
   HIDE_COUPON_SUCCESS_MODAL,
   SHOW_MINIMUM_TOTAL_MODAL,
   HIDE_MINIMUM_TOTAL_MODAL,
+  SHOW_RESTO_CLOSED_MODAL,
+  HIDE_RESTO_CLOSED_MODAL,
+  SHOW_SPINNER,
+  HIDE_SPINNER,
 } from '../types/types';
 export default function cartPageUiReducer(state, action) {
   switch (action.type) {
@@ -32,6 +36,14 @@ export default function cartPageUiReducer(state, action) {
     case SHOW_MINIMUM_TOTAL_MODAL:
     case HIDE_MINIMUM_TOTAL_MODAL: {
       return { ...state, showMinimumTotalModal: !state.showMinimumTotalModal };
+    }
+    case SHOW_RESTO_CLOSED_MODAL:
+    case HIDE_RESTO_CLOSED_MODAL: {
+      return { ...state, showRestoCloseModal: !state.showRestoCloseModal };
+    }
+    case SHOW_SPINNER:
+    case HIDE_SPINNER: {
+      return { ...state, showSpinner: !state.showSpinner };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);

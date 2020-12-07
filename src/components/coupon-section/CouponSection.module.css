@@ -3,7 +3,7 @@
 /*fonts */
 .slide1__h5 {
   font-size: 1.3rem;
-  width: 12ch;
+  width: 75%;
   text-transform: capitalize;
   color: white;
 }
@@ -27,6 +27,11 @@
 }
 
 /*temp slides*/
+.slideMain {
+  cursor: pointer;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
 .slide1 {
   background-image: url('/assets/2.JPG');
   background-size: cover;
@@ -55,9 +60,17 @@
     margin-top: 0;
     height: 200px;
   }
-  .slide1 {
+
+  .slideMain {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    background-size: auto !important;
+  }
+  .slide1__h5 {
+    font-size: 1.4rem;
+  }
+  .slide1__p {
+    font-size: 1.1rem;
   }
 }
