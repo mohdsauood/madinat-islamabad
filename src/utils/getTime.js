@@ -2,7 +2,6 @@ import moment from 'moment';
 
 export default function getTime(currentTime) {
   console.log(currentTime.format('H mm'));
-  console.log(checkTime(currentTime, '06:00', '12:00'));
   if (checkTime(currentTime, '06:00', '12:00')) {
     console.log('its breakfast');
     return 'breakfast';
@@ -19,6 +18,8 @@ function checkTime(currentTime, beforeTime, afterTime) {
   const format = 'HH:mm ';
   const bt = moment(beforeTime, format);
   const at = moment(afterTime, format);
+  console.log('before time' + bt);
+  console.log('after time' + at);
   return currentTime.isBetween(bt, at);
 }
 
