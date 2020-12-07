@@ -23,7 +23,9 @@ function checkTime(beforeTime, afterTime) {
   // console.log('printing server time ' + moment().format('h mm a DD'));
 
   /*server time is 4 hours behind dubai time */
-
+  if (process.env.SITE_URL == 'http://localhost:3000/') {
+    return moment.tz('Asia/Dubai').isBetween(bt, at);
+  }
   return moment.tz('Asia/Dubai').add(4, 'hours').isBetween(bt, at);
 }
 
