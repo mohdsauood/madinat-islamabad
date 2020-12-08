@@ -15,9 +15,11 @@ export default function getTime() {
 }
 
 function checkTime(beforeTime, afterTime) {
-  const format = 'HH:mm ';
-  const bt = moment(beforeTime, format);
-  const at = moment(afterTime, format);
+  const format = 'HH:mm';
+  const bt = moment.tz(beforeTime, format, 'Asia/Dubai');
+  const at = moment.tz(afterTime, format, 'Asia/Dubai');
+  // const bt = moment(beforeTime, format);
+  // const at = moment(afterTime, format);
   // console.log('before time ' + bt.format('h mm a DD'));
   // console.log('after time ' + at.format('h mm a DD'));
   // console.log('printing server time ' + moment().format('h mm a DD'));
@@ -26,8 +28,7 @@ function checkTime(beforeTime, afterTime) {
   if (process.env.SITE_URL == 'http://localhost:3000/') {
     return moment.tz('Asia/Dubai').isBetween(bt, at);
   }
-  console.log(moment().format('h mm a'));
-  return moment.tz('Asia/Dubai').add(4, 'hours').isBetween(bt, at);
+  return moment.tz('Asia/Dubai').isBetween(bt, at);
 }
 
 /*
