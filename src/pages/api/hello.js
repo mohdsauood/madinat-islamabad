@@ -1,21 +1,5 @@
-import dbConnect from '../../utils/dbConnect';
-import User from '../../models/User';
-
+import getTime from '../../utils/getTime';
 export default async function handler(req, res) {
-  await dbConnect();
-  switch (req.method) {
-    case 'GET':
-      const { id, mobile } = req.body;
-      try {
-        let result = await User.findByIdAndUpdate(
-          id,
-          { mobile },
-          { new: true }
-        );
-        res.status(200).json({ data: result });
-      } catch (error) {
-        res.status(400).json({ data: `put method error : ${error}` });
-      }
-      break;
-  }
+  console.log(getTime());
+  res.send(getTime());
 }

@@ -26,6 +26,7 @@ function checkTime(beforeTime, afterTime) {
   if (process.env.SITE_URL == 'http://localhost:3000/') {
     return moment.tz('Asia/Dubai').isBetween(bt, at);
   }
+  console.log(moment().add(4, 'hours').format('h mm a'));
   return moment.tz('Asia/Dubai').add(4, 'hours').isBetween(bt, at);
 }
 
