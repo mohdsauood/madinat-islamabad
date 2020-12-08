@@ -1,5 +1,5 @@
 import getTime from '../../utils/getTime';
 export default async function handler(req, res) {
-  console.log(getTime());
-  res.send(getTime());
+  let x = console.log(getTime());
+  res.send(x);
 }
