@@ -24,6 +24,7 @@ export default function Bill() {
         <p>To Pay</p>
         <p className="xtUpperCase xkarla xtBold">{cartState.bill.toPay} AED</p>
       </div>
+      <p className={styles.cod}>We Only Accept Cash On Delivery ❗❗</p>
     </section>
   );
 }
