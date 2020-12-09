@@ -5,7 +5,7 @@
   <a href="https://madinatislamabad.com/">
   <img src="https://res.cloudinary.com/nightwing/image/upload/v1607528889/testing/madinat-islamabad/read%20me%20logo/read-me-logo_rnldtb.png" alt="Markdownify" width="800"></a>
   <br>
-  Madinat Islamabad Restaurant
+  Madinat Islamabad.com
   <br>
 </h1>
 
