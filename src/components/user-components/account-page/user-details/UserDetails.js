@@ -16,7 +16,9 @@ export default function UserDetails() {
       </h6>
       <p className={`${styles.p} xtM xtM`}>{cartState.user.email}</p>
       <p className={`${styles.p} xtM xtM`}>
-        {cartState.user.mobile ? cartState.user.mobile : 'number'}{' '}
+        {cartState.user.mobile
+          ? cartState.user.mobile
+          : 'enter your mobile number'}{' '}
         <span
           onClick={handleClick}
           className={`${styles.span} xkarla xtBold xtSm xtUpperCase`}>
