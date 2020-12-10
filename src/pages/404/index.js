@@ -248,7 +248,7 @@ export default function index() {
       </p>
       <button
         className={`${styles.button} xtUpperCase xkarla xtXlg xtBold xbtn xbtnOutline`}>
-        <Link href="/">go to home</Link>
+        <Link href="/">home</Link>
       </button>
     </>
   );
