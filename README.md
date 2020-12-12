@@ -1,5 +1,6 @@
 
   
+  
 <h1 align="center">
   <br>
   <a href="https://madinatislamabad.com/">
@@ -14,6 +15,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">Demo</a> •
+  <a href="#tech">Tech</a> •
 </p>
 
 ![screenshot](https://res.cloudinary.com/nightwing/image/upload/v1607532149/testing/madinat-islamabad/read%20me%20logo/demo_qyhmht.gif
@@ -39,7 +41,11 @@
 ## Demo
 * The Web App is live on [madinatislamabad.com](https://madinatislamabad.com/)
 
+## Tech
+| <img src="https://cdn.svgporn.com/logos/nextjs.svg" alt="Linkedin Logo" width="100">|<img src="https://cdn.svgporn.com/logos/mongodb.svg" alt="Linkedin Logo" width="100">|<img src="https://cdn.svgporn.com/logos/react.svg" alt="Linkedin Logo" width="100">|<img src="https://cdn.svgporn.com/logos/nodejs.svg" alt="Linkedin Logo" width="100">|[<img src="https://cdn.svgporn.com/logos/strapi.svg" alt="Linkedin Logo" width="100">](https://strapi.io/)
+|:---:|:---:|:---:|:---:|:---:|
+
 <br> <br> 
+> [sauood.com](https://www.sauood.com) &nbsp;&middot;&nbsp;
+>
 >  GitHub [@mohdsauood](https://github.com/mohdsauood) &nbsp;&middot;&nbsp;
-
-
